@@ -506,7 +506,24 @@ main {
 
 .about-text p { margin-bottom: 15px; }
 
+.about-list {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: left;
+  padding: 0 5px;
+}
 
+.about-item{
+  position: relative;
+  padding: 10px;
+  border-radius: 14px;
+  z-index: 1;
+  
+}
 
 /**
  * #service 
@@ -1869,7 +1886,11 @@ textarea.form-input::-webkit-resizer { display: none; }
     opacity: 0;
   }
 
-  .social-list { justify-content: center; }
+  .social-list {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
 
 
 

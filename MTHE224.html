@@ -33,14 +33,12 @@
     
           <div class="sidebar-info">
             <div class="info-content">
-              <h1 class="name" title="MTHE 224">MTHE 224</h1>
+              <h1 class="name" title="MTHE 224" >MTHE 224</h1>
     
               <p class="title">Applied Mathematics for Civil Engineers</p>
             </div>
     
             <button class="info_more-btn" data-sidebar-btn>
-              <span>Show Contacts</span>
-    
               <ion-icon name="chevron-down"></ion-icon>
             </button>
     
@@ -61,7 +59,7 @@
                 <div class="contact-info">
                   <p class="contact-title">Email</p>
     
-                  <a href="mailto:Tyler.meadows@queensu.ca" class="contact-link"> <ion-icon name="mail"></ion-icon></a>
+                  <a href="mailto:Tyler.meadows@queensu.ca" class="contact-link">tyler.meadows@queensu.ca </a>
                 </div>
     
               </li>
@@ -75,9 +73,19 @@
                 <div class="contact-info">
                   <p class="contact-title">Location</p>
     
-                  <address>Queen's University, Kingston, Ontario, Canada</address>
+                  <address>127 Jeffery Hall, Queen's University</address>
                 </div>
-    
+               </li>
+               <li class = "contact-item"> 
+                <div class="icon-box">
+                  <ion-icon name = "calendar-outline"></ion-icon>
+                </div>
+                <div class = "contact-info">
+                  <p class = "contact-title">Lecture Times</p>
+                  <time>Mon: 11:30-12:30</time>
+                  <time>Tue: 13:30-14:30</time>
+                  <time>Thu: 12:30-13:30 </time>
+                </div>
               </li>
     
             </ul>
@@ -95,7 +103,7 @@
             <ul class="navbar-list">
     
               <li class="navbar-item">
-                <button class="navbar-link  active" data-nav-link>About</button>
+                <button class="navbar-link active" data-nav-link>About</button>
               </li>
     
               <li class="navbar-item">
@@ -120,24 +128,23 @@
               <h2 class="h2 article-title">Course Information </h2>
             </header>
             <div>
-              <p class = "about-text">
-                This course can be neatly split into two parts. <br>
+              <ul class = "about-list">
+                <li class = "about-item"> This course can be neatly split into two parts. </li>
                 
-                The first part covers an introduction to probability and statistics. We will begin by discussing the connection between
+                <li class = "about-item">The first part covers an introduction to probability and statistics. We will begin by discussing the connection between
                 probability and statistics, and why it's important to have a good understanding of probability in order to understand statistics. 
                 This section of the course will focus on developing a good understanding of discrete and continuous probability. We will 
-                end this section by applying our understanding of probability to conduct a formal hypothesis test.<br>
+                end this section by applying our understanding of probability to conduct a formal hypothesis test.</li>
 
-                The second part of the course is an introduction to differential equations. Differential equations are equations that relate changes
-                in a quantity to the quantity itself. These equations are the foundation of modern physics, and are used in every aspect of engineering. 
+                <li class = "about-item">The second part of the course is an introduction to differential equations. Differential equations are equations that relate changes
+                in a quantity to the quantity itself. These equations are the foundation of modern physics, and are used in almost every aspect of engineering. 
                 We will discuss applications of differential equations to wastewater treatment processes and beam physics. The main takeaway from this section 
-                should be how to find numerical approximations to differential equations when analytical solutions are difficult or impossible to find.
-              </p>
-
+                should be how to find numerical approximations to differential equations when analytical solutions are difficult or impossible to find.</li>
+              </ul>
             </div>
-
           </article>
 
+          <!-- #LECTURES -->
           <article class="blog" data-page = "lectures">
             <header>
               <h2 class="h2 article-title">Lecture Notes</h2>
@@ -150,8 +157,25 @@
             </div>
 
           </article>
+
+          <!-- #LABS -->
+          <article class="portfolio" data-page = "labs">
+
+          </article>
+
+          <!-- #ASSIGNMENTS -->
+          <article class="blog" data-page = "assignments">
+            
+          </article>
         </div>
     </main>
 
+    <!-- custom js link-->
+    <script src="./assets/js/script.js"></script>
+
+    <!-- ionicon link -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 </body>
+</html>
