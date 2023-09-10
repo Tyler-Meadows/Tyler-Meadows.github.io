@@ -543,12 +543,13 @@ main {
   z-index: 1;
 }
 
-table{
+.data-table{
   table-layout: fixed;
   width: 100%;
   border: 1px solid;
   border-collapse: collapse;
-  text-align: center
+  text-align: center;
+  z-index: 1;
 }
 
 th,td{
