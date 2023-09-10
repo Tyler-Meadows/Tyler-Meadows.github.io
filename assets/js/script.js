@@ -118,3 +118,13 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+// URL Queries
+const params = new URLSearchParams(window.location.search)
+const page = params.get('page')
+const navLinks = [...document.querySelectorAll('.navigationLinks')]
+navigationLinks.forEach(navLink => {
+  if (navLink.dataset.navLink === page) {
+    navLink.click()
+  }
+})
