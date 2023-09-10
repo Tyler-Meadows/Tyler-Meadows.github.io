@@ -542,7 +542,7 @@ main {
   z-index: 1;
 }
 
-.data-table,td{
+data-table,td{
   width: 80%;
   border: 1px solid;
   border-collapse: collapse;
