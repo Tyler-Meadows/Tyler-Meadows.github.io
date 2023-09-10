@@ -534,6 +534,7 @@ main {
 }
 
 .about-item2:last-child{
+  position: relative;
   border-radius: 10px;
   inset: 24px;
   list-style-type: circle;
@@ -542,14 +543,16 @@ main {
   z-index: 1;
 }
 
-data-table,td{
-  width: 80%;
+table{
+  table-layout: fixed;
+  width: 100%;
   border: 1px solid;
   border-collapse: collapse;
-  text-align: center;
-  padding: 5px;
-  position: relative center;
-  margin: auto;
+  text-align: center
+}
+
+th,td{
+  border: 1px solid;
 }
 
 /**
