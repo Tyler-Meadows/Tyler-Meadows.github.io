@@ -535,7 +535,11 @@ main {
   color: var(--light-gray);
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
-  line-height: 1.6;
+}
+
+.lecture > h2{
+  font-weight: var(--fw-500);
+  font-size: var(--fs-5)
 }
 
 .lecture p {
@@ -546,18 +550,40 @@ main {
   flex-wrap: wrap;
   justify-content: left;
   align-items: left;
-  padding: 0 5px;
+  padding: 0 20px;
+}
+.example-list {
+  flex-wrap: wrap;
+  position: relative;
+  text-align: center;
 }
 
-.lecture-item{
+.example-list li{
+  display: inline-block;
+  margin-right: 40px;
+}
+
+.lecture img{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 70%;
+  padding: 20px;
+}
+
+.lecture p + ul{
+  margin-top: -30px
+}
+
+.lecture-list > li{
   position: relative;
   inset: 20pt;
-  border-radius: 14px;
+  border-radius: 0px;
   z-index: 1;
   list-style-type: circle;
 }
 
-.lecture-item:last-child{
+.lecture-list li:last-child{
   padding-bottom: 20px;
 }
 
