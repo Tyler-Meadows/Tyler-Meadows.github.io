@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTHE 224: Applied Math for Civil Engineers</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <main>
+
+        <!--  #SIDEBAR   -->
+        <aside class="sidebar" data-sidebar>
+    
+          <div class="sidebar-info">
+            <div class="info-content">
+              <h1 class="name" title="MTHE 224" >MTHE 224</h1>
+    
+              <p class="title">Applied Mathematics for Civil Engineers</p>
+            </div>
+    
+            <button class="info_more-btn" data-sidebar-btn>
+              <ion-icon name="chevron-down"></ion-icon>
+            </button>
+    
+          </div>
+    
+          <div class="sidebar-info_more">
+    
+            <div class="separator"></div>
+    
+            <ul class="contacts-list">
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="mail-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Email</p>
+    
+                  <a href="mailto:Tyler.meadows@queensu.ca" class="contact-link">tyler.meadows@queensu.ca </a>
+                </div>
+    
+              </li>
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="location-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Location</p>
+    
+                  <address>127 Jeffery Hall, Queen's University</address>
+                </div>
+               </li>
+               <li class = "contact-item"> 
+                <div class="icon-box">
+                  <ion-icon name = "calendar-outline"></ion-icon>
+                </div>
+                <div class = "contact-info">
+                  <p class = "contact-title">Lecture Times</p>
+                  <time>Mon: 11:30-12:30</time>
+                  <time>Tue: 13:30-14:30</time>
+                  <time>Thu: 12:30-13:30 </time>
+                </div>
+              </li>
+    
+            </ul>
+
+    
+        </aside>
+
+
+        <!-- Main Stuff -->
+        <div class="main-content">
+               <!-- #NAVBAR  -->
+               <nav class="navbar">
+    
+                <ul class="navbar-list">
+                    <li class ="navbar-item">
+                        <a href="../lectures/lecture02.html" class = "navbar-link">Previous</a>
+                    </li>
+        
+                  <li class="navbar-item active">
+                    <a href="../MTHE224.html?page=lectures" class = "navbar-link">Lectures</a>
+                  </li>
+        
+                  <li class="navbar-item">
+                    <a href="#" class="navbar-link">Next</a>
+                  </li>
+        
+                </ul>
+        
+              </nav>
+              <!-- Lecture Content--> 
+              
+            <article class="lecture active" data-page="lecture">
+                <header>
+                  <h2 class="h2 article-title">Lecture 03: Event Spaces</h2>
+                </header>
+                <div class = "lecture">
+                    <p>Now that we have an understanding of what sets are, how to relate sets to other
+                    sets, and how to do some operations on sets, the next thing we will want to do is
+                    organize sets based off of what we think is important about them. What we think is important
+                    will be dependent on the context that we are in. For example, if we are playing a game 
+                    that involves rolling dice, the order that the dice are rolled may or may not be important to the rules.
+                    </p>
+
+                    <p><b>Definition</b> Let $\mathcal{S}$ be a set. An <u>event space</u> $\mathcal{A}$ on $\mathcal{S}$ is
+                    a collection of subsets of $\mathcal{S}$ satisfying
+                        <ol class = "roman">
+                            <li>$\mathcal{S} \in \mathcal{A}$</li>
+                            <li>If $E\in \mathcal{A}$, then $E^c \in \mathcal{A}$</li>
+                            <li>If $E_1\in\mathcal{A}$ and $E_2\in\mathcal{A}$, then $E_1\cup E_2\in \mathcal{A}$</li>
+                        </ol>
+                    We call the elements of $S$ <u>outcomes</u>, and the subsets that are in $\mathcal{A}$ <u>events</u>.    
+                    </p>
+
+                    <p><b> Example:</b> Suppose we are playing a game in which you roll two dice. We can establish what the outcomes
+                        of this game are without needing to define an event space. They are the possibile results (order included) of rolling the two dice.
+                        We can represent them as the elements of the set 
+                    $$ \mathcal{S} = \{(1,1),(1,2),(1,3),...,(2,1),(2,2),...,(6,5),(6,6)\}.$$ 
+                    The set $\mathcal{S}$ will always be an event, which we interpret as "the event that you have rolled both dice". </p>
+
+                    <p>Defining an event space on $\mathcal{S}$ establishes which events are important to the game. Suppose the game is simply: I win if the sum of
+                        both dice is seven. An important event (<i>the</i> important event) is the subset of $\mathcal{S}$ whose pairs sum to 7. I.e.,
+                         $$E_7 = \{(1,6),(2,5),(3,4),(4,3),(5,2),(1,6)\}.$$
+                         We can interpret this event as a "win". Another important event is the subset of $\mathcal{S}$ whose pairs don't sum to seven
+                         $$E_7^c = \{(1,1),(1,2),...,(6,6)\}.$$
+                         We can interpret this event as a "loss". In this very simple case, the event space is
+                         $$\mathcal{A} = \{\mathcal{S},E_7,E_7^c,\varnothing\}.$$
+                         Note that we have to include the empty set $\varnothing$ here, since $\mathcal{S}^c=\varnothing$. 
+                    </p>
+
+                    <p><b>Exercise:</b> Consider a simple game where you roll a single six-sided die. The rules 1) you win a candy if you roll a one.
+                         2) you win a chocolate if you roll a two. 3) you win nothing if you roll anything else.
+                    <ol class="roman">
+                        <li> What are the <i>outcomes</i> of this game?</li>
+                        <li> What is the complete event space of this game? Interpret each event within the rules of the game.</li>
+                    </ol>
+                    </p>
+                    <button onclick = "showSolution('solution1')"><b>Solution:</b> (click to show)</button>
+                    <div id = "solution1" style= "display: none;">
+                        <ol class = "roman">
+                            <li> The outsomes are the possible rolls of a single dice. I.e. $\mathcal{S} = \{1,2,3,4,5,6\}$</li>
+                            <li> <p>The Events in the event space are
+                                <ul class = "lecture-list">
+                                    <li>$\mathcal{S} \to $ The dice were rolled</li>
+                                    <li>$\varnothing \to $ The dice were not rolled</li>
+                                    <li>$E_1 = \{1\} \to $ Won a candy</li>
+                                    <li>$E_1^c = \{2,3,4,5,6\} \to$ Didn't win a candy</li>
+                                    <li>$E_2 = \{2\} \to$ Won a chocolate</li>
+                                    <li>$E_2^c = \{1,3,4,5,6\} \to$ Didn't win a chocolate</li>
+                                    <li>$E_1\cup E_2 = \{1,2\} \to$ Won something</li>
+                                    <li>$(E_1\cup E_2)^c = \{3,4,5,6\} \to$ Didn't win anything</li>
+                                </ul>
+                                </p>
+                                <p>This satisfies all the requirements to be an event space since 1) $\mathcal{S}$ is included, 2) The complement of each set is included, and 3) The union of any pair of sets is also included.
+                                </p>
+                            </li>
+
+                        </ol>
+                    </div>
+                    <p> We can take a more algorithmic approach to constructing event spaces if we think about what specific things events we want in the space. For example, if we want $E_1$ and $E_2$ to be events in the 
+                        event space $\mathcal{A}$, then we need to add $E_1^c$ and $E_2^c$ to $\mathcal{A}$ as well as $E_1\cup E_2$ and $(E_1\cup E_2)^c$. We can then look to see if there are other unions or complements missing,
+                        if so, we add them to the event space as well. If we started with two events $E_1$ and $E_2$ we call the resulting event space <u>the event space generated by $E_1$ and $E_2$.</u>
+                    </p>
+                    <p> <b>Example:</b> Let $\mathcal{S}= \{1,2,3,4,5\}$. Generate an event space that contains all the subsets of $\mathcal{S}$ with one outcome.
+                    <ul class="lecture-list">
+                        <li>Since the event space must contain $\mathcal{S}$, it must also contain $\varnothing$</li>
+                        <li>Since the event space contains $\{1\}$, we have to add $\{1\}^c = \{2,3,4,5\}$. And therefore every subset with four outcomes.</li>
+                        <li>Since the event space contains $\{1\}$ and $\{2\}$ we must include $\{1\}\cup\{2\} = \{1,2\}$, and therefore all subets with two outcomes.</li>
+                        <li>Since the event space contains $\{1,2\}$ we must include $\{1,2\}^c = \{3,4,5\}$, and therefore all subsets with three elements.</li>
+                        <li>At this point, we have included all of the possible subsets of $\mathcal{S}$, so there is nothing left to add and our event space is complete.</li>
+                    </ul>
+                    </p>
+                    <h2>Exercises</h2>
+                    <p>
+                        <ul class = "lecture-list">
+                            <li> <p> Suppose $\mathcal{A}$ is an event space and $E_1$ and $E_2$ are events:
+                            <ol class = "roman">
+                                <li> Is $E_3 = E_1^c \cap E_2^c$ an event?</li>
+                                <li> Is $E_4 = E_1 \cap E_2$ an event?</li>
+                            </ol>
+                            </li>
+                            </p>
+                            <li>
+                                Let $\mathcal{S} = \{1,2,3,4\}$. Find the event space generated by $E_1= \{1\}$ and $E_{23} = \{2,3\}$.
+                            </li>
+                            <li>
+                                Let $\mathcal{S} = (0,1).$ Find the event space generated by $E_1 = (0,\tfrac{3}{4})$ and $E_2 = (\tfrac{1}{4},1)$.
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+            
+              </article>
+
+        </div>
+    </main>
+
+    <!-- custom js link-->
+    <script src="../assets/js/script.js"></script>
+
+    <!-- ionicon link -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- MathJaX-->
+    <script>
+        MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+</body>
+</html>

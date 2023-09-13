@@ -127,7 +127,9 @@
 
 a { text-decoration: none; }
 
-li { list-style: none; }
+ul > *{list-style: none;}
+ol.roman{list-style-type: upper-roman;
+   margin-left: 20px;}
 
 img, ion-icon, a, button, time, span { display: block; }
 
@@ -600,7 +602,30 @@ th,td{
   border: 1px solid;
 }
 
+/**
+* #Labs
+ */
 
+.lab > * { 
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+}
+.lab p {
+  margin-bottom: 10px;
+}
+.lab h3 {
+  font-size: var(--fs-2);
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: var(--fw-500)
+}
+.lab h4 {
+  font-size: var(--fs-3);
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: var(--fw-400)
+}
 
 /**
  * #service 
