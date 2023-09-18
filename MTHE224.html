@@ -350,9 +350,30 @@
               <ul class="project-list">
       
                 <li class="project-item  active" data-filter-item data-category="Prob">
-                  <a href="labs/lab01.ipynb" download>
+                  <button onclick = "showSolution('lab1')"> 
                     <h3 class="project-title">Lab 01: A Brief Introduction to Python and Jupyter</h3>
-                  </a>
+                  </button>
+                  <div id = "lab1" style="display: none;">
+                    <ul class = "example-list">
+                     <li><a href="labs/Lab_1.ipynb" download> Lab 01</a></li>
+                      <li><a href="labs/Lab_1_template.ipynb" download> Lab 01 Template</a></li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="project-item  active" data-filter-item data-category="Prob">
+                  <button onclick = "showSolution('lab2')">
+                  <h3 class="project-title">Lab 02: Exploring Data</h3>
+                  </button>
+                  <div id = "lab2" style="display: none;">
+                    <ul class="example-list">
+                      <li><a href="labs/Lab_2.ipynb" download>Lab 02</a></li>
+                      <li><a href="labs/lab_2_template.ipynb" download> Lab 02 Template</a></li>
+                      <li><a href="labs/NHLHistory.csv" download> NHL Data</a></li>
+                      <li><a href="labs/spotify.csv" download>Spotify Data</a></li>
+                    </ul>
+
+                  </div>
                 </li>
 
               </ul>
