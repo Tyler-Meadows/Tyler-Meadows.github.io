@@ -120,7 +120,7 @@
               
             <article class="lecture active" data-page="lecture">
                 <header>
-                  <h2 class="h2 article-title">Lecture 06: Conditional Probability</h2>
+                  <h2 class="h2 article-title">Conditional Probability</h2>
                 </header>
                 <div class = "lecture">
                     <p> Sometimes, we may have some additional information about the outcomes of an experiment, which could allow us to restrict
@@ -187,8 +187,8 @@
                     <p>
                     <b>Example:</b> Suppose I have three unmarked boxes. Each box has two coins in it. In one box, there are two loonies, in the next box there is one loonie and one toonie, and in the final box there are two toonies. Suppose you choose a coin at random from one of the boxes and it is a toonie. What is the probability the other coin is also a toonie?
                     </p>
-                    <button onclick="showSolution('prob3')"><b>Solution:</b> (click to show)</button>
-                    <div id = "prob3" style="display:none;">
+                    <button onclick="showSolution('prob3')"><b>Solution:</b> (Available after lecture)</button>
+                    <div id = "hidden" style="display:none;">
                     <p>
                         Let's label the boxes $B_{11}$,$B_{12}$ and $B_{22}$, and say the event of picking a toonie is $E_2$ and the event of picking a loonie is $E_1$. To restate the problem, we're trying to determine the probability that we have selected box $B_{22}$ given that we have pulled a toonie out ($E_2$). I.e. we're trying to calculate $P(B_{22}| E_2)$.
                         
@@ -206,7 +206,23 @@
                         \end{align}
                     </p>
                     </div>
-                    
+
+                    <h2> Exercises</h2>
+                    <ul class="lecture-list">
+                        <li> Suppose you roll two dice.
+                            <ol class=roman>
+                                <li>You can see that one of the dice is 2. What is the probability that the two dice sum up to 7?</li>
+                                <li> Both dice sum to 4. What is the probability that both dice are even?</li>
+                                <li> Both dice are odd. What is the probability that both dice are the same number?</li>
+
+                            </ol></li>
+                        <li> AA batteries for sale at the dollar store have quality control problems. In an arbitrarily chosen pack of 4 batteries, there is a 10% chance that exactly one battery is dead, a 5% chance that exactly two are dead, and a 1% chance that three are dead, in the remainder of packs, all of the batteries work. Suppose you bought a pack and the first battery you checked worked. What is the probability that all of the remaining batteries work?</li>
+                        <li> A family has two children. One of these children is a boy who was born on a Tuesday. What is the probability that the other child is also a boy? The answer is not 1/2. (Assume that "boy" and "not boy" are equally likely, and that there is an equal probability to be born on each day of the week.)
+                        </li>
+                        <li>
+                        
+                        </li>
+                    </ul>
                 </div> 
                  
               </article>
