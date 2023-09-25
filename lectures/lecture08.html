@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTHE 224: Applied Math for Civil Engineers</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <main>
+
+        <!--  #SIDEBAR   -->
+        <aside class="sidebar" data-sidebar>
+    
+          <div class="sidebar-info">
+            <div class="info-content">
+              <h1 class="name" title="MTHE 224" >MTHE 224</h1>
+    
+              <p class="title">Applied Mathematics for Civil Engineers</p>
+            </div>
+    
+            <button class="info_more-btn" data-sidebar-btn>
+              <ion-icon name="chevron-down"></ion-icon>
+            </button>
+    
+          </div>
+    
+          <div class="sidebar-info_more">
+    
+            <div class="separator"></div>
+    
+            <ul class="contacts-list">
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="mail-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Email</p>
+    
+                  <a href="mailto:Tyler.meadows@queensu.ca" class="contact-link">tyler.meadows@queensu.ca </a>
+                </div>
+    
+              </li>
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="location-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Location</p>
+    
+                  <address>127 Jeffery Hall, Queen's University</address>
+                </div>
+               </li>
+               <li class = "contact-item"> 
+                <div class="icon-box">
+                  <ion-icon name = "calendar-outline"></ion-icon>
+                </div>
+                <div class = "contact-info">
+                  <p class = "contact-title">Lecture Times</p>
+                  <time>Mon: 11:30-12:30</time>
+                  <time>Tue: 13:30-14:30</time>
+                  <time>Thu: 12:30-13:30 </time>
+                </div>
+              </li>
+    
+            </ul>
+
+    
+        </aside>
+
+
+        <!-- Main Stuff -->
+        <div class="main-content">
+               <!-- #NAVBAR  -->
+               <nav class="navbar">
+    
+                <ul class="navbar-list">
+                    <li class ="navbar-item">
+                        <a href="../lectures/lecture06.html" class = "navbar-link">Previous</a>
+                    </li>
+        
+                  <li class="navbar-item active">
+                    <a href="../MTHE224.html?page=lectures" class = "navbar-link">Lectures</a>
+                  </li>
+        
+                  <li class="navbar-item">
+                    <a href="../lectures/lecture08.html" class="navbar-link">Next</a>
+                  </li>
+        
+                </ul>
+        
+              </nav>
+              <!-- Lecture Content--> 
+              
+            <article class="lecture active" data-page="lecture">
+                <header>
+                  <h2 class="h2 article-title">Discrete Random Variables</h2>
+                </header>
+                <div class = "lecture">
+                    <p>As we discussed last class, we will want to discuss the distribution of a random variable, which is a description
+                        of how the probabilities are spread out across the real numbers. The main two ways we want to talk about discrete 
+                        random variables is using their probability mass functions (pmfs) and cumulative distribution functions (cdfs).  
+                        There are other ways that we can discuss the distributions of random variables, and these will be very similar to 
+                        some descriptive statistics concepts.
+                    </p>
+
+                    <p><b>Definition:</b> let $X$ be a discrete random variable with range $\{x_1,x_2,...\}.$ The <u>expected value</u> of $X$ is 
+                        $$\mathbb{E}(X) = \sum_{j=1}^\infty x_jf(x_j).$$
+                        The expected value is one way to talk about the center of a distribution, much the same way that the mean is a way to talk about
+                        the center of a data set. Similarly, we can define the <u>variance</u> of a distribution by 
+                        \begin{align} \mathbb{V}(X) &= \sum_{j=1}^\infty f(x_j)(x_j-\mathbb{E}(X))^2\\
+                        &= \sum_{j=1}^{\infty} f(x_j)(x_j^2 - 2\mathbb{E}(X)x_j+\mathbb{E}(X)^2)\\
+                        &= \left(\sum_{j=1}^\infty f(x_j)x_j^2\right) -\mathbb{E}(X)^2. 
+                        \end{align}
+                        The last line follows since $\mathbb{E}(X)$ is just a constant, and can be factored out of the sum. What's left is simply $\mathbb{E}(X)$ again. The <u>standard deviation</u>
+                        of a distribution is $$\sigma_X = \sqrt{\mathbb{V}(X)}.$$
+                        It ends up being useful to define
+                        $$\mathbb{E}(X^n) = \sum_{j=1}^\infty f(x_j)x_j^n$$
+                        for any value of $n$. So that 
+                        $$\mathbb{V}(X) = \mathbb{E}(X^2) - \mathbb{E}(X)^2.$$
+                        The quantity $\mathbb{E}(X^n)$ is called the $n$th moment of $X$. As we saw, the 
+                        first moment of a distribution is related to its center, and the second moment is related to its spread. The third moment is related to something called
+                        the skew of the distribution, which describes whether most of the probability is distributed above or below the expected value.
+                    </p>
+                    <p><b>Example</b> Consider an experiment where a single die is rolled, and let $X$ be the number that is shown on the die after it is rolled.
+                    The expected value of $X$ is 
+                    \begin{align} 
+                        \mathbb{E}(X) &= \sum_{j=1}^6 f(x_j) x_j \\
+                        & = \sum_{j=1}^6 \frac{1}{6} j\\
+                        &= \frac{1}{6} \frac{6\cdot 7}{2} = \frac{7}{2}.
+                    \end{align}
+                    The variance is given by 
+                    \begin{align}
+                        \mathbb{V}(X) &= \mathbb{E}(X^2) - \mathbb{E}(X)^2\\
+                        &= \sum_{j=1}^6 \frac{1}{6}j^2 - \left(\frac{7}{2}\right)^2\\
+                        &= \frac{1}{6}\frac{6\cdot 7\cdot 13}{6} - \frac{49}{4}\\
+                        &= \frac{35}{12}.
+                    \end{align}
+                    </p>
+
+                    <h2>Adding Random Variables</h2>
+
+                    <p>As we mentioned part way through last class, the reason we want to define 
+                    random variables is so that we can add, subtract, multiply, and divide them. While this 
+                    sounds like a great idea in principle, the reality is that even adding random variables does some 
+                    very nontrivial things to the distribution of the outcomes. </p>
+                    <p><b>Definition:</b> Let $X_1$ and $X_2$ be independent random variables with range $\{x_1,x_2,...\}$, and pmfs $f_1$ and $f_2$. The pmf of $Y = X_1+X_2$ is given 
+                    by the <u>discrete convolution</u> of $f_1$ and $f_2$,
+                $$ h(y) = (f_1*f_2)(y) = \sum_{j=1}^{\infty}f_1(y-x_j)f_2(x_j).$$</p>
+                    <p><b>Example:</b> Find the pmf for the number of heads given by tossing a coin twice.</p>
+                    <button onclick="showSolution('prob1')"><b>Solution</b>(click to show)</button>
+                    <div id="prob1" style="display:none;">
+                        <p>This is simple enough that we can calculate the pmf directly without using the convolution. The random variable $Y$ can take the values $\{0,1,2\}$ with probabilities $\{\frac{1}{4},\frac{1}{2}, \frac{1}{4}\}$ respectively.
+                             However, we can also let $X$ be the random variable for a single coin flip, I.e. $X(heads) = 1$ and $X(tails) = 0$. Let $f$ be the pmf for $X$, then the pmf for $Y$ is given by 
+                             \begin{align} h(0) &=  \sum_{j=0}^2 f(j)f(0-j)\\ &= f(0)f(0)+f(1)f(-1)+f(2)f(-2) \\ & = \frac{1}{4}\\
+                                           h(1) &= \sum_{j=0}^2f(j)f(1-j) \\ &= f(0)f(1)+f(1)f(0)+f(2)f(-1)\\ &= \frac{1}{2}\\
+                                           h(2) &= \sum_{j=0}^2f(j)f(2-j) \\ &= f(0)f(2)+f(1)f(1)+f(2)f(0) \\ &= \frac{1}{4}.
+                            \end{align}
+                             </p>
+                    </div>
+                    <p>We can use the discrete convolution to derive some properties about the moments of a distributions:
+                        <ul class="lecture-list">
+                            <li> If $X$ and $Y$ are random variables, then $\mathbb{E}(X+Y) = \mathbb{E}(X)+\mathbb{E}(Y)$</li>
+                            <li> If $X$ and $Y$ are random variables, then $\mathbb{V}(X+Y) = \mathbb{V}(X)+\mathbb{V}(Y)$</li>
+                            <li> If $X$ is a random variable, and $a$ is a real number, then $\mathbb{E}(aX) = a\mathbb{E}(X)$</li>
+                        </ul>
+                    </p>
+                    <h2>Exercises</h2>
+                    <ul class = "lecture-list">
+                        <li> Constants can be thought of as random variables that have only one possible value. I.e. the constant $c$ can be thought of as having the pmf $P(X=c) = f(c) = 1,$ and $P(X\ne c) = 0$. Use this interpretation to show that $\mathbb{E}(c) = c$ and $\mathbb{V}(c) = 0$.</li>
+                        <li> Let $X$ be the sum of $n$ six sided dice. Find $\mathbb{E}(X).$</li>
+                        <li> Let $X$ be a random variable with pmf $$f(x) = \begin{cases} \frac{1}{3} & \text{if}~ x = 1,2,3\\
+                            0 &\text{otherwise}. \end{cases}$$ Find the pmf of $Y=X+X$ </li>    
+                    </ul>
+                </div> 
+                 
+              </article>
+
+        </div>
+    </main>
+
+    <!-- custom js link-->
+    <script src="../assets/js/script.js"></script>
+
+    <!-- ionicon link -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- MathJaX-->
+    <script>
+        MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+</body>
+</html>
