@@ -102,7 +102,7 @@
     
                 <ul class="navbar-list">
                     <li class ="navbar-item">
-                        <a href="../lectures/lecture06.html" class = "navbar-link">Previous</a>
+                        <a href="../lectures/lecture07.html" class = "navbar-link">Previous</a>
                     </li>
         
                   <li class="navbar-item active">
@@ -110,7 +110,7 @@
                   </li>
         
                   <li class="navbar-item">
-                    <a href="../lectures/lecture08.html" class="navbar-link">Next</a>
+                    <a href="../lectures/lecture09.html" class="navbar-link">Next</a>
                   </li>
         
                 </ul>
@@ -163,40 +163,14 @@
                         &= \frac{35}{12}.
                     \end{align}
                     </p>
-
-                    <h2>Adding Random Variables</h2>
-
-                    <p>As we mentioned part way through last class, the reason we want to define 
-                    random variables is so that we can add, subtract, multiply, and divide them. While this 
-                    sounds like a great idea in principle, the reality is that even adding random variables does some 
-                    very nontrivial things to the distribution of the outcomes. </p>
-                    <p><b>Definition:</b> Let $X_1$ and $X_2$ be independent random variables with range $\{x_1,x_2,...\}$, and pmfs $f_1$ and $f_2$. The pmf of $Y = X_1+X_2$ is given 
-                    by the <u>discrete convolution</u> of $f_1$ and $f_2$,
-                $$ h(y) = (f_1*f_2)(y) = \sum_{j=1}^{\infty}f_1(y-x_j)f_2(x_j).$$</p>
-                    <p><b>Example:</b> Find the pmf for the number of heads given by tossing a coin twice.</p>
-                    <button onclick="showSolution('prob1')"><b>Solution</b>(click to show)</button>
-                    <div id="prob1" style="display:none;">
-                        <p>This is simple enough that we can calculate the pmf directly without using the convolution. The random variable $Y$ can take the values $\{0,1,2\}$ with probabilities $\{\frac{1}{4},\frac{1}{2}, \frac{1}{4}\}$ respectively.
-                             However, we can also let $X$ be the random variable for a single coin flip, I.e. $X(heads) = 1$ and $X(tails) = 0$. Let $f$ be the pmf for $X$, then the pmf for $Y$ is given by 
-                             \begin{align} h(0) &=  \sum_{j=0}^2 f(j)f(0-j)\\ &= f(0)f(0)+f(1)f(-1)+f(2)f(-2) \\ & = \frac{1}{4}\\
-                                           h(1) &= \sum_{j=0}^2f(j)f(1-j) \\ &= f(0)f(1)+f(1)f(0)+f(2)f(-1)\\ &= \frac{1}{2}\\
-                                           h(2) &= \sum_{j=0}^2f(j)f(2-j) \\ &= f(0)f(2)+f(1)f(1)+f(2)f(0) \\ &= \frac{1}{4}.
-                            \end{align}
-                             </p>
-                    </div>
-                    <p>We can use the discrete convolution to derive some properties about the moments of a distributions:
-                        <ul class="lecture-list">
-                            <li> If $X$ and $Y$ are random variables, then $\mathbb{E}(X+Y) = \mathbb{E}(X)+\mathbb{E}(Y)$</li>
-                            <li> If $X$ and $Y$ are random variables, then $\mathbb{V}(X+Y) = \mathbb{V}(X)+\mathbb{V}(Y)$</li>
-                            <li> If $X$ is a random variable, and $a$ is a real number, then $\mathbb{E}(aX) = a\mathbb{E}(X)$</li>
-                        </ul>
-                    </p>
-                    <h2>Exercises</h2>
-                    <ul class = "lecture-list">
-                        <li> Let $X$ be the sum of $n$ six sided dice. Find $\mathbb{E}(X).$</li>
-                        <li> Constants can be thought of as random variables that have only one possible value. I.e. the constant $c$ can be thought of as having the pmf $$f(x) =\begin{cases} 1 &\text{if}~x=c\\ 0 & \text{otherwise}.\end{cases}$$ Use this interpretation to show that $\mathbb{E}(c) = c$ and $\mathbb{V}(c) = 0$.</li>
-                        <li> Let $X$ be a random variable with pmf $$f(x) = \begin{cases} \frac{1}{3} & \text{if}~ x = 1,2,3\\
-                            0 &\text{otherwise}. \end{cases}$$ Find the pmf of $Y=X+X$ </li>    
+                    <h2> Exercises:</h2>
+                    <ul class="lecture-list">
+                        <li>
+                            Suppose that a company offers a $5 extended warranty on their products. If you don't use the warranty, this $5 is pure profit for them, however if you do use the warranty, they must spend $50 to replace your product, leaving them with a $45 loss. If the probability that a product malfunctions and you use the warranty is 1/40, can the company expect to make a profit on these waranties?
+                            </li>
+                            <li>
+                                A carnival game consists of drawing one ball from a box containing two yellow balls, five red balls, and eight white balls. If the ball is yellow, you win $5. If the ball is red, you win $2. If the ball is white, you lose $3.00. What is your expected winnings?
+                        </li>
                     </ul>
                 </div> 
                  
