@@ -102,7 +102,7 @@
     
                 <ul class="navbar-list">
                     <li class ="navbar-item">
-                        <a href="../lectures/lecture09.html" class = "navbar-link">Previous</a>
+                        <a href="../lectures/lecture08.html" class = "navbar-link">Previous</a>
                     </li>
         
                   <li class="navbar-item active">
@@ -149,72 +149,15 @@
                         </ol>
                     </p>
                     </div>
-                    <p> The pmf for a binomial random variable is $$f(x;n,p) = \binom{n}{x}p^x(1-p)^{n-x}.$$ When $n = 1$, this reduces to the pmf for a Bernoulli random variable, 
-                        and we have seen that this also works when $n = 2$. To derive this pmf for a general value of $n$, we can reason <i>inductively.</i> To do so, we just have to assume 
-                        that this <i>is</i> the form of the pmf for a binomial random variable with $n-1$ trials, and derive the pmf for a binomial random variable for $n$ trials by adding a 
-                        Bernoulli random variable with the same probability of success. So, if $Y$ is a binomial random variable with $n-1$ trials and probability of success $p$, and $X$ is a 
-                        Bernoulli random variable with probability of success $p$, we want to find the pmf for $Z = Y+X$. If $f$ is the pmf for $X$ and $g$ is the pmf for $Y$, then the pmf for $Z$ is 
-                        \begin{align} 
-                            h(z) = (g*f)(z) =  \sum_{x=0}^{\infty}g(z-x)f(x).
-                        \end{align}
-                        Notice that $f(x)$ is only not zero for $x=0$ and $x=1$, so we can simplify the sum by only looking at these terms. 
-                        Expanding gives 
-                        \begin{align}
-                            h(z) &= g(z-0)f(0)+g(z-1)f(1)\\
-                            &=\binom{n-1}{z}p^{z}(1-p)^{n-1-z}(1-p)\\&\quad+\binom{n-1}{z-1}p^{z-1}(1-p)^{n-1-(z-1)}p\\
-                            &= \frac{(n-1)!}{(n-1-z)!z!}p^z(1-p)^{n-z} +\frac{(n-1)!}{(n-1-(z-1))!(z-1)!}p^z(1-p)^{n-z}\\
-                            &= \frac{(n-1)!(n-z)+(n-1)!z}{(n-z)!z!}p^z(1-p)^{n-z}\\
-                            &= \frac{n!}{(n-z)!z!}p^z(1-p)^{n-z}.
-                        \end{align}
-                    <p>Calculating the moments for the binomial distribution are significantly easier. If $Y$ is a binomial random variable, then it is the sum of $n$ independent Bernoulli 
-                        random variables $X$ with success probability $p$. Therefore 
-                        \begin{align}
-                        \mathbb{E}(Y) &= \mathbb{E}(X+X+...+X)\\
-                         &= \mathbb{E}(X)+\mathbb{E}(X)+...+\mathbb{E}(X)\\
-                         &= n\mathbb{E}(X)\\
-                         &= np.
-                         \end{align}
-                         Similarly 
-                         \begin{align}
-                            \mathbb{V}(Y) = n\mathbb{V}(X) = np(1-p)
-                         \end{align}
-                    </p>
-                    <p><b>Example:</b> Suppose there is a $1/100$ probability that any individual egg you buy at the grocery store is cracked. 
-                        <ol class="roman">
-                            <li> What is the probability that there is exactly one cracked egg in a carton of 12?</li>
-                            <li> What is the probability that there is at least one cracked egg in a carton of 12?</li>
-                        </ol>
-                    </p>
-                    <button onclick="showSolution('prob-2')"><b>Solution</b> (click to show)</button>
-                    <div id = "prob-2" style="display:none;">
-                        <p>We can set this up as a Binomial distribution problem by letting $Y$ be the number of eggs out of 12 that are cracked. In this case, the number of trials is the number of eggs $n$, and the probability of "success" is the probability 
-                        that an egg is broken $p = 1/100$. (<b>Side Note:</b> We could just as easily have decided that $Y$ was the number of eggs that are not cracked, then $p$ would be the probability an egg is not broken $p = 99/100$.)</p>
-                        <p><b>I.</b>The probability $Y=1$ is given by 
-                          \begin{align}
-                          f(1;12,1/100) &= \binom{12}{1} \left(\frac{1}{100}\right)^1\left(1-\frac{1}{100}\right)^{12-1}\\
-                            &= \frac{12}{100}\left(\frac{99}{100}\right)^{11}\\ 
-                            &\approx 0.1074
-                          \end{align}
-                        </p>
-                        <p><b>II.</b> The probability that $Y \ge 1$ is the same as the probability that $Y \ne 0$. Therefore 
-                        \begin{align}
-                            1-f(0;12,1/100) &= 1-\binom{12}{0}\left(\frac{1}{100}\right)^0\left(1-\frac{1}{99}\right)^{12}\\
-                            & \approx 0.1136
-                        \end{align}
-                    </p>
-                    
-                    </div>
+                    <p> The pmf for a binomial random variable is $$f(x;n,p) = \binom{n}{x}p^x(1-p)^{n-x}$$</p>
+
                     <h2>Exercises</h2>
-                    <ul class = "lecture-list"<>
-                          <li> Come up with an example of a Binomial experiment. Explain how it meets the criteria to be a Binomial experiment.</li>
-                          <li> There are 20 questions on a multiple choice test. Each question has four choices. Suppose Billy didn't study, and decides to guess on every question. What is the probability that Billy passes (gets more than 50% right)? What is the probability he gets more than 80% correct? </li>
-                          <li> Tim Hortons' roll up the rim game used to be a big deal. The company advertised 1/6 odds to win a prize on each cup.
-                            <ol class = "roman">
-                                <li> What is the probability that you buy 6 coffees from Tim's and don't win anything?</li>
-                                <li> If you buy 20 coffees during the contest, how many prizes should you expect to win?</li>
-                                <li> If you buy 20 coffees during the contest, what is the probability that you win more prizes than you expect to</li>
-                            </ol>
-                        </li>
+                    <ul class = "lecture-list">
+                        <li> Let $X$ be the sum of $n$ six sided dice. Find $\mathbb{E}(X).$</li>
+                        <li> Constants can be thought of as random variables that have only one possible value. I.e. the constant $c$ can be thought of as having the pmf $$f(x) =\begin{cases} 1 &\text{if}~x=c\\ 0 & \text{otherwise}.\end{cases}$$
+                             Use this interpretation to show that if $X$ is a discrete random variable, then  $\mathbb{E}(X+c) =\mathbb{E}(X)+c$ and $\mathbb{V}(X+c) = \mathbb{V}(X)$.</li>
+                        <li> Let $X$ be a random variable with pmf $$f(x) = \begin{cases} \frac{1}{3} & \text{if}~ x = 1,2,3\\
+                            0 &\text{otherwise}. \end{cases}$$ Find the pmf of $Y=X+X$ </li>    
                     </ul>
                 </div> 
                  
