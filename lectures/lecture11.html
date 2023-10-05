@@ -120,44 +120,112 @@
               
             <article class="lecture active" data-page="lecture">
                 <header>
-                  <h2 class="h2 article-title">The Binomial Distribution</h2>
+                  <h2 class="h2 article-title">The Negative Binomial Distribution</h2>
                 </header>
                 <div class = "lecture">
                     
-                    <p> <b>Definition:</b> A binomial experiment is an experiment that consists of $n$ independent bernoulli trials, each with an identical probability of success.
-                         A binomial random variable $X$ is one that counts the number of successes in a binomial experiment.
+                    <p> <b>Definition:</b> A negative binomial experiment is conducted by repeating independent bernoulli trials, each with an identical probability of success $p$, until a fixed number of successes $r$ are reached.
+                         A negative binomial random variable $Y$ is one that counts the number of trials in a negative binomial experiment.
                     </p>
 
-                    <p> <b>Problem:</b> Which of the following are binomial random variables?
+                    <p> <b>Problem:</b> Which of the following are negative binomial random variables?
                         <ol class = "roman">
-                            <li>The sum of three rolled dice</li>
-                            <li>The number of aces picked after drawing 10 cards from the same deck</li>
-                            <li>The number of times that the barrista at starbucks gets my order wrong in 10 visits</li>
-                            <li>The number of times that a flipped coin comes up heads before it comes up tails three times</li>
-                            <li>The number of baskets I score out of 100 shots from the free-throw line</li>
+                            <li>The number of times you draw cards from a deck of 52 cards until you draw an ace</li>
+                            <li>The number of times you roll a pair of dice until you get doubles twice</li>
+                            <li>The number of dead AA batteries in a pack of 12</li>
+                            <li>The number of times the barrista at starbucks gets my order wrong before finally getting it right</li>
                         </ol>
                     </p>
                     <button onclick="showSolution('prob1')"><b>Solution</b> (click to show) </button>
                     <div id = "hidden" style="display:none;">
                     <p>
                         <ol class = "roman">
-                            <li> Is not a binomial random variable. There are three independent trials, but these trials are not Bernoulli experiments. </li>
-                            <li> Is not a binomial random variable. There are 10 Bernoulli trials, but they are not independent.</li>
-                            <li> Is a binomial random variable. The idea of "success" is flexible. The barrista "successfully" got my order wrong.</li>
-                            <li> Is not a binomial random variable. The experiment is made up of independent Bernoulli trials, but there is not a fixed number. </li>
-                            <li> Is a binomial random variable (or at least is close), assuming I have don't get better at shooting as I go. </li>
+                            <li> Is not a negative binomial random variable. There are an unknown number of Bernoulli trials, but they are not independent. </li>
+                            <li> Is a negative binomial random variable. </li>
+                            <li> Is not a negative binomial random variable. There is a fixed number of trials, so this is a Binomial ramdom variable.</li>
+                            <li> Is not quite a negative binomial random variable as we've defined it, but it is close enough that we can consider it a negative binomial random variable. We will come back to this.</li>
                         </ol>
                     </p>
                     </div>
-                    <p> The pmf for a binomial random variable is $$f(x;n,p) = \binom{n}{x}p^x(1-p)^{n-x}$$</p>
-
+                    <p> The pmf for a negative binomial random variable can be derived from the binomial pmf. Let $Y$ be a negative binomial random variable with 
+                      $r$ successful trials and probability of success $p$. In order for there to be $y$ total trials, there must have been $r-1$ successful trials in the first 
+                      $y-1$ trials, and one successful trial at the very end. Thus, the pmf is 
+                      \begin{align} 
+                        g_r(y) = f_{y-1}(r-1)f_1(1),
+                      \end{align}
+                      where $f_{y-1}(r-1)$ is the binomial pmf for $r-1$ successes with $y-1$ trials and $f_1(1)$ is the probability of success on one trial. Plugging in the definitions
+                      gives 
+                      \begin{align}
+                       g_r(y) &= \binom{y-1}{r-1}p^{r-1}(1-p)^{y-1-(r-1)}p\\
+                              &= \binom{y-1}{r-1}p^r(1-p)^{y-r}.
+                      \end{align}
+                      The range of $Y$ is $\{r,r+1,r+2,...\}$, since there must be at least $r$ trials before there are $r$ successful trials.
+                    </p>
+                    <p><b>Example:</b> Anna is surveying sites for a mining company. Her contract is fulfilled once she has found 3 suitable sites. Suppose that the probability each site is suitable is independant and equal to $1/4$.
+                    <ol class="roman">
+                      <li> What is the probability she surveys more than 4 sites?</li>
+                      <li> What is the probability she surveys exactly 4 unsuitable sites before finishing?</li>
+                    </ol>
+                    <button onclick="showSolution('prob2')"><b>Solution</b> (click to show)</button>
+                    <div id = "prob2" style="display:none;">
+                      <ol class = "roman">
+                        <li> Let $N$ be the number of sites that Anna visits before finding 3 suitable ones. N is a negative binomial random variable. The probability that Anna visits more than 4 sites 
+                          before finding 3 suitable ones is the same as the probability she doesn't find 3 suitable sites in her first 4 visits. I.e. 
+                          $$P(N > 4) = 1-P(N\le 4)$$
+                          Since the range of $N$ is $\{3,4,...\}$, the probability that $N\le 4$ is equivalent to the probability that $N=4$ or $N=3$. These are disjoint events, so 
+                          \begin{align} 
+                            P(N\le 4) &= P(N=4)+P(N=3) \\
+                                      &= g_3(4) +g_3(3)\\
+                                      &= \binom{3}{2}\left(\frac{1}{4}\right)^3\left(\frac{3}{4}\right)^1 +\binom{2}{2}\left(\frac{1}{4}\right)^3\left(\frac{3}{4}\right)^0\\
+                                      &\approx 0.0508
+                          \end{align}
+                          Therefore $P(N >4) = 1-P(N\le 4) \approx 1-0.0508 = 0.9492$.
+                        </li>
+                        <li>If Anna surveys 4 unsuitable sites before finishing, then she must have surveyed 7 total sites: 4 unsuitable and 3 suitable. Thus we need to calculate
+                          $P(N = 7)$, which is given by 
+                          \begin{align} 
+                          g_3(7) &= \binom{6}{2}\left(\frac{1}{4}\right)^3\left(\frac{3}{4}\right)^4\\
+                          &\approx 0.1038
+                          \end{align}
+                        </li>
+                      </ol>
+                    </div>
+                    <p><b>Side Note:</b> An alternative definition of a negative binomial random variable is one that counts the number of failures in a negative binomial experiment. 
+                    If $K$ counts the number of failures, $r$ is the number of successes, then there are $Y = K+r$ trials. The pmf for $K$ can be written as 
+                     \begin{align} 
+                      \tilde{g}_r(k) &= g_r(k+r) = \binom{r+k-1}{r-1}p^{r}(1-p)^{r+k-r}\\
+                              &= \binom{r+k-1}{k}p^r(1-p)^k,
+                     \end{align}
+                     since 
+                     \begin{align}
+                     \binom{r+k-1}{r-1} &= \frac{(r+k-1)!}{(r+k-1-(r-1))!(r-1)!}\\
+                      &= \frac{(r+k-1)!}{k!(r-1)!}\\
+                      &= \frac{(r+k-1)!}{k!(r-1+k-k)!}\\
+                      &= \binom{r+k-1}{k}.
+                      \end{align}
+                    </p>
+                    The range of $K$ is $\{0,1,2,3,4,...\}$.
+                    </p>
                     <h2>Exercises</h2>
                     <ul class = "lecture-list">
-                        <li> Let $X$ be the sum of $n$ six sided dice. Find $\mathbb{E}(X).$</li>
-                        <li> Constants can be thought of as random variables that have only one possible value. I.e. the constant $c$ can be thought of as having the pmf $$f(x) =\begin{cases} 1 &\text{if}~x=c\\ 0 & \text{otherwise}.\end{cases}$$
-                             Use this interpretation to show that if $X$ is a discrete random variable, then  $\mathbb{E}(X+c) =\mathbb{E}(X)+c$ and $\mathbb{V}(X+c) = \mathbb{V}(X)$.</li>
-                        <li> Let $X$ be a random variable with pmf $$f(x) = \begin{cases} \frac{1}{3} & \text{if}~ x = 1,2,3\\
-                            0 &\text{otherwise}. \end{cases}$$ Find the pmf of $Y=X+X$ </li>    
+                        <li>The <b>geometric distribution</b> is a special case of the negative binomial distribution with $r=1$. I.e. it counts the number of trials that occur before there is a success.
+                          <ol class="roman">
+                            <li>Write the simplified pmf for the geometric distribution with probability of success $p$.</li>
+                            <li>Find the expected value for a geometric random variable with probability of success $p$.</li>
+                            <li>We can think of a negative binomial random variable with $r$ successes as a sum of $r$ geometric random variables. 
+                              Use this interpretation to find the expected value for a negative binomial random variable with $r$ successes and probability of success $p$.
+                            </li>
+                          </ol>
+                        </li>
+                        <li>
+                          Billy's basketball coach is making him practice three point shots. He can stop when he makes 10 baskets. Assuming that the probability that Billy makes a basket is $1/8$, 
+                          and doesn't change over time.
+                          <ol class="roman">
+                            <li>What is the probability that Billy makes 10 of his first 11 shots?</li>
+                            <li>What is the probability that Billy takes more than 15 shots?</li>
+                            <li>How many shots should Billy expect to take?</li>
+                          </ol>
+                        </li>
                     </ul>
                 </div> 
                  
@@ -177,7 +245,7 @@
     <script>
         MathJax = {
           tex: {
-            inlineMath: [['$', '$'], ['\\(', '\\)']]
+           inlineMath: [['$', '$'], ['\\(', '\\)']]
           },
           svg: {
             fontCache: 'global'

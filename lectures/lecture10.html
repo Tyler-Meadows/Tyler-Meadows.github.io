@@ -110,7 +110,7 @@
                   </li>
         
                   <li class="navbar-item">
-                    <a href="#" class="navbar-link">Next</a>
+                    <a href="../lectures/lecture11.html" class="navbar-link">Next</a>
                   </li>
         
                 </ul>
@@ -138,14 +138,14 @@
                         </ol>
                     </p>
                     <button onclick="showSolution('prob1')"><b>Solution</b> (click to show) </button>
-                    <div id = "hidden" style="display:none;">
+                    <div id = "prob1"" style="display:none;">
                     <p>
                         <ol class = "roman">
                             <li> Is not a binomial random variable. There are three independent trials, but these trials are not Bernoulli experiments. </li>
                             <li> Is not a binomial random variable. There are 10 Bernoulli trials, but they are not independent.</li>
                             <li> Is a binomial random variable. The idea of "success" is flexible. The barrista "successfully" got my order wrong.</li>
                             <li> Is not a binomial random variable. The experiment is made up of independent Bernoulli trials, but there is not a fixed number. </li>
-                            <li> Is a binomial random variable (or at least is close), assuming I have don't get better at shooting as I go. </li>
+                            <li> Is a binomial random variable (or at least is close), assuming I have don't get better or worse at shooting as I go. </li>
                         </ol>
                     </p>
                     </div>
@@ -185,8 +185,8 @@
                             <li> What is the probability that there is at least one cracked egg in a carton of 12?</li>
                         </ol>
                     </p>
-                    <button onclick="showSolution('prob-2')"><b>Solution</b> (click to show)</button>
-                    <div id = "prob-2" style="display:none;">
+                    <button onclick="showSolution('prob2')"><b>Solution</b> (click to show)</button>
+                    <div id = "prob2" style="display:none;">
                         <p>We can set this up as a Binomial distribution problem by letting $Y$ be the number of eggs out of 12 that are cracked. In this case, the number of trials is the number of eggs $n$, and the probability of "success" is the probability 
                         that an egg is broken $p = 1/100$. (<b>Side Note:</b> We could just as easily have decided that $Y$ was the number of eggs that are not cracked, then $p$ would be the probability an egg is not broken $p = 99/100$.)</p>
                         <p><b>I.</b>The probability $Y=1$ is given by 
