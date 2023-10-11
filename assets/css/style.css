@@ -1111,9 +1111,9 @@ th,td{
 }
 
 .publication-list ion-icon{
-  color: var(--vegas-gold);
+  color: var(--orange-yellow-crayola);
   font-size: 24px;
-  margin: auto;
+  --ionicon-stroke-width: 35px;
 }
 .publication-list li > h3 { 
   color: var(--white-2);
@@ -1128,13 +1128,17 @@ th,td{
   font-weight: var(--fw-300);
 }
 .publication-list li > a {
-  margin: auto; 
   position: absolute;
   background: var(--border-gradient-onyx);
   width: 30px;
   height: 30px;
-  box-shadow: var(--shadow-4);  
   border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: var(--orange-yellow-crayola);
+  box-shadow: var(--shadow-1);
   z-index: 1;
   transform: translate(-45px, 10px);  
 }
