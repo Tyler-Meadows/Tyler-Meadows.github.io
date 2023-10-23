@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTHE 224: Applied Math for Civil Engineers</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="../../assets/images/pi_icon.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <main>
+
+        <!--  #SIDEBAR   -->
+        <aside class="sidebar" data-sidebar>
+    
+          <div class="sidebar-info">
+            <div class="info-content">
+              <h1 class="name" title="MTHE 224" >MTHE 224</h1>
+    
+              <p class="title">Applied Mathematics for Civil Engineers</p>
+            </div>
+    
+            <button class="info_more-btn" data-sidebar-btn>
+              <ion-icon name="chevron-down"></ion-icon>
+            </button>
+    
+          </div>
+    
+          <div class="sidebar-info_more">
+    
+            <div class="separator"></div>
+    
+            <ul class="contacts-list">
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="mail-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Email</p>
+    
+                  <a href="mailto:Tyler.meadows@queensu.ca" class="contact-link">tyler.meadows@queensu.ca </a>
+                </div>
+    
+              </li>
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="location-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Location</p>
+    
+                  <address>127 Jeffery Hall, Queen's University</address>
+                </div>
+               </li>
+               <li class = "contact-item"> 
+                <div class="icon-box">
+                  <ion-icon name = "calendar-outline"></ion-icon>
+                </div>
+                <div class = "contact-info">
+                  <p class = "contact-title">Lecture Times</p>
+                  <time>Mon: 11:30-12:30</time>
+                  <time>Tue: 13:30-14:30</time>
+                  <time>Thu: 12:30-13:30 </time>
+                </div>
+              </li>
+    
+            </ul>
+
+    
+        </aside>
+
+
+        <!-- Main Stuff -->
+        <div class="main-content">
+               <!-- #NAVBAR  -->
+               <nav class="navbar">
+    
+                <ul class="navbar-list">
+                    <li class ="navbar-item">
+                        <a href="../lectures/lecture12.html" class = "navbar-link">Previous</a>
+                    </li>
+        
+                  <li class="navbar-item active">
+                    <a href="../MTHE224.html?page=lectures" class = "navbar-link">Lectures</a>
+                  </li>
+        
+                  <li class="navbar-item">
+                    <a href="../lectures/lecture15.html" class="navbar-link">Next</a>
+                  </li>
+        
+                </ul>
+        
+              </nav>
+              <!-- Lecture Content--> 
+              
+            <article class="lecture active" data-page="lecture">
+                <header>
+                  <h2 class="h2 article-title">L'Hopital's Rule</h2>
+                </header>
+                <div class = "lecture">
+                <p>When we're doing some of these calculations with continuous probabilities, we will need to take a limit as part of the calculation. Sometimes, these limits show up as one of a few <u>indeterminate forms</u>. Some examples are 
+                    <ul class="lecture-list">
+                        <li> $\frac{\infty}{\infty}$ or $\frac{0}{0}$</li>
+                        <li> $0\cdot \infty$</li>
+                        <li> $0^{0}$ or $\infty^{0}$ or $1^\infty$ </li>
+                    </ul>
+                These are forms in which the it is not clear how to apply the rules of arithmetic. 
+                For example, we're told that any number times 0 is always 0, yet any number times infinity is always infinity. How then do we make sense of $0\cdot \infty?$. 
+                </p>
+                <p>These forms don't actually make sense on their own, but can be evaluated as the result of a limit. In fact, what ends up being important is the speed at which these limits are approached. This idea can be quantified in what is known as L'Hopital's rule:
+                </p>
+
+                <p> <b>L'Hopital's rule:</b> If $f$ and $g$ are differentiable functions and $\lim_{x\to a}f(x) = \lim_{x\to a}g(x) = 0$ or $\lim_{x\to a}f(x) = \lim_{x\to a}g(x) = \pm \infty$, then $$\lim_{x\to a}\frac{f(x)}{g(x)} = \lim_{x \to a }\frac{f'(x)}{g'(x)}.$$  </p>                
+                <p><b>Example:</b> We needed to know 
+                $$\lim_{x\to \infty} x e^{-\lambda x}$$ in order to calculate the expected value of the exponential distribution. In order to apply L'Hopital's rule, we need to first write this as a ratio of two functions.
+                We can use exponent rules to write $e^{-\lambda x}=\frac{1}{e^{-\lambda x}}$. Then since $\frac{d}{dx} x = 1$ and $\frac{d}{dx} e^{\lambda x} = \lambda e^{\lambda x}$ we have from L'Hopital's rule
+                $$ \lim_{x\to\infty} x e^{-\lambda x} = \lim_{x\to \infty} \frac{x}{e^{\lambda x}} = \lim_{x\to \infty}\frac{1}{\lambda e ^{\lambda x}}=0$$
+                 where this last term evaluates to 0 since $\lambda$ is a positive number. The idea here is that $e^{-\lambda x}$ converges to 0 as $x \to \infty$ <i>faster</i> than $x$ goes to infinity.  
+                </p>
+                
+                <p><b>Example:</b> Find $\displaystyle\lim_{x\to 2}\frac{x^2-4}{2x-4}.$ </p>
+                <p>We'll notice that we don't need to use L'Hopital's rule here. The numerator of this limit is factorable as $x^2-4 = (x-2)(x+2).$ Therefore we could just write 
+                $$\lim_{x\to 2} \frac{x^2-4}{2x-4}= \lim_{x\to2}\frac{(x-2)(x+2)}{2(x-2)} = \lim_{x\to 2}\frac{x+2}{2} = 2$$
+                However, since this limit is an indeterminate form, we <i>can</i> use L'Hopital's rule. By taking the derivitave of the numerator and denominator separately, we have 
+                $$\lim_{x\to2} \frac{x^2-4}{2x-4} = \lim_{x\to 2}\frac{2x}{2} = \lim_{x\to 2}x = 2.$$ 
+                </p>
+
+                <p><b>Example:</b> Find $\displaystyle\lim_{x\to\infty} x^{1/x}$</p> 
+
+                <p>This is in the indeterminate form $\infty^0$, which is not one of the forms that we can apply L'Hopital's rule to directly. So we need to convert this into a ratio of different functions. In order to get the $1/x$ out of the exponent, we will take a logarithm, and in order to make sure that we aren't changing the function at all, we will also take the exponential of the function. In other words, notice that 
+                    $$ x^{1/x} = e^{\ln(x^{1/x})}.$$
+                    Then we have 
+                    $$\lim_{x\to\infty} x^{1/x}= \lim_{x\to\infty}e^{\ln(x^{1/x})}.$$
+                    At first glance, this looks worse. However, we can use the fact that $e^{x}$ is a continuous function to bring the limit inside, and use our exponent rulest to simplify to 
+                    $$\lim_{x\to \infty} x^{1/x} =  e^{\lim_{x\to\infty}\frac{\ln(x)}{x}}.$$
+                    Therefore we can solve the original problem if we solve 
+                    $$L = \lim_{x\to\infty} \frac{\ln(x)}{x},$$ which is in the indeterminate form $\frac{\infty}{\infty}$. L'Hopital's rule can handle this. Applying L'Hopital's rule gives
+                    $$L = \lim_{x\to\infty} \frac{1/x}{1} = 0,$$
+                    and therefore 
+                    $$\lim_{x\to\infty} x^{1/x} = e^{L} = e^0 = 1.$$
+                </p>
+                
+                <p><b>Exercises:</b> 
+                <ol class="lecture-list">
+                    <li>Find each of the following limits
+                    <ol class="roman">
+                        <li>
+                            $$\lim_{x\to0}\frac{\sin(x)}{1-\cos(x)}$$
+                        </li>
+                        <li>
+                            $$\lim_{x\to 0}\frac{e^{x}-1}{x}$$
+                        </li>
+                        <li>
+                            $$\lim_{x\to \infty} x \ln\left(1+\frac{1}{x}\right)$$
+                        </li>
+                        <li>$$\lim_{x\to\infty} xe^{-x^2}$$</li>
+                        <li>$$\lim_{x\to0} \frac{e^x-1-x}{x^2}$$</li>
+                        <li>$$\lim_{x\to\infty} \left(1+\frac{1}{x}\right)^x$$ </li>
+                    </ol>
+                    </li>
+                </ol>    
+                </p>
+                </div> 
+                 
+              </article>
+
+        </div>
+    </main>
+
+    <!-- custom js link-->
+    <script src="../../assets/js/script.js"></script>
+
+    <!-- ionicon link -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- MathJaX-->
+    <script>
+        MathJax = {
+          tex: {
+           inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+</body>
+</html>

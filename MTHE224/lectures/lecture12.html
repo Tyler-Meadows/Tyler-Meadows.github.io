@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTHE 224: Applied Math for Civil Engineers</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="../../assets/images/pi_icon.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <main>
+
+        <!--  #SIDEBAR   -->
+        <aside class="sidebar" data-sidebar>
+    
+          <div class="sidebar-info">
+            <div class="info-content">
+              <h1 class="name" title="MTHE 224" >MTHE 224</h1>
+    
+              <p class="title">Applied Mathematics for Civil Engineers</p>
+            </div>
+    
+            <button class="info_more-btn" data-sidebar-btn>
+              <ion-icon name="chevron-down"></ion-icon>
+            </button>
+    
+          </div>
+    
+          <div class="sidebar-info_more">
+    
+            <div class="separator"></div>
+    
+            <ul class="contacts-list">
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="mail-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Email</p>
+    
+                  <a href="mailto:Tyler.meadows@queensu.ca" class="contact-link">tyler.meadows@queensu.ca </a>
+                </div>
+    
+              </li>
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="location-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Location</p>
+    
+                  <address>127 Jeffery Hall, Queen's University</address>
+                </div>
+               </li>
+               <li class = "contact-item"> 
+                <div class="icon-box">
+                  <ion-icon name = "calendar-outline"></ion-icon>
+                </div>
+                <div class = "contact-info">
+                  <p class = "contact-title">Lecture Times</p>
+                  <time>Mon: 11:30-12:30</time>
+                  <time>Tue: 13:30-14:30</time>
+                  <time>Thu: 12:30-13:30 </time>
+                </div>
+              </li>
+    
+            </ul>
+
+    
+        </aside>
+
+
+        <!-- Main Stuff -->
+        <div class="main-content">
+               <!-- #NAVBAR  -->
+               <nav class="navbar">
+    
+                <ul class="navbar-list">
+                    <li class ="navbar-item">
+                        <a href="../lectures/lecture11.html" class = "navbar-link">Previous</a>
+                    </li>
+        
+                  <li class="navbar-item active">
+                    <a href="../MTHE224.html?page=lectures" class = "navbar-link">Lectures</a>
+                  </li>
+        
+                  <li class="navbar-item">
+                    <a href="../lectures/lecture13.html" class="navbar-link">Next</a>
+                  </li>
+        
+                </ul>
+        
+              </nav>
+              <!-- Lecture Content--> 
+              
+            <article class="lecture active" data-page="lecture">
+                <header>
+                  <h2 class="h2 article-title">Continuous Random Variables</h2>
+                </header>
+                <div class = "lecture">
+                 <p> Recall that discrete random variables were defined as ones where the range is countable. We defined continuous random variables as random variables that are not discrete random variables, and therefore ones where the range is uncountable. Initially, it sounds like continuous random variables will be harder to deal with,
+                     but in reality we have an excellent tool for them that we didn't have for discrete random variables; calculus. 
+                </p>
+                <p><b>Definition:</b> The <u>cumulative distribution function</u> (cdf) for a continuous random variable $X$ is 
+                $$P(X \le x) = F(x) = \int_{-\infty}^x f(t)dt. $$
+                The function $f$ is called a <u>probability density function</u>, or pdf for short. 
+                </p>  
+                <p> Unlike discrete random variables, the probability density function doesn't have a direct relationship with the probability of an event.
+                    The only way to relate the pdf to probabilities is to integrate it over some interval. Any function can be a pdf for some distribution as long as it satisfies the following two properties:
+                    <ol>
+                        <li style="margin-left:20px">$f(t) \ge 0$ for all $t\in\mathbb{R}$, otherwise we could have negative probabilities.</li>
+                        <li style="margin-left:20px">$\int_{-\infty}^\infty f(t)dt = 1$, so that  $P(X\in \mathbb{R}) = 1$.  </li>
+                    </ol>
+                </p>
+                <p> Some properties of the cdf are fairly easy to derive. 
+                    <ol>
+                        <li style="margin-left:20px">$P(X>x) = 1-F(x),$ since $P(X>x)=1-P(X\le x) = 1-F(x)$. <!--Need a picture!--></li>
+                        <li style="margin-left:20px">$P(a < X \le b) = F(b) - F(a),$ since 
+                            \begin{align*} P(a < X \le b) &= P((X < a)\cap (X\le b))\\
+                                & = P(a < X ) + P(X \le b) - P((a < X)\cup (X\le b))
+                            \end{align*}
+                            This last term is just 1 since all points are either greater than a or less than b, so we have
+                            $$P(a < X \le b) = 1 - F(a) + F(b) - 1 = F(b) - F(a).$$
+                                                 </li>
+                        <li style="margin-left:20px">$P(X=a) = 0,$ since $P(X=a) = P(a\le X \le a) = F(a) - F(a) = 0$</li>
+                    </ol>
+                    We'll note that this last property means that we don't have to be careful about whether the inequalities we use are inclusive or not, since 
+                    \begin{align} 
+                    P(a \le X) &= P((a < X)\cup(X=a)) \\ 
+                    &= P(a < X) + P(X = a) \\ &= P( a < X).
+                    \end{align} 
+                </p>
+                It will be useful to talk about some commonly found continuous probability distributions, their properties, and some of their applications. 
+                <p><b> The Uniform Distribution:</b> This distribution is for random variables where the range is some bounded interval $[a,b]$, and the probability of a value is the same for every value in that interval. The probability density function is  
+                $$ f(x)  = \begin{cases} C & x \in [a,b]\\ 0 & x \notin [a,b], \end{cases}$$ for some value of $C$.</p>
+
+                <p> To determine the appropriate value of $C$, we look to the properties a probability density must satisfy. By property 2, we must have $\int_{-\infty}^{\infty}f(t)dt = 1$, and from the piecewise definition of $f,$ we can split the domain into three pieces, $(-\infty,a)$, $[a,b]$, and $(b,\infty)$. Then
+                    \begin{align} 
+                        1 &= \int_{-\infty}^\infty f(t) dt \\ 
+                        &= \int_{-\infty}^a f(t) dt + \int_{a}^b f(t) dt + \int_b^{\infty}f(t).
+                    \end{align} Since $f(t)  = 0$ for $t\notin [a,b]$, the first and last terms are both zero. Hence, 
+                    $$1 = \int_a^b C dt = Ct \vert_a^b = Cb-Ca,$$
+                    and solving for $C$ gives $C = \frac{1}{b-a}$.
+                </p>
+
+                <p> <b> The Exponential Distribution:</b> For random variables where the range is any non-negative real number, and the probability decreases as the value of $X$ gets larger. The probability density function is given by
+                $$ f(x) = \begin{cases} C e^{-x/\lambda} & x \ge 0\\ 0 & x < 0, \end{cases}$$
+                where $\lambda$ is a positive parameter. As an exercise, show that the appropriate constant is $C=\frac{1}{\lambda}$.
+                </p>
+                <p> The exponential distribution is often used to determine waiting times, in which case the parameter $\lambda$ is called the <u>mean waiting time.</u></p>
+
+                <p> <b>Example</b> The life expectancy of LED lights is 1000 hours, which can be thought of as an exponentially distributed random variable.
+                    <ol class="roman">
+                        <li>What is the probability that a lightbulb dies within its first 100 hours of use?</li>
+                        <li>What is the median lifetime of these lightbulbs?</li>
+                    </ol> 
+                 </p>
+                <p><b>Solution:</b> Let $X$ be the time at which a randomly selected lightbulb dies, then $X$ is exponentially distributed with $\lambda = 1000.$ The probability that it dies within the first 100 hours is 
+                    \begin{align} 
+                    P(X \le 100) &= F(100) \\ 
+                    & = \int_{-\infty}^{100} f(t)dt\\
+                    &=  \int_{-\infty}^0 f(t) dt + \int_0^{100}f(t)dt\\
+                    &= \int_{0}^{100}\frac{1}{1000} e^{-t/1000}dt \\ 
+                    & = -e^{-t/1000}\vert_{0}^{100}\\
+                    & = 1 - e^{-1/10}\\
+                    & \approx  0.095.
+                    \end{align}
+                </p>
+                <p> The median lifetime is the value of $x$ at which $F(x) = \frac{1}{2}.$ Therefore we need to find 
+                    \begin{align}
+                    F(x) &= \int_{-\infty}^x f(t)dt \\
+                    & = \int_0^x \frac{1}{1000}e^{-t/1000}dt \\ 
+                    &= -e^{-t/1000}\vert_0^x \\ 
+                    & = 1-e^{-x/1000}.
+                    \end{align}
+                Therefore, we can solve for the median by isolating $x$ in 
+                $$ 1-e^{-x/1000} = \frac{1}{2},$$
+                which leads to $x = 1000\ln(2).$
+                </p>
+
+                <p><b>Exercises:</b>
+                <ol class="lecture-list">
+                    <li> For each of the following, find a value for the constant $C$ so that the function is a pdf.
+                        <ol class="roman">
+                            <li> $f(x) = Ce^{-|x|}$ for all $x\in\mathbb{R}$, where $|x|$ is the absolute value of $x.$ </li>
+                            <li> $f(x) = Cx(1-x)$ if $x\in(0,1)$ and $f(x) = 0$ if $x\notin(0,1).$</li>
+                            <li> $f(x) = Cx\ln(x)$ if $x \in (0,1)$ and $f(x) = 0$ if $x\notin(0,1).$</li>
+                        </ol>
+                    </li>
+                    <li>
+                        Suppose that the average lifetime of a certain type of battery is 10 hours, but it is guaranteed to fail after 20 hours. The pdf can be described by 
+                        $$ f(t) = \begin{cases} C e^{-t/10} & t \in (0,20) \\ 0 & t \notin (0,20)\end{cases}.$$
+                        <ol class="roman">
+                            <li> Find the value of $C$ that makes $f$ a pdf.</li>
+                            <li> What is the probability that the battery lasts longer than 10 hours?</li>
+                        </ol>
+                    </li>
+                </ol>
+                </p>
+                </div> 
+                 
+              </article>
+
+        </div>
+    </main>
+
+    <!-- custom js link-->
+    <script src="../../assets/js/script.js"></script>
+
+    <!-- ionicon link -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- MathJaX-->
+    <script>
+        MathJax = {
+          tex: {
+           inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+</body>
+</html>

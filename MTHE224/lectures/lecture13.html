@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTHE 224: Applied Math for Civil Engineers</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="../../assets/images/pi_icon.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <main>
+
+        <!--  #SIDEBAR   -->
+        <aside class="sidebar" data-sidebar>
+    
+          <div class="sidebar-info">
+            <div class="info-content">
+              <h1 class="name" title="MTHE 224" >MTHE 224</h1>
+    
+              <p class="title">Applied Mathematics for Civil Engineers</p>
+            </div>
+    
+            <button class="info_more-btn" data-sidebar-btn>
+              <ion-icon name="chevron-down"></ion-icon>
+            </button>
+    
+          </div>
+    
+          <div class="sidebar-info_more">
+    
+            <div class="separator"></div>
+    
+            <ul class="contacts-list">
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="mail-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Email</p>
+    
+                  <a href="mailto:Tyler.meadows@queensu.ca" class="contact-link">tyler.meadows@queensu.ca </a>
+                </div>
+    
+              </li>
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="location-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Location</p>
+    
+                  <address>127 Jeffery Hall, Queen's University</address>
+                </div>
+               </li>
+               <li class = "contact-item"> 
+                <div class="icon-box">
+                  <ion-icon name = "calendar-outline"></ion-icon>
+                </div>
+                <div class = "contact-info">
+                  <p class = "contact-title">Lecture Times</p>
+                  <time>Mon: 11:30-12:30</time>
+                  <time>Tue: 13:30-14:30</time>
+                  <time>Thu: 12:30-13:30 </time>
+                </div>
+              </li>
+    
+            </ul>
+
+    
+        </aside>
+
+
+        <!-- Main Stuff -->
+        <div class="main-content">
+               <!-- #NAVBAR  -->
+               <nav class="navbar">
+    
+                <ul class="navbar-list">
+                    <li class ="navbar-item">
+                        <a href="../lectures/lecture12.html" class = "navbar-link">Previous</a>
+                    </li>
+        
+                  <li class="navbar-item active">
+                    <a href="../MTHE224.html?page=lectures" class = "navbar-link">Lectures</a>
+                  </li>
+        
+                  <li class="navbar-item">
+                    <a href="../lectures/lecture14.html" class="navbar-link">Next</a>
+                  </li>
+        
+                </ul>
+        
+              </nav>
+              <!-- Lecture Content--> 
+              
+            <article class="lecture active" data-page="lecture">
+                <header>
+                  <h2 class="h2 article-title">Moments of Continuous Random Variables</h2>
+                </header>
+                <div class = "lecture">
+                 <p><b>Definition:</b>  The expected value of a continuous random variable is $$\mathbb{E}(X) = \int_{-\infty}^\infty tf(t)dt. $$ The expected value can be thought of as the mean of the distribution, or also as the center of mass of the distribution.
+                     If you were to make a perfect graph of the pdf $f(t)$ out of wood, the expected value would be the point at which the pdf balances perfectly. 
+                </p>
+                <p><b>Definition:</b> The variance of a continuous random variable is $$\mathbb{V}(X) = \mathbb{E}(X^2)-\mathbb{E}(X)^2,$$ where $\mathbb{E}(X^n) = \int_{-\infty}^\infty t^n f(t) dt$ is the $n$th central moment for any $n\in \mathbb{N},$ similar to with discrete random variables. 
+                The variance is a positive number that describes how spread out the distribution is. If the variance is high, then values that are far apart are more probable. 
+                </p>
+                <p><b>Example:</b> Let $$f(t) = \begin{cases}\frac{3}{4a^3}(a^2-x^2) & x\in[-a,a]\\ 0 & x\notin[-a,a].\end{cases}$$ Find $\mathbb{E}(X)$ and $\mathbb{V}(X)$.</p>
+                <p><b>Solution:</b>
+                    \begin{align} \mathbb{E}(X) &= \int_{-1}^{1}xf(x)dx \\
+                 & = \frac{3}{4a^3}\int_{-a}^{a}x(1-x^2)dx\\
+                 & = \frac{3}{4a^3}\int_{-a}^{a}x-x^3 dx \\
+                 &= 0,
+                \end{align}
+                since this is the integral of an odd function over a symmetric interval.
+                \begin{align}
+                \mathbb{V}(X) &=  \mathbb{E}(X^2) - \mathbb{E}(X)^2\\
+                &= \frac{3}{4a^3}\int_{-a}^a x^2 (a^2-x^2)dx\\
+                &= \frac{3}{4a^3}\int_{-a}^a a^2x^2-x^4dx \\
+                &= \left.\frac{3}{4a^3}(\frac{a^2}{3}x^3 - \frac{1}{5}x^5)\right\vert_{-a}^a\\
+                &= \left. \frac{3}{4a^3}\left(\frac{5a^2x^3-3x^5}{15}\right)\right|_{-a}^a\\
+                &= \frac{a^2}{5}
+                \end{align}
+                Therefore as $a$ gets larger, so does the variance. This agrees with what we understand about the variance, since increasing $a$ effectively spreads out the distribution. 
+                </p>
+                <p><b>Example:</b> Recall that for the exponential distribution
+                $$f(x) = \begin{cases} \lambda e^{-\lambda x } & x \ge 0 \\  0 & x < 0 \end{cases}$$ for some $\lambda >0.$ As we said last class, $1/\lambda$ is the "mean waiting time". If this interpretation is correct, we should find that $1/\lambda$ is the expected value for this distribution.
+                \begin{align} 
+                \mathbb{E}(X) & = \int_0^\infty xf(x)dx\\
+                &=\int_0^\infty \lambda x e^{-\lambda x}\\
+                &= -xe^{-\lambda x }\bigg\vert_0^\infty +\int_0^\infty e^{-\lambda x}dx\\
+                &= -xe^{-\lambda x}-\frac{1}{\lambda}e^{-\lambda x} \bigg\vert_0^\infty\\
+                &= \lim_{x\to\infty}\left( -x e^{-\lambda x} -\frac{1}{\lambda}e^{-\lambda x} \right)+ 0 +\frac{1}{\lambda}\\
+                &= \frac{1}{\lambda}.
+                \end{align}
+                Where we used L'Hopital's rule to evaluate the limit in the 2nd last line. 
+                </p>
+                <p>Since $\lambda$ controls the rate of decay of the exponential distribution, it seems sensible that if we decrease $\lambda$, the pdf will decay slower, and therefore the variance should increase. Calculating the variance gives 
+                    \begin{align} 
+                        \mathbb{V}(X) &= \mathbb{E}(X^2) -\mathbb{E}(X)^2\\
+                        & = \int_0^\infty x^2 \lambda e^{-\lambda x}dx - \frac{1}{\lambda^2}\\
+                        & = -x^2e^{-\lambda x}\bigg \vert_0^\infty + \int_0^\infty 2x e^{-\lambda x}dx - \frac{1}{\lambda^2} \\
+                        & = 0 + \frac{2}{\lambda}\int_0^\infty \lambda x e^{-\lambda x}dx - \frac{1}{\lambda ^2}\\
+                        & = \frac{2}{\lambda}\mathbb{E}(X) - \frac{1}{\lambda^2} \\
+                        & = \frac{1}{\lambda^2}. 
+                    \end{align}
+                </p>
+
+                <p><b>Exercises:</b> 
+                <ol class="lecture-list">
+                    <li>For each of the following distributions, find the expected value and variance.
+                    <ol class="roman">
+                        <li> $$f(x) = \begin{cases} \frac{1}{a} & x \in[0,a]\\ 0 & x \notin [0,a].\end{cases}$$</li>
+                        <li> $$f(x) = \begin{cases} \tfrac{1}{2\pi}(1+\cos( x)) & x \in [-\pi,\pi]\\ 0 & x\notin [-\pi,\pi]\end{cases} $$ </li>
+                        <li> $$f(x) = \frac{\lambda}{2}e^{-\lambda|x|}$$</li>
+                    </ol>
+                    </li>
+                </ol>    
+                 
+                </p>
+                </div> 
+                 
+              </article>
+
+        </div>
+    </main>
+
+    <!-- custom js link-->
+    <script src="../../assets/js/script.js"></script>
+
+    <!-- ionicon link -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- MathJaX-->
+    <script>
+        MathJax = {
+          tex: {
+           inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+</body>
+</html>
