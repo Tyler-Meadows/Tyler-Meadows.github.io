@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTHE 224: Applied Math for Civil Engineers</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="../../assets/images/pi_icon.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <main>
+
+        <!--  #SIDEBAR   -->
+        <aside class="sidebar" data-sidebar>
+    
+          <div class="sidebar-info">
+            <div class="info-content">
+              <h1 class="name" title="MTHE 224" >MTHE 224</h1>
+    
+              <p class="title">Applied Mathematics for Civil Engineers</p>
+            </div>
+    
+            <button class="info_more-btn" data-sidebar-btn>
+              <ion-icon name="chevron-down"></ion-icon>
+            </button>
+    
+          </div>
+    
+          <div class="sidebar-info_more">
+    
+            <div class="separator"></div>
+    
+            <ul class="contacts-list">
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="mail-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Email</p>
+    
+                  <a href="mailto:Tyler.meadows@queensu.ca" class="contact-link">tyler.meadows@queensu.ca </a>
+                </div>
+    
+              </li>
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="location-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Location</p>
+    
+                  <address>127 Jeffery Hall, Queen's University</address>
+                </div>
+               </li>
+               <li class = "contact-item"> 
+                <div class="icon-box">
+                  <ion-icon name = "calendar-outline"></ion-icon>
+                </div>
+                <div class = "contact-info">
+                  <p class = "contact-title">Lecture Times</p>
+                  <time>Mon: 11:30-12:30</time>
+                  <time>Tue: 13:30-14:30</time>
+                  <time>Thu: 12:30-13:30 </time>
+                </div>
+              </li>
+    
+            </ul>
+
+    
+        </aside>
+
+
+        <!-- Main Stuff -->
+        <div class="main-content">
+               <!-- #NAVBAR  -->
+               <nav class="navbar">
+    
+                <ul class="navbar-list">
+                  <li class="navbar-itme">
+                    <a href="ODEs05.html" class= "navbar-link">Previous</a>
+                  </li>
+                  <li class="navbar-item active">
+                    <a href="../MTHE224.html?page=lectures" class = "navbar-link">Lectures</a>
+                  </li>
+        
+                  <li class="navbar-item">
+                    <a href="ODEs07.html" class="navbar-link">Next</a>
+                  </li>
+        
+                </ul>
+        
+              </nav>
+              <!-- Lecture Content--> 
+              
+            <article class="lecture active" data-page="lecture">
+                <header>
+                  <h2 class="h2 article-title">Higher Order Linear ODEs</h2>
+                </header>
+                <div class = "lecture">
+                <p>Recall that a differential equation can always be written as $$L[y] = f(t)$$ where $L$ is a differential operator and $f$ is some function of $t$. Differential equations are linear if $L$ is a linear differential operator. That is, $L$ satisfies 
+                    <ol class = "roman">
+                        <li>$L[ay] = a L[y]$ for any constant $a\in\mathbb{R}$</li>
+                        <li>$L[y_1+y_2] = L[y_1] +L[y_2]$ for any two functions $y_1$ and $y_2$</li>
+                    </ol>
+                In general, this means thatany $n$th order linear differential equation can be written in the form 
+                $$ c_n(t)\frac{d^ny}{dt^n}+...+c_1(t)\frac{dy}{dt}+c_0(t)y = f(t).$$
+                The functions $c_n(t)$ are called the coefficients of the linear operator. We will spend most of our time looking at differential equations where the coefficients are constants.</p>
+                <p> <b>Definition:</b> An ODE is called homogeneous if $f(t)=0$ and inhomogeneous if $f(t) \ne 0.$</p>
+                <p>We'll start by looking for solutions to homogeneous differential equations, and show that they can be used to help find solutions to non-homogenous equations.</p>
+                <p> <b>Example:</b> Consider the second order homogeneous differential equation $$\frac{d^2y}{dt^2} - y = 0.$$ We can rewrite this as 
+                $$\frac{d^2y}{dt^2}=y,$$
+                and so solving this equation is the same as asking to find a function that is its own second derivative.
+                <div style="display:none;"> Clearly $y_1 = e^t$ works as a solution. $y_2 = e^{-t}$ also works, as does $2e^{t}+3e^{-t}.$ In fact any function of the form $y = C_1 e^{t}+C_2e^{-t}$ is also a solution. In the language we have been using, this is a two-parameter family of solutions. </div></p>
+                <p><b>The linear superposition principle:</b> If $L$ is a linear differential operator, and $y_1$ and $y_2$ are both solutions to $L[y]=0$, then any linear combination of $y_1$ and $y_2$ are also solutions.</p>
+                <p> As a consequence of this, $y_0 = 0$ is always a solution to homogeneous linear differential equations. We call this the <u>trivial solution.</u> We are often only interested in other solutions, so we will be looking for <i>nontrivial solutions.</i></p>
+                <p><b>Practice:</b> Find all of the solutions to $$\frac{d^2y}{dt^2} +y = 0$$ </p>
+                <p><b>Theorem:</b> Every linear $n$th order differential equation with constant coefficients has at least one solution of the form $y = e^{\lambda t}$ for some $\lambda \in \mathbb{C}.$
+                We can see this by writing 
+                \begin{align} 
+                    L[e^{\lambda t}] &= c_n \frac{d^n e^{\lambda t}}{dt^n} +...+ c_1\frac{d e^{\lambda t}}{dt}+c_0 e^{\lambda t}\\
+                                & =c_n \lambda ^n e^{\lambda t} + ... + c_1 \lambda e^{\lambda t} + c_0 e^{\lambda t}\\
+                                &=e^{\lambda t} ( c_n \lambda ^n + ... + c_1 \lambda + c_0)
+                \end{align}
+                This is a polynomial in $\lambda$, and by the fundamental theorem of algebra, every non-constant polynomial has at least one complex root.</p>
+                <p><b>Example:</b> Find a non-trivial solution to the differential equation 
+                $$ \frac{d^2 y}{dt^2} + 5 \frac{dy}{dt}+ 6 y = 0.$$</p>
+                <p><b>Solution:</b> By the previous theorem, we know there is at least one solution of the form $y = e^{\lambda t}.$ Subbing this in gives 
+                \begin{align}
+                 \frac{d^2}{dt^2}e^{\lambda t} + 5 \frac{d}{dt} e^{\lambda t} + 6 e^{\lambda t} &= 0\\
+                  e^{\lambda t} ( \lambda^2 + 5 \lambda + 6) &= 0,
+                \end{align}
+            which is zero if $\lambda = -2$ or if $\lambda = -3.$ Therefore one solution to the problem is $y_1(t) = e^{-2t}$ and another solution is $e^{-3t}.$ We can combine these two solutions to get the two-parameter family of solutions 
+         $$y = C_1 e^{-2t}+C_2 e^{-3t}.$$</p>
+         <h2>Practice Problems</h2>
+         <p> Find at least one non-trivial solution to each of the following differential equations</p>
+            <ol class="lecture-list">
+                <li>$$ 4\frac{d^2y}{dt^2} +2\frac{dy}{dt} -6 = 0$$</li>
+                <li>$$ 9\frac{d^2y}{dt^2} - 25 y = 0$$ </li>
+                <li>$$ \frac{d^2y}{dt^2}+4\frac{dy}{dt}+4 y = 0$$</li>
+                <li>$$ \frac{d^2y}{dt^2}+7\frac{dy}{dt} = 0$$</li>
+            </ol>
+            </div>
+                </article>
+
+        </div>
+    </main>
+
+    <!-- custom js link-->
+    <script src="../../assets/js/script.js"></script>
+
+    <!-- ionicon link -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- MathJaX-->
+    <script>
+        MathJax = {
+          tex: {
+           inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTHE 224: Applied Math for Civil Engineers</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="../../assets/images/pi_icon.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <main>
+
+        <!--  #SIDEBAR   -->
+        <aside class="sidebar" data-sidebar>
+    
+          <div class="sidebar-info">
+            <div class="info-content">
+              <h1 class="name" title="MTHE 224" >MTHE 224</h1>
+    
+              <p class="title">Applied Mathematics for Civil Engineers</p>
+            </div>
+    
+            <button class="info_more-btn" data-sidebar-btn>
+              <ion-icon name="chevron-down"></ion-icon>
+            </button>
+    
+          </div>
+    
+          <div class="sidebar-info_more">
+    
+            <div class="separator"></div>
+    
+            <ul class="contacts-list">
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="mail-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Email</p>
+    
+                  <a href="mailto:Tyler.meadows@queensu.ca" class="contact-link">tyler.meadows@queensu.ca </a>
+                </div>
+    
+              </li>
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="location-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Location</p>
+    
+                  <address>127 Jeffery Hall, Queen's University</address>
+                </div>
+               </li>
+               <li class = "contact-item"> 
+                <div class="icon-box">
+                  <ion-icon name = "calendar-outline"></ion-icon>
+                </div>
+                <div class = "contact-info">
+                  <p class = "contact-title">Lecture Times</p>
+                  <time>Mon: 11:30-12:30</time>
+                  <time>Tue: 13:30-14:30</time>
+                  <time>Thu: 12:30-13:30 </time>
+                </div>
+              </li>
+    
+            </ul>
+
+    
+        </aside>
+
+
+        <!-- Main Stuff -->
+        <div class="main-content">
+               <!-- #NAVBAR  -->
+               <nav class="navbar">
+    
+                <ul class="navbar-list">
+                    <li class ="navbar-item">
+                        <a href="../lectures/lecture15.html" class = "navbar-link">Previous</a>
+                    </li>
+        
+                  <li class="navbar-item active">
+                    <a href="../MTHE224.html?page=lectures" class = "navbar-link">Lectures</a>
+                  </li>
+        
+                  <li class="navbar-item">
+                    <a href="#" class="navbar-link">Next</a>
+                  </li>
+        
+                </ul>
+        
+              </nav>
+              <!-- Lecture Content--> 
+              
+            <article class="lecture active" data-page="lecture">
+                <header>
+                  <h2 class="h2 article-title">Hypothesis Testing: Continuous Random Variables</h2>
+                </header>
+                <div class = "lecture">
+                <p>Hypothesis testing with continuous random variables is slightly different than with discrete random variables. Recall that if $X$ is a continuous random variable, then for each value of $x$ in the range of $X$ the probability that $X$ takes on that exact value is 0, $P(X=x)=0$. So instead of using the significance to see if the probability of the data are low enough, we use the significance to define a <u> cutoff value</u> $X^*$, and a <u>rejection region</u>, which is a region of values of $X$ for which we will reject the null hypothesis.</p>
+                <p>In a lot of cases, we will be considering the mean of values sampled from the distribution of $X$. Instead of determining what the distribution of the mean of values is exactly, we will often use an approximation known as the central limit theorem.</p>
+                <p><b>The Central Limit Theorem:</b> Suppose $X$ is a random variable. If $n$ is large enough, then the random variable defined by $$Y = \frac{1}{n}\sum_{j=1}^n X$$ is approximately normally distributed with $\mu = \mathbb{E}(X)$ and $\sigma^2 = \frac{\mathbb{V}(X)}{n}.$</p>
+                <p>What this means is that when we take the mean of the data, the mean is a normally distributed random variable. Typically, this approximation is good for $n>30$, so as long as we have taken more than 30 samples, the mean is normally distributed. As we take more samples, the variance of the resulting normal distribution decreases, and we are less likely to get a result far away from the mean of the underlying distribution $X$.</p>
+                <p><b>Example:</b> An environmental monitoring group has been taking samples from Lake Simcoe in southern Ontario to test for lead. The water is considered unsafe if there is more than 3$\mu$g/L of lead. Suppose they have taken 25 samples of water from the lake, and that the lead concentrations in each sample are exponentially distributed. Set up a hypothesis test to determine if the average lead concentration is too high.</p>
+                <p><b>Solution:</b> Let $X_j$ be the concentration of lead in the $j$th sample. We need to deterine the cut-off value of our test-statistic. Then the average concentration is $Y = \frac{1}{25}\sum_{j}^{25}X$. By the central limit theorem $Y$ is approximately normally distributed with $\mu = \frac{1}{\lambda}$ and $\sigma^2 = \frac{1}{25 \lambda^2}.$ Since $Y$ is so closely related to $X$, we can use it to make conclusions about $X$. </p>
+                <ol class = "roman">
+                    <li> Recall that the null hypothesis is what we are assuming is true about the distribution $X$. We will take the null hypothesis to be that $X$ is exponentially distributed with $\mathbb{E}(X) \le 3. $ In other words, that the water is safe. Since $X$ is assumed to be exponentially distributed, this implies that $\frac{1}{\lambda} \le 3$, or $ \lambda \ge 1/3.$ </li>
+                    <li> The alternative hypothesis is the complement of the null hypothesis. Therefore, this would be that the water is not safe. In terms of $X,$ this can be expressed as $\mathbb{E}(X)> 3$ or $\lambda < 1/3.$ </li>
+                    <li> Let's set the traditional significance level of $\alpha = 0.05$. As was stated last lecture, this is the "standard" value used.</li>
+                    <li> <p> We need to use $\alpha$ to define a cut-off value of $Y$. I.e. we need to find a value $Y^*$ so that $P(Y\ge Y^*) =\alpha.$ That way, if the data come out larger than $Y^*$, we can determine that it was too unlikely
+                        for them to have occured randomly, and that our assumptions about $\lambda$ must be incorrect. We can find this cutoff value using the inverse of the normal cdf, which can be computed numerically from a calculator, from a programming language like python, or by referring to a z-score table if technology scares you. Any one of these procedures will help us find $Y^* = 3.987$.</li>
+                    <li> Using the cut-off value found in part IV, we determine that we will reject $H_0$ if $Y > 3.987.$ This would mean that we conclude that the water is unsafe.</li>
+                </ol>
+                <p> As we saw before, just because the samples collected come up to a specific value, doesn't mean that we are making the correct conclusion. We need to determine the probability of type 1 and type 2 errors based off of our experimental design.</p>
+                <p> Type 1 error: The probability we reject $H_0$ even though $H_0$ is true is $P(Y \ge Y^* | H_0) = \alpha = 0.05$. As we can see, the probability of a type 1 error is built into the problem construction as just the significance level. </p>
+                <p> Type 2 error: Suppose that actual concentration of lead in the water is $4\mu$g/L.  Then the alternative hypothesis can be expressed as $Y$ is normally distributed with $\mu = 4$ and $\sigma^2 = \frac{16}{25}$. Thus the probability of not rejecting $H_0$ is $P( Y < Y^* | H_A) = P( Y < 3.987~| H_A) = 0.49,$ which is very high.</p>
+                <h2>Exercises</h2>
+                <p> The probability of a type 2 error is very high. What could you change about the analysis or experimental setup to decrease the probability of a type 2 error? </p>
+                </div> 
+
+                 
+              </article>
+
+        </div>
+    </main>
+
+    <!-- custom js link-->
+    <script src="../../assets/js/script.js"></script>
+
+    <!-- ionicon link -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- MathJaX-->
+    <script>
+        MathJax = {
+          tex: {
+           inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+</body>
+</html>

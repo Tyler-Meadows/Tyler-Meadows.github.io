@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTHE 224: Applied Math for Civil Engineers</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="../../assets/images/pi_icon.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <main>
+
+        <!--  #SIDEBAR   -->
+        <aside class="sidebar" data-sidebar>
+    
+          <div class="sidebar-info">
+            <div class="info-content">
+              <h1 class="name" title="MTHE 224" >MTHE 224</h1>
+    
+              <p class="title">Applied Mathematics for Civil Engineers</p>
+            </div>
+    
+            <button class="info_more-btn" data-sidebar-btn>
+              <ion-icon name="chevron-down"></ion-icon>
+            </button>
+    
+          </div>
+    
+          <div class="sidebar-info_more">
+    
+            <div class="separator"></div>
+    
+            <ul class="contacts-list">
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="mail-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Email</p>
+    
+                  <a href="mailto:Tyler.meadows@queensu.ca" class="contact-link">tyler.meadows@queensu.ca </a>
+                </div>
+    
+              </li>
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="location-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Location</p>
+    
+                  <address>127 Jeffery Hall, Queen's University</address>
+                </div>
+               </li>
+               <li class = "contact-item"> 
+                <div class="icon-box">
+                  <ion-icon name = "calendar-outline"></ion-icon>
+                </div>
+                <div class = "contact-info">
+                  <p class = "contact-title">Lecture Times</p>
+                  <time>Mon: 11:30-12:30</time>
+                  <time>Tue: 13:30-14:30</time>
+                  <time>Thu: 12:30-13:30 </time>
+                </div>
+              </li>
+    
+            </ul>
+
+    
+        </aside>
+
+
+        <!-- Main Stuff -->
+        <div class="main-content">
+               <!-- #NAVBAR  -->
+               <nav class="navbar">
+    
+                <ul class="navbar-list">
+                  <li class="navbar-itme">
+                    <a href="ODEs01.html" class= "navbar-link">Previous</a>
+                  </li>
+                  <li class="navbar-item active">
+                    <a href="../MTHE224.html?page=lectures" class = "navbar-link">Lectures</a>
+                  </li>
+        
+                  <li class="navbar-item">
+                    <a href="ODEs03.html" class="navbar-link">Next</a>
+                  </li>
+        
+                </ul>
+        
+              </nav>
+              <!-- Lecture Content--> 
+              
+            <article class="lecture active" data-page="lecture">
+                <header>
+                  <h2 class="h2 article-title">Linear Differential Equations</h2>
+                </header>
+                <div class = "lecture">
+                <p>All of the differential equatons we will see in this course can be written in the form 
+                    $$ N[y] = f(t),$$
+                where $N$ is a <u>differential operator.</u> A differential operator is much like a function, except instead of inputting
+                a number and getting another number, we input a function and get another function.
+                </p>
+                <p><b>Example:</b> The derivative operator $D[y] = \frac{d}{dt}y$ is the simplest differential operator. It simply takes a function $y$ and returns the derivative of $y$. For example if $y = t^2$, then $D[y] = 2t.$
+                </p>
+                <p><b>Definition:</b> A differential operator $L$ is <u>linear</u> if for any differentiable functions $y(t)$ and $z(t)$ and any $a\in\mathbb{R}$ we have 
+                <ol class="roman">
+                    <li> $L[a\cdot y] = a L[y]$</li>
+                    <li> $L[y+z] = L[y] + L[z]$</li>
+                </ol>
+                </p>
+                 <p> <b>Example:</b> The derivative operator is linear since 
+                $$D[a y] = \frac{d}{dt} (a y) = a \frac{d}{dt} y = a D[y]$$
+                and
+                $$D[y + z] = \frac{d}{dt}(y+z) = \frac{d}{dt}y +\frac{d}{dt}z = D[y]+D[z]$$
+                </p>
+                <p>To show that a differential operator is not linear, we only need to find an example function or constant for which it does not satisfy the definition. The differential operator $$N[y] = \sqrt{y^2+\left(\frac{d}{dt}y\right)^2}$$ is not linear. Choosing $y = t$ and $z = -t$ gives 
+                    $$N[y+z] = N[t-t] = N[0] = 0$$ 
+                    but $$N[y] + N[z] = \sqrt{t^2 + 1} + \sqrt{(-t)^2+1} = 2\sqrt{t^2+1} \ne 0$$</p>
+                    
+                <h2>First Order Linear ODEs</h2>
+                <p> Any first order linear differential equation can be written as $$L[y] = f(t)$$ where $L[y] = \frac{dy}{dt}+q(t)y$ for some function $q(t)$. In particular, if $q(t) = 0$, then $L$ is just the derivative operator. In this case, we can 
+                    find the solution $y(t)$ by just integrating both sides of the equation with respect to $t$.                   
+                </p>
+                <p><b>Example:</b> Find the solution to the initial value problem
+                \begin{align}
+                    \frac{d}{dt}y &= \ln(t), && y(1) = 1.
+                \end{align}
+                </p>
+                <p><b>Solution:</b> Integrating both sides gives 
+                \begin{align}
+                    \int \frac{dy}{dt} dt &= \int \ln(t) dt. && \text{by parts:}~~ u = \ln(t),~~v' = 1\\
+                    \int dy &= t \ln (t) +\int \frac{1}{t}t dt\\
+                    y + C_1 &= t\ln(t)+t + C_2 
+                \end{align}
+                We get arbitrary constants on both sides of the equatio from the integration. However, we can introduce a new constant $C= C_2-C_1,$ in order to write the general solution as 
+                $$ y(t) = t\ln(t)+t + C.$$
+                This is a one-parameter family of solutions. We need to find the <u>particular solution</u> that satisfies the initial condition $y(1)=1$
+                $$ 1 = y(1) = (1)\ln(1)+1 + C.$$
+                Solving for $C$ gives $C = 0.$ Therefore the solution to the initial value problem is 
+                $$y(t) = t\ln(t)+t$$
+                </p>
+
+                <p>If $q(t)$ is not the zero function, we can use a similar strategy to write the equation in a way that we can integrate. The idea is to find a function $\mu(t)$ that we can multiply by both sides so that we can integrate directly. Multiplying by $\mu(t)$ gives
+                    $$\mu(t) \frac{dy}{dt} + \mu(t)q(t)y = \mu(t)f(t).$$
+                If we choose $\mu$ so that $\frac{d}{dt}\mu(t) = \mu(t)p(t)$, then the left hand side of this equation becomes 
+                $$ \mu(t) \frac{d}{dt}y(t) + y(t) \frac{d}{dt}\mu(t) = \frac{d}{dt} (\mu(t)y(t))$$
+                by the product rule. Then the ordinary differential equation becomes 
+                $$ \frac{d}{dt}(\mu(t) y(t)) = f(t),$$
+                which we can solve by integrating both sides. The function $\mu(t)$ is called an <u>integrating factor,</u> and can be found using the formula 
+                $$ \mu(t) = e^{\int q(t) dt}.$$
+                </p>
+                <p><b>Example:</b> Find a one-parameter family of solutions to $$\frac{dy}{dt}+\frac{1}{t}y = \frac{\ln(t)}{t^2}$$ for $t$ in $(0,\infty).$</p>
+                <p><b>Solution:</b> An integrating factor is $\mu(t) = e^{\int 1/t dt} = e^{\ln(t)} = t.$ Then multiplying the ode through by $\mu(t) = t$ we get 
+                $$t \frac{dy}{dt} + y = \frac{\ln(t)}{t}.$$
+                By design the right hand side satisfies 
+                $$\frac{d}{dt}(ty) = \frac{\ln(t)}{t}$$
+                integrating gives 
+                \begin{align}
+                    \int \frac{d}{dt}(ty)dt &= \int \frac{\ln(t)}{t} dt && \text{by substitution:}~~u = \ln(t)\\
+                    ty &=  \int u du && \hspace{1.25in}  du = \frac{1}{t}dt\\
+                    y &= \frac{(\ln(t))^2}{2t}+ \frac{C}{t}.
+                \end{align}
+                </p>
+                <h2>Exercises</h2>
+                <ul class="lecture-list">
+                    <li>Consider the differential operator $$L[y]  = t^2\frac{d^2y}{dt^2}+t\frac{dy}{dt} + y.$$
+                        <ol class="roman">
+                            <li> Show that $L$ is linear.</li>
+                            <li> Find $L[t^{-1}]$</li>
+                            <li> Find $L[\ln(t)]$</li>
+                            <li> Find $L[\cos(\ln(t))]$</li>
+                        </ol>  </li>
+                        <li>For each of the following odes, find a one parameter family of solutions.
+                            <ol class="roman">
+                                <li>$\frac{dy}{dt} +\ln(t)y = 0$ for $t \in (0,\infty).$</li>
+                                <li>$t^2\frac{dy}{dt}+ty = t$ for $t\in (0,\infty).$</li>
+                                <li>$\frac{du}{dx} +2u = 1$ for $x\in(-\infty,\infty).$</li>
+                            </ol>
+                        </li>
+                </ul>
+                </article>
+
+        </div>
+    </main>
+
+    <!-- custom js link-->
+    <script src="../../assets/js/script.js"></script>
+
+    <!-- ionicon link -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- MathJaX-->
+    <script>
+        MathJax = {
+          tex: {
+           inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+</body>
+</html>

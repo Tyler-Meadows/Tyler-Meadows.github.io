@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTHE 224: Applied Math for Civil Engineers</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="../../assets/images/pi_icon.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <main>
+
+        <!--  #SIDEBAR   -->
+        <aside class="sidebar" data-sidebar>
+    
+          <div class="sidebar-info">
+            <div class="info-content">
+              <h1 class="name" title="MTHE 224" >MTHE 224</h1>
+    
+              <p class="title">Applied Mathematics for Civil Engineers</p>
+            </div>
+    
+            <button class="info_more-btn" data-sidebar-btn>
+              <ion-icon name="chevron-down"></ion-icon>
+            </button>
+    
+          </div>
+    
+          <div class="sidebar-info_more">
+    
+            <div class="separator"></div>
+    
+            <ul class="contacts-list">
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="mail-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Email</p>
+    
+                  <a href="mailto:Tyler.meadows@queensu.ca" class="contact-link">tyler.meadows@queensu.ca </a>
+                </div>
+    
+              </li>
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="location-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Location</p>
+    
+                  <address>127 Jeffery Hall, Queen's University</address>
+                </div>
+               </li>
+               <li class = "contact-item"> 
+                <div class="icon-box">
+                  <ion-icon name = "calendar-outline"></ion-icon>
+                </div>
+                <div class = "contact-info">
+                  <p class = "contact-title">Lecture Times</p>
+                  <time>Mon: 11:30-12:30</time>
+                  <time>Tue: 13:30-14:30</time>
+                  <time>Thu: 12:30-13:30 </time>
+                </div>
+              </li>
+    
+            </ul>
+
+    
+        </aside>
+
+
+        <!-- Main Stuff -->
+        <div class="main-content">
+               <!-- #NAVBAR  -->
+               <nav class="navbar">
+    
+                <ul class="navbar-list">
+                  <li class="navbar-itme">
+                    <a href="ODEs02.html" class= "navbar-link">Previous</a>
+                  </li>
+                  <li class="navbar-item active">
+                    <a href="../MTHE224.html?page=lectures" class = "navbar-link">Lectures</a>
+                  </li>
+        
+                  <li class="navbar-item">
+                    <a href="ODEs04.html" class="navbar-link">Next</a>
+                  </li>
+        
+                </ul>
+        
+              </nav>
+              <!-- Lecture Content--> 
+              
+            <article class="lecture active" data-page="lecture">
+                <header>
+                  <h2 class="h2 article-title">Separable Differential Equations</h2>
+                </header>
+                <div class = "lecture">
+                    <p>So far we have seen how to solve first order differential equations when they are linear. If the equation is not directly integrable, we can multiply both sides by an integrating factor in order to write 
+                    the equation in a form that can be directly integrated. </p>
+
+                    <p>Non-linear equations are more complicated. In fact, not all nonlinear equations have an analytical solution. By this I mean that it is not always possible to find an expression for the state variable $y$ in terms of the independent variable $t$. This doesn't mean a solution doesn't exist. There is often still a solution to the differential equation, we just aren't able to find it. 
+                        For example, the equation $$\frac{dy}{dt} + \sin(y) = \sin(t)$$ doesn't have a solution that we can express interms of elementary functions. However, we can still find an numerical approximation for solutions, which will be the topic of this week's lab. 
+                    </p>
+
+                    <p> There are a few categories of first order differential equations that we <i>can</i> solve. One example of these equations are separable differential equations.</p>
+                    <p><b>Definition:</b> A first order differential equation for $y(t)$ is separable if it can be written in the form $$\frac{dy}{dt} = f(t)g(y)$$ for some function $f(t)$ and $g(y)$. </p>
+                    <p><b>Example:</b>  The differential equation $$\frac{dy}{dt} = \frac{\tan(t)}{y}$$ is separable with $f(t) = \tan(t)$ and $g(y) = 1/y.$</p>
+                    <p><b>Practice:</b> Which of the following differential equations are separable?
+                    <ol class="roman">
+                        <li>$$\frac{dy}{dt} +ty= t$$ </li>
+                        <li>$$\frac{dy}{dt} = 1 + \frac{y^2-t}{t}$$</li>
+                        <li>$$\frac{dy}{dt} = y(1-y)$$</li>
+                        <li>$$\frac{dy}{dt} = e^{t^2}+y^2$$</li>
+                    </ol>
+                    </p>
+                    <p> As long as $g(y) \ne 0$, we can solve separable equations by rewriting them as 
+                        $$ \frac{1}{g(y)}\frac{dy}{dt} = f(t)$$
+                        and integrating with respect to $t$. By making the substitution $u = y,~~du = \frac{dy}{dt}$, we get 
+                        $$ \int \frac{1}{g(u)}du = \int f(t) dt.$$
+                        As long as we are able to evaluate both integrals, we can find a family of solutions.
+                    </p>
+                    <p><b>Example:</b> Find a solution to the initial value problem: \begin{align}\frac{dy}{dt} &= \frac{\tan{t}}{y}, && y(0) = 1\end{align}</p>
+                    <p><b>Solution:</b> This is a separable equation with $f(t) = \tan{t}$ and $g(y) = 1/y.$ Therefore, 
+                    \begin{align} 
+                        y \frac{dy}{dt} &= \tan(t)\\
+                        \int y \frac{dy}{dt} dt & = \int \frac{\sin(t)}{\cos(t)}dt && \text{let}~u = \cos{t},~~du=-\sin(t)dt\\
+                        \int y dy &= \int \frac{-1}{u}du\\
+                        \frac{1}{2}y^2 &= -\ln(u)+C && \text{sub } u  = \cos{t}~\text{back in}\\
+                        \frac{1}{2}y^2 &= -\ln(\cos{t})+C\\
+                        y(t) &= \sqrt{2C-2\ln(\cos{t})},
+                    \end{align}
+                    Which is defined and differentiable for $t$ in the interval $(-\pi/2,\pi/2)$</p>
+                    <p> <b>Example:</b> Find a one parameter family of solutions to $$\frac{dy}{dt} = y(4-y),$$
+                    </p>
+                    <p>This is a separable equation with $f(t) = 1$ and $g(y) = y(4-y).$ By separating, and integrating we get 
+                        $$ \int \frac{1}{y(4-y)} \frac{dy}{dt} dt = \int 1 dt.$$ 
+                    Canceling the $dt$s on the left hand side, and evaluating the right hand side leaves us with 
+                    $$\int \frac{1}{y(4-y)}dy = t + C.$$
+                    To solve the integral on the right hand side, we will want to re-write the integrand using a partial fraction decomposition. I.e. 
+                    we want to write $$\frac{1}{y(4-y)} = \frac{A}{y}+\frac{B}{4-y}$$ for some constants $A$ and $B$. These constants can be found by
+                    multiplying through by $y(4-y)$, and then collecting like terms in $y$:
+                    \begin{align} 1 &= \frac{A}{y} y (4-y)+\frac{B}{4-y}y(4-y)\\
+                    1&= A(4-y) + B y\\
+                    1 +0\cdot y & = 4A +(B-A)y.
+                    \end{align}
+                    In order for this to be true for all values of $y$, the constant terms on the left must match the constant terms on the right, and the likewise for the $y$ terms. Therefore, we have 
+                    $ A = 1/4$, $A = B = 1/4$, and 
+                    $$\frac{1}{y(4-y)} = \frac{1}{4y}+\frac{1}{4(4-y)}$$
+                    </p>
+                    <p>
+                    Going back to our differential equation, we have
+                    \begin{align}
+                        \int\frac{1}{y(4-y)}dy &= t+C\\
+                        \int\frac{1}{4y}+\frac{1}{4(4-y)}dy &= t+C\\
+                        \frac{1}{4}\ln\vert y \vert - \frac{1}{4}\ln \vert 4-y \vert &= t+C.
+                    \end{align}
+                    Solving for $y$ gives 
+                    \begin{align} 
+                    \frac{y}{4-y} &= e^{4t+C} = e^{4t}e^C && \text{let}~\widetilde{C} = e^C\\
+                    y &= \widetilde{C}e^{4t}(4-y)\\
+                    y + \widetilde{C}e^{4t}y &= 4\widetilde{C}e^{4t}\\
+                    y &= \frac{4\widetilde{C}e^{4t}}{1+\widetilde{C}e^{4t}.} 
+                    \end{align}
+                    Which is a defined and differentiable for all $t\in (-\infty,\infty).$
+                    </p>
+                    <h2>Exercises</h2>
+                    <p> Find a one parameter family of solutions for each differential equation</p>
+                    <ol class="lecture-list">
+                        <li>$$ \frac{dy}{dt} = \frac{\sin(t)}{\sin(y)}$$</li>
+                        <li>$$\frac{dy}{dt} +ty = t$$</li>
+                        <li>$$\frac{dy}{dt} = \frac{y}{(t+1)(t-1)}$$</li>
+                        <li>$$ \frac{dy}{dt} = \frac{ty^2}{(t+2)(t+3)}$$ </li>
+                    </ol>
+                </div>
+                </article>
+
+        </div>
+    </main>
+
+    <!-- custom js link-->
+    <script src="../../assets/js/script.js"></script>
+
+    <!-- ionicon link -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- MathJaX-->
+    <script>
+        MathJax = {
+          tex: {
+           inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+</body>
+</html>

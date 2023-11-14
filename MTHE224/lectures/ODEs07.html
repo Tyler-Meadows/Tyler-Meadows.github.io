@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTHE 224: Applied Math for Civil Engineers</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="../../assets/images/pi_icon.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <main>
+
+        <!--  #SIDEBAR   -->
+        <aside class="sidebar" data-sidebar>
+    
+          <div class="sidebar-info">
+            <div class="info-content">
+              <h1 class="name" title="MTHE 224" >MTHE 224</h1>
+    
+              <p class="title">Applied Mathematics for Civil Engineers</p>
+            </div>
+    
+            <button class="info_more-btn" data-sidebar-btn>
+              <ion-icon name="chevron-down"></ion-icon>
+            </button>
+    
+          </div>
+    
+          <div class="sidebar-info_more">
+    
+            <div class="separator"></div>
+    
+            <ul class="contacts-list">
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="mail-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Email</p>
+    
+                  <a href="mailto:Tyler.meadows@queensu.ca" class="contact-link">tyler.meadows@queensu.ca </a>
+                </div>
+    
+              </li>
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="location-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Location</p>
+    
+                  <address>127 Jeffery Hall, Queen's University</address>
+                </div>
+               </li>
+               <li class = "contact-item"> 
+                <div class="icon-box">
+                  <ion-icon name = "calendar-outline"></ion-icon>
+                </div>
+                <div class = "contact-info">
+                  <p class = "contact-title">Lecture Times</p>
+                  <time>Mon: 11:30-12:30</time>
+                  <time>Tue: 13:30-14:30</time>
+                  <time>Thu: 12:30-13:30 </time>
+                </div>
+              </li>
+    
+            </ul>
+
+    
+        </aside>
+
+
+        <!-- Main Stuff -->
+        <div class="main-content">
+               <!-- #NAVBAR  -->
+               <nav class="navbar">
+    
+                <ul class="navbar-list">
+                  <li class="navbar-itme">
+                    <a href="ODEs06.html" class= "navbar-link">Previous</a>
+                  </li>
+                  <li class="navbar-item active">
+                    <a href="../MTHE224.html?page=lectures" class = "navbar-link">Lectures</a>
+                  </li>
+        
+                  <li class="navbar-item">
+                    <a href="#" class="navbar-link">Next</a>
+                  </li>
+        
+                </ul>
+        
+              </nav>
+              <!-- Lecture Content--> 
+              
+            <article class="lecture active" data-page="lecture">
+                <header>
+                  <h2 class="h2 article-title">Linear Independence</h2>
+                </header>
+                <div class = "lecture">
+                <p> We saw yesterday that when we're solving second order linear homogeneous differential equations with constant coefficients, we will often end up with two solutions. We can use these solutions to find a two-parameter family of solutions by taking a linear combination of them. What makes these two solutions special? The answer lies with the concept of linear independence.</p>
+                <p><b>Definition:</b> A set of functions $\{y_1,...,y_n\}$ is linearly dependent on an interval $(a,b)$ if there are constants $C_1,...,C_n$ that are not all zero so that 
+                $$ C_1y_1(t) + ... + C_n y_n(t) = 0 $$ for all $t\in (a,b).$ The set of functions is linearly independent if it is not linearly dependent.</p>
+                <p><b>Example:</b> The set $\{1,t,3-t\}$ is linearly dependent on the interval $(-\infty,\infty)$ since picking $C_1 = 3, C_2 = 1, C_3 = -1$ we have 
+                $$ C_1 1 + C_2 t + C_3 (3-t) = 3 + t -(3-t) = 0$$</p>
+                <p><b>Example:</b> The set $\{1,t,t^2\}$ are linearly independent on $(-\infty, \infty).$</p>
+                <p>Suppose the set was linearly dependent, then we could find constants $C_1,C_2,C_3$ so that 
+                    $$C_1 1+C_2 t + C_3 t^2 = 0$$ for all $t.$ Then at $t = 0$ we have 
+                    $$C_1 1 + C_2 0 + C_3 0 = 0.$$
+                    So $C_1 = 0.$ Similarly, at $t=1$ we would have 
+                    $$C_2 (1) + C_3 (1)^2 = 0,$$ and therefore $C_2 = - C_3.$ Using this at $t=-1$ gives us 
+                    $$-C_3 (-1) + C_3 (-1)^2 = 0,$$
+                    which implies that $C_3 = 0.$ Since $C_2 = -C_3 = 0,$ all the constants are zero, and the set is linearly independent.
+                </p>
+                <p> Looking at this example in retrospect, choosing three values of $t$ got us three equations for the three unknown constants $C_1,C_2,C_3$. We can rewrite these three equations as a linear system 
+                    $$ \begin{bmatrix} 1 & 0 & 0 \\ 1 & -1 & 1\\ 1 & 1 & 1\end{bmatrix} \begin{bmatrix} C_1 \\ C_2 \\ C_3 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}.$$
+                    By the invertible matrix theorem from linear algebra, this system has a nonzero solution if and only if the determinant of the matrix is not zero. The determinant of this matrix is $-2$, and therefore the only solution is $C_1 = C_2 = C_3 = 0.$</p>
+                <p> This previous solution required us to make some choices about which values of $t$ we wanted to use. However, if the functions are differentiable on the whole interval $(a,b),$ then we can get our three equations by taking derivatives of the functions instead. In this case, we have
+                    \begin{align} 
+                    C_1 1 + C_2 t + C_3 t^2 &= 0\\
+                    C_2 + 2 C_3 t &= 0\\
+                    2 C_3 &= 0  
+                    \end{align}
+                    which can be written as the linear system 
+                    $$ \begin{bmatrix} 1 &t &t^2 \\0 & 1 & 2t \\ 0 & 0 & 2 \end{bmatrix}\begin{bmatrix} C_1 \\ C_2 \\ C_3 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}$$
+                    This matrix is upper triangular, so the determinant is just the product of the diagonal entries. Since none of those entries are 0, the determinant is non zero and therefore the only solution is $C_1 = C_2 = C_3 = 0.$ We can generalize this idea to an arbitrary set of functions:
+                </p>
+                <p><b>Definition:</b> Let $\{y_1,y_2,...,y_n\}$ be a set of functions that are $n$ times differentiable. The <u>Wronskiian</u> for the set is
+                $$W(t) = \rm{det}\begin{bmatrix} 
+                    y_1 & y_2 & ... & y_n \\ 
+                    \frac{dy_1}{dt} & \frac{dy_2}{dt} & ... & \frac{dy_n}{dt}\\
+                    \vdots & \vdots & \ddots & \vdots \\
+                    \frac{d^n y_1}{dt^n}& \frac{d^n y_2}{dt^n}& ... & \frac{d^n y_n}{dt^n}
+                \end{bmatrix}$$
+               </p>
+               <p> If $W(t) \ne 0$ for at least one choice of $t \in (a,b)$, then $\{y_1,...,y_n\}$ is linearly independent on $(a,b).$</p>
+               <p><b>Example: </b> Is the set $\{t, e^t, e^{-t}\}$ linearly independent on $(-\infty,\infty)$?</p>
+               <p><b>Solution: </b> 
+                \begin{align}
+                W(t) &= \rm{det}\begin{bmatrix} t & e^t & e^{-t} \\ 1 & e^t & e^{-t} \\ 0 & e^t & e^{-t} \end{bmatrix} \\
+                 &= t \rm{det} \begin{bmatrix}e^t & -e^{-t} \\ e^t & e^{-t}\end{bmatrix}  - 1 \rm{det} \begin{bmatrix} e^{t} & e^{-t}\\ e^t & e^{-t}\end{bmatrix}\\
+                 & = t(e^t e^{-t}+e^{t}e^{-t})\\
+                 &= 2t
+                \end{align}
+                Since $W(t) \ne 0,$ the set $\{t,e^t,e^{-t}\}$ is linearly independent.
+            </p>
+                </p>
+                <h2> Practice Problems:</h2>
+                <ol class="lecture-list">
+                    <li>Show that $\{t, \vert t \vert \}$ is linearly dependent on $(0,1).$</li>
+                    <li>Show that $\{t, \vert t \vert \}$ is linearly independent on $(-1,1).$ Sketch a graph of the two functions to illustrate why the interval is important. </li>
+                    <li>Determine whether or not $\{1,\cos^2(t),\sin^2(t)\}$ is linearly independent.</li>
+                    <li>Determine whether or not $\{t^2,(t+1)^2,(t-1)^2\}$ is linearly independent.</li>
+                </ol>
+            </div>
+                </article>
+
+        </div>
+    </main>
+
+    <!-- custom js link-->
+    <script src="../../assets/js/script.js"></script>
+
+    <!-- ionicon link -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- MathJaX-->
+    <script>
+        MathJax = {
+          tex: {
+           inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+</body>
+</html>

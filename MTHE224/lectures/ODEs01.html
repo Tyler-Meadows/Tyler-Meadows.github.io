@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTHE 224: Applied Math for Civil Engineers</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="../../assets/images/pi_icon.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <main>
+
+        <!--  #SIDEBAR   -->
+        <aside class="sidebar" data-sidebar>
+    
+          <div class="sidebar-info">
+            <div class="info-content">
+              <h1 class="name" title="MTHE 224" >MTHE 224</h1>
+    
+              <p class="title">Applied Mathematics for Civil Engineers</p>
+            </div>
+    
+            <button class="info_more-btn" data-sidebar-btn>
+              <ion-icon name="chevron-down"></ion-icon>
+            </button>
+    
+          </div>
+    
+          <div class="sidebar-info_more">
+    
+            <div class="separator"></div>
+    
+            <ul class="contacts-list">
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="mail-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Email</p>
+    
+                  <a href="mailto:Tyler.meadows@queensu.ca" class="contact-link">tyler.meadows@queensu.ca </a>
+                </div>
+    
+              </li>
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="location-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Location</p>
+    
+                  <address>127 Jeffery Hall, Queen's University</address>
+                </div>
+               </li>
+               <li class = "contact-item"> 
+                <div class="icon-box">
+                  <ion-icon name = "calendar-outline"></ion-icon>
+                </div>
+                <div class = "contact-info">
+                  <p class = "contact-title">Lecture Times</p>
+                  <time>Mon: 11:30-12:30</time>
+                  <time>Tue: 13:30-14:30</time>
+                  <time>Thu: 12:30-13:30 </time>
+                </div>
+              </li>
+    
+            </ul>
+
+    
+        </aside>
+
+
+        <!-- Main Stuff -->
+        <div class="main-content">
+               <!-- #NAVBAR  -->
+               <nav class="navbar">
+    
+                <ul class="navbar-list">
+
+                  <li class="navbar-item active">
+                    <a href="../MTHE224.html?page=lectures" class = "navbar-link">Lectures</a>
+                  </li>
+        
+                  <li class="navbar-item">
+                    <a href="ODEs02.html" class="navbar-link">Next</a>
+                  </li>
+        
+                </ul>
+        
+              </nav>
+              <!-- Lecture Content--> 
+              
+            <article class="lecture active" data-page="lecture">
+                <header>
+                  <h2 class="h2 article-title">What are differential equations?</h2>
+                </header>
+                <div class = "lecture">
+                <p>Differential equations are the most commonly used tool to model the world around us. Many equations you learned in high-school physics, or in first year physics are derived from solutions to differential equations. </p>
+                <p> <b>Definition:</b> A differential equation is an equation that relates a function to one or more of its derivatives. The <u>order</u> of a differential equation is the highest order of derivative that appears in the equation.</p>
+                </div>
+
+                <p><b>Example:</b> Newton's second law states that the acceleration of an object is due to the forces acting on that object. This can be succinctly stated with the equation
+                $$ma = F.$$ </p>
+                <p>Acceleration is defined as an instantaneous change in an object's velocity, and velocity is defined as an instantaneous change in an object's position. We can then express acceleration as the second derivative of an objects position with respect to time. For an idealized projectile, the only force acting on the object is the force due to gravity, so we can write 
+                    $$ m \frac{d^2x}{dt^2} = -mg. $$
+                This is a second order differential equation for the position of the object. 
+                </p>
+                <p><b>The anatomy of a differential equation:</b> The unknown function in the differential equation is called a <u>state variable,</u> the variables witch which the state variable depends on are called <u>independent variables</u>, and other unspecified quantities that appear in the equation are called <u>parameters</u>.</p>
+                <p>In the example above, the state variable is the position $x$, the independent variable is time $t$, and the only parameters are the acceleration due to gravity $g$, and the mass of the object $m$.
+                </p>
+                <p><b>Definition:</b> A differential equation is an <u>ordinary differential equation</u> if it only has one independent variable. Differential equations where the state variable depends on more than one independent variable are called <u>partial differential equations.</u></p>
+                <p><b>Example:</b> Let $\theta(t)$ be the angular position of a simple pendulum at time $t$. The motion of the pendulum can be described using the ordinary differential equation
+                $$ \frac{d^2\theta}{dt^2}+\frac{g}{\ell}\theta = 0.$$
+                What are the state variable, dependent variable(s), and parameters of this equation? Is this an ordinary or partial differential equation?
+                </p>
+                <p>The state variable is $\theta$, the independent variable is $t$, and the parameters are $g$ and $\ell$. This is an ordinary differential equation.</p>
+                <p><b>Example:</b> The flow of heat in a uniform rod can be described by the equation 
+                $$ \frac{\partial u}{\partial t } = \alpha\frac{\partial^2 u}{\partial x ^2}.$$
+                What are the state variable, dependent variable(s), and parameters of this equation? Is this an ordinary or partial differential equation?
+                </p>
+                <p> The state variable is the temperature $u$, the independent variables are time $t$ and position $x$, and the only parameter is $\alpha$. This is a partial differential equation since there are two independent variables. </p>
+                <p>In this class we will only consider ordinary differential equations. You may learn about partial differential equations in your numerical methods class next semester.</p>
+                <p><b>Definition:</b> A function $u$ is a solution to an $n$th order ordinary differential equation on an interval $(a,b)$ (called an interval of existence) if $u$ is $n$ times differentiable, and satisfies the equation for all $t\in(a,b)$. </p>
+                <p><b>Example:</b> Consider the ordinary differential equation 
+                $$ \frac{dy}{dt} = y^2.$$
+                This is a first order ordinary differential equation with state variable $y$ and independent variable $t$. The function $y(t) = \frac{1}{1-t}$ is a solution for $t\in (-\infty,1)$ since by the quotient rule, we have 
+                \begin{align}
+                \frac{d}{dt}y(t) &= \frac{d}{dt} \frac{1}{1-t}\\
+                                 &= \frac{1}{(1-t)^2} \\ &= y^2. 
+                \end{align}
+                Notice that $y(t)$ is not defined for $t = 1$, and so it can't be a solution at that point. We need to restrict the interval of existence to a connected piece of the domain of $y(t)$. We could also have said that $y(t)$ is a solution for $t\in (1,\infty)$.</p>
+                <p><b>Discussion:</b> Is $y(t) = \frac{1}{1-t}$ the only solution to this differential equation? Can we change anything about $y(t)$, and still have a solution?</p>
+                <p> Differential equations typically have an infinite number of solutions. The reason for this is that when we solve differential equations, we are in some sense finding an indefinite integral (or several indefinite integrals). Recall from calculus, that when you find the indefinite integral of a function, there is always a constant of integration that comes with the solution.</p>
+                <p> The infinite set of solutions to a differential equation are called a <u>family of solutions.</u> If a family of solutions has $n$ different constants of integrations, we say it is an <u>$n$-parameter family of solutions</u>.  Each constant of integration in the family of solutions adds a degree of freedom the solutions, allowing us to satisfy some additional conditions.
+                <p>Typically, we will be interested in two types of additional conditions that will allow us to select a particular member of a family of solutions. 
+                <u>Initial conditions</u> are additional conditions defined at one particular value of the independent variable $t_0$. <u>Boundary conditions</u> are conditions defined at two different ends of an interval $(a,b)$. The specification of these conditions are typically given by the physics of the problem we are trying to solve. </p>
+                <p><b>Example:</b> The solution to the pendulum equation
+                    $$ \frac{d^2\theta}{dt^2}+\frac{g}{\ell}\theta = 0.$$
+                is given by $\theta(t) = A \sin\left(\sqrt{\frac{g}{l}}t\right)+B\cos\left(\sqrt{\frac{g}{l}}t\right)$, where $A$ and $B$ are arbitrary constants. This is a two-parameter family of solutions. We can specify initial conditions by determining what the starting angular position $\theta(0)$ and angular velocity $\frac{d}{dt}\theta(0)$ are.</p>
+                <h2>Exercises:</h2>
+                    <ul class="lecture-list">
+                        <li>Show $y(t) = C e^{-3x}$ is a solution to $\frac{d^2y}{dt^2}-9y = 0$ on the interval $(-\infty,\infty),$ where $C$ is an arbitrary constant.</li>
+                        <li>Show $u(x) = \frac{e^{x}}{1+e^{x}}$ is the solution to $\frac{du}{dt} = u(1-u)$ on the interval $(-\infty,\infty)$ with the initial condition $u(0) = \frac{1}{2}.$</li>
+                        <li>Show that $w(t) = -\frac{t^3-8}{7t}$ is the solution to $\frac{d^2w}{dt^2}=\frac{2w}{t^2}$ on the interval $(0,\infty)$ and satisfying the boundary conditions $w(1) = 1$ and $w(2) = 0$.   </li>
+                    </ul>   
+                </article>
+
+        </div>
+    </main>
+
+    <!-- custom js link-->
+    <script src="../../assets/js/script.js"></script>
+
+    <!-- ionicon link -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- MathJaX-->
+    <script>
+        MathJax = {
+          tex: {
+           inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+</body>
+</html>

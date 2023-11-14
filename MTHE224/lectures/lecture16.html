@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTHE 224: Applied Math for Civil Engineers</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="../../assets/images/pi_icon.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <main>
+
+        <!--  #SIDEBAR   -->
+        <aside class="sidebar" data-sidebar>
+    
+          <div class="sidebar-info">
+            <div class="info-content">
+              <h1 class="name" title="MTHE 224" >MTHE 224</h1>
+    
+              <p class="title">Applied Mathematics for Civil Engineers</p>
+            </div>
+    
+            <button class="info_more-btn" data-sidebar-btn>
+              <ion-icon name="chevron-down"></ion-icon>
+            </button>
+    
+          </div>
+    
+          <div class="sidebar-info_more">
+    
+            <div class="separator"></div>
+    
+            <ul class="contacts-list">
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="mail-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Email</p>
+    
+                  <a href="mailto:Tyler.meadows@queensu.ca" class="contact-link">tyler.meadows@queensu.ca </a>
+                </div>
+    
+              </li>
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="location-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Location</p>
+    
+                  <address>127 Jeffery Hall, Queen's University</address>
+                </div>
+               </li>
+               <li class = "contact-item"> 
+                <div class="icon-box">
+                  <ion-icon name = "calendar-outline"></ion-icon>
+                </div>
+                <div class = "contact-info">
+                  <p class = "contact-title">Lecture Times</p>
+                  <time>Mon: 11:30-12:30</time>
+                  <time>Tue: 13:30-14:30</time>
+                  <time>Thu: 12:30-13:30 </time>
+                </div>
+              </li>
+    
+            </ul>
+
+    
+        </aside>
+
+
+        <!-- Main Stuff -->
+        <div class="main-content">
+               <!-- #NAVBAR  -->
+               <nav class="navbar">
+    
+                <ul class="navbar-list">
+                    <li class ="navbar-item">
+                        <a href="../lectures/lecture15.html" class = "navbar-link">Previous</a>
+                    </li>
+        
+                  <li class="navbar-item active">
+                    <a href="../MTHE224.html?page=lectures" class = "navbar-link">Lectures</a>
+                  </li>
+        
+                  <li class="navbar-item">
+                    <a href="lecture17.html" class="navbar-link">Next</a>
+                  </li>
+        
+                </ul>
+        
+              </nav>
+              <!-- Lecture Content--> 
+              
+            <article class="lecture active" data-page="lecture">
+                <header>
+                  <h2 class="h2 article-title">Hypothesis Testing</h2>
+                </header>
+                <div class = "lecture">
+                <p>Hypothesis testing is a formal procedure for making informed conclusions about collected data. It is the foundation of pretty much all of modern science.
+                </p>
+                <p>The procedure can be understood in terms of what we have learned so far about probability. When we collect data, we can think of each measurement as the value of some random variable $X$. This random variable will have some underlying distribution, which we might know something about or at least might have some assumptions about.</p>
+                <p>Our goal is to determine the probability of collecting the data, given the assumptions we have made about the distribution of $X$. If this probability is low enough, then we can confidently determine that some of our initial assumptions about the distribution of $X$ were wrong.</p>
+                <p><b>Hypothesis Testing Procedure:</b> The procedure follows five main steps</p>
+                <ol class="roman">
+                    <li> Formulate the <u>null hypothesis</u> $H_0$. This is our set of initial assumptions about the distribution of $X$.  </li>
+                    <li> Formulate an <u>alternative hypothesis</u> $H_a$. This should be the complement to the null hypothesis in some aspect. If you are making several assumptions for the null hypothesis, then the alternative hypothesis should take the opposite assumption for one, and keep all other assumptions fixed. The alternative hypothesis is what you are trying to show with the data.</li>
+                    <li> Choose a significance level $\alpha$. This is a value between 0 and 1, which is typically chosen to be small. The significance level will be a threshold value used to determine if the differences between our assumptions and the data are random or not. If the probability of the data given the assumptions is less than $\alpha$, then we can conclude that our initial assumptions about $X$ were wrong.</li>
+                    <li> Calculate the probability of the collected data, assuming the null hypothesis is true. </li>
+                    <li> If the probability of the collected data is less than $\alpha$, then we reject the null hypothesis $H_0$ and accept the alternative hypothesis $H_a$. If the probability is greater than $\alpha$, then we fail to reject $H_0$. </li>
+                </ol>
+                <p><b>Note:</b> It's important to point out that we <u>never</u> accept the null hypothesis. If we fail to reject $H_0$, then we haven't shown that $H_0$ is true, we just haven't provided enough evidence to show that it isn't true.</p>
+                <p><b>Example:</b> Anna has two dice that she thinks are weighted to come up as 7 more often than other numbers. To test this, she rolls the dice 20 times and gets a seven 11 times. Can she conclude that the dice are weighted?</p>
+                <p><b>Solution:</b> Before setting up a hypothesis test, lets fix some notation for Anna's experiment. Let $w_i$ be the sum of both dice on the $i$th roll and let 
+                    $$X(w_i) = \begin{cases} 1 & w_i = 7\\ 0 & w_i \ne 7.\end{cases} $$
+                    Then $ X(w_i)$ is a Bernoulli random variable with some probability of success $p$. If the dice are weighted to land on 7 more often, then $p >1/6$, and if they are not, then $p \le 1/6$. In particular, if the dice are perfectly fair, then $p = 1/6$.</p>
+                    <p> Let $Y = \sum_{i=1}^{20}X(w_i)$ be the number of times 
+                    that the dice came up as 7 in the 20 rolls. Then $Y$ is binomially distributed with $n=20$. Our null hypothesis and alternative hypothesis will be about the random variable $Y$.
+                 </p>
+                <ol class="roman">
+                    <li> Let $H_0 = \{Y $ is binomially distributed with $n=20$ and $p = 1/6 \}.$ We use this as the null hypothesis since we are trying to prove the opposite.</li>
+                    <li> Let $H_a = \{Y $ is binomially distributed with $n=20$ and $p > 1/6\}.$ </li>
+                    <li> Let's take $\alpha = 0.01$. This choice is somewhat arbitrary. Choosing smaller values of $\alpha$ makes the strength of the conclusion stronger.</li>
+                    <li> The probability of the data under the assumptions of the null hypothesis is $$P(Y = 11 ~|~ H_0) = \binom{20}{11}\left(\frac{1}{6}\right)^{11}\left(\frac{5}{6}\right)^9.$$
+                        The right hand side is the pmf for the binomial distribution with $n=20$ and $p = 1/6.$
+                    </li>
+                    <li> Calculating the probability in part IV gives $P(Y=11~|~H_0) \approx 8.97\times 10^{-5}.$ Since this number is less than the significance level $\alpha$ we set in part III, we reject the null hypothesis and accept the alternative hypothesis. In other words, we can conclude that the dice are weighted with significance 0.001.</li>
+                </ol>
+
+                <p> Although we were able to reject $H_0$ in this example, it is possible that we have been misled by the data. I.e. although the probability of getting 7 eleven times was low, the event is still possible under the assumptions of $H_0$.  Luckily, we can determine the probability that the data have misled us in our analysis.</p>
+                <p><b>Definition:</b> A <u>Type I error</u> is when the data lead the null hypothesis to be rejected, even though it is true. This is also called a false positive.
+                
+                A <u>Type II error</u> is when the data lead to a failure to reject $H_0$, when $H_0$ is not true. This is also called a false negative.</p>
+                <p> These errors are not the fault of the person running the experiment, or the person doing the analysis. They are just due to the randomness of the data.</p>
+                <p><b>Example : </b> When Anna was testing the dice, she concluded that the dice were weighted. From the hypothesis test, we would have rejected the null hypothesis for any value of $Y$ that satisfied 
+                $$P (Y ~|~H_0) < \alpha$$
+                We can determine which values of $Y$ satisfy this by looking at the pmf for $Y$. Since the pmf isn't invertible, we need to find the threshold value of $Y$ through trial and error. It turns out we would have rejected $H_0$ for any value of $Y$ greater than or equal to 8. Therefore the probability of a type I error is 
+                $$P(Y \ge 8~|~H_0) = 1- P(Y < 7 ~|~ H_0) = 0.0113$$
+                or about 1%. </p>
+                <p><b>Example:</b> Suppose the dice are actually weighted with p=1/3 of the time. What is the probability that Anna makes a type II error?</p>
+                <p><b>Solution:</b> Anna would fail to reject $H_0$ for all values of $Y \le 7$. Then the probability of a Type II error is 
+                $$P(Y\le 7 ~|~ p= 1/3, n=20) \approx 0.66.$$</p>
+                </div> 
+
+                 
+              </article>
+
+        </div>
+    </main>
+
+    <!-- custom js link-->
+    <script src="../../assets/js/script.js"></script>
+
+    <!-- ionicon link -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- MathJaX-->
+    <script>
+        MathJax = {
+          tex: {
+           inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+</body>
+</html>
