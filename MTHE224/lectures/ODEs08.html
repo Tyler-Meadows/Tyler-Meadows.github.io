@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTHE 224: Applied Math for Civil Engineers</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="../../assets/images/pi_icon.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <main>
+
+        <!--  #SIDEBAR   -->
+        <aside class="sidebar" data-sidebar>
+    
+          <div class="sidebar-info">
+            <div class="info-content">
+              <h1 class="name" title="MTHE 224" >MTHE 224</h1>
+    
+              <p class="title">Applied Mathematics for Civil Engineers</p>
+            </div>
+    
+            <button class="info_more-btn" data-sidebar-btn>
+              <ion-icon name="chevron-down"></ion-icon>
+            </button>
+    
+          </div>
+    
+          <div class="sidebar-info_more">
+    
+            <div class="separator"></div>
+    
+            <ul class="contacts-list">
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="mail-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Email</p>
+    
+                  <a href="mailto:Tyler.meadows@queensu.ca" class="contact-link">tyler.meadows@queensu.ca </a>
+                </div>
+    
+              </li>
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="location-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Location</p>
+    
+                  <address>127 Jeffery Hall, Queen's University</address>
+                </div>
+               </li>
+               <li class = "contact-item"> 
+                <div class="icon-box">
+                  <ion-icon name = "calendar-outline"></ion-icon>
+                </div>
+                <div class = "contact-info">
+                  <p class = "contact-title">Lecture Times</p>
+                  <time>Mon: 11:30-12:30</time>
+                  <time>Tue: 13:30-14:30</time>
+                  <time>Thu: 12:30-13:30 </time>
+                </div>
+              </li>
+    
+            </ul>
+
+    
+        </aside>
+
+
+        <!-- Main Stuff -->
+        <div class="main-content">
+               <!-- #NAVBAR  -->
+               <nav class="navbar">
+    
+                <ul class="navbar-list">
+                  <li class="navbar-itme">
+                    <a href="ODEs06.html" class= "navbar-link">Previous</a>
+                  </li>
+                  <li class="navbar-item active">
+                    <a href="../MTHE224.html?page=lectures" class = "navbar-link">Lectures</a>
+                  </li>
+        
+                  <li class="navbar-item">
+                    <a href="#" class="navbar-link">Next</a>
+                  </li>
+        
+                </ul>
+        
+              </nav>
+              <!-- Lecture Content--> 
+              
+            <article class="lecture active" data-page="lecture">
+                <header>
+                  <h2 class="h2 article-title">Linear Homogeneous ODEs</h2>
+                </header>
+                <div class = "lecture">
+                <p> <b>Definition:</b> A fundamental solution set for an $n$th order linear homogeneous ODE $L[y] = 0$ is a set of $n$ linearly independent solutions.</p>
+                <p> The general solution to a linear ode is an arbitrary linear combination of all of the functions in the fundamental solution set. We have seen that if the linear operator has constant coefficients, there will always be at least one solution in the form $y(t) = e^{\lambda t}$ for some $\lambda \in \mathbb{C}.$
+                </p>
+                <p> <b>Example:</b> Find a fundamental solution set for $$ \frac{d^2 y}{dt^2}  + 4 \frac{dy}{dt} + 5y = 0.$$
+                Since we know there is at least one solution of the form $y = e^{\lambda t},$ we substitute that in to the ode, leaving us with the <u>characteristic equation</u>
+                $$\lambda^2 + 4 \lambda +5 = 0.$$
+                Using the quadratic formula, we have $$\lambda = -2 \pm \frac{1}{2}\sqrt{16-25} = -2\pm \frac{3}{2}i$$
+                Therefore, our fundamental solution set is $\{ e^{(-2 +3/2i)t},e^{(-2-3/2i)t}\}.$ Since our initial problem was given in terms of real numbers, we should express these solutions in terms of real numbers as well. 
+                </p>
+                <p>In general, we can write a linear combination of the form $$y= C_1 e^{\alpha t+i\beta t}+C_2 e^{\alpha - i\beta t}$$
+                     as
+                    $$y(t) = \widetilde{C_1}e^{\alpha t}\cos(\beta t)+\widetilde{C_2}e^{\alpha t}\sin(\beta t)$$ with the help of Euler's identity: $ e^{ix} = \cos(x)+i\sin(x).$</p>
+                <p>In this case, that means another fundamental solution set is $\{e^{-2t}\cos(3t/2),e^{-2t}\sin(3t/2)\}.$</p>
+                <h2>Reduction of Order</h2>
+                <p> For second order homogeneous constant coefficient linear ODEs, we have seen that when the characterstic equation has two real roots, or two complex roots, you can easily find the fundamental solution set. But what if the characteristic equation has a repeated root? Consider the ODE $$ \frac{d^2y}{dt^2}-2a \frac{dy}{dt} + a^2 y = 0$$
+                    for some $a\in \mathbb{R}.$ Following what we've done so far, we can see that this has $y =  e^{at}$ as a solution. In order to find the second solution for the fundamental solution set, we use a process called reduction of order.
+                </p>
+                <p>First, we assume that the second solution $y_2(t) = u(t) y_1(t) = u(t) e^{at}$ for some unknown function $u(t)$. Substituting this guess into the differential equation gives 
+                \begin{align}
+                  \frac{d^2}{dt^2}(u(t)e^{at})-2a\frac{d}{dt}(u(t)e^{at})+a^2u(t)e^{at} &= 0\\
+                \end{align}
+                By applying the product rule to each of the derivative terms, we get 
+                \begin{align}
+                &\quad e^{at}\frac{d^2u}{dt^2}+2ae^{at}\frac{du}{dt}+a^2e^{at}u\\
+                &-2ae^{at}\frac{du}{dt}-2a^2u(t)e^{at}+a^2e^{at}u= 0.\\
+                \end{align}
+                Simplifying, and dividing through by $e^{at}$ gives 
+                $$\frac{d^2u}{dt^2} = 0,$$
+                from which we can conclude that $u(t) = C_1t+C_2.$
+                From our assumption then, we see that $y_2(t) = (C_1t+C_2)e^{at}.$ If we look carefully, this is actually as linear combination of two solutions, $te^{at}$ and $e^{at}$. The second of which is the original solution we knew about. This means that our 
+                second linearly independent solution is $te^{at}$, and the fundamental solution set is $\{e^{at},te^{at}\}.$</p>
+                <h2> Summary </h2>
+                <p>For 2nd order linear homogeneous ODEs with constant coefficients, you can find solutions by making the initial guess $y(t) = e^{\lambda t}$ to get the <u> characteristic equation</u> for the ODE.
+                <ul class = "lecture-list">
+                    <li> If the characteristic equation has two real roots $\lambda_1,\lambda_2$, the fundamental solution set is $\{e^{\lambda_1 t},e^{\lambda_2 t}\}.$</li>
+                    <li> If the characteristic equation has two complex roots $\lambda_\pm = \alpha \pm i \beta$, then the fundamental solution set is $\{e^{\alpha t}\cos(\beta t),e^{\alpha t}\sin(\beta t)\}$</li>
+                    <li> If the characteristic equation has one repeated real root $\lambda$, then the fundamental solution set is $\{e^{\lambda t},te^{\lambda t}\}$</li>
+                </ul>
+                </p>
+                <h2> Practice Problems:</h2>
+                <p> A second order Cauchy-Euler equation is one in the form 
+                    $$t^2\frac{d^2y}{dt^2}+at\frac{dy}{dt} + bt = 0.$$
+                    Every Cauchy-Euler equation has at least one solution in the form $t^m$ for some $m\in \mathbb{C}$. 
+                </p>
+                <ul class="lecture-list">
+                    <li>Find a fundamental solution set for 
+                        $$t^2 \frac{d^2y}{dt^2} -t\frac{dy}{dt} - 3 y = 0 $$
+                    </li>
+                    <li>Find a fundamental solution set for
+                        $$t^2\frac{d^2y}{dt^2} + t \frac{dy}{dt} + y = 0$$
+                        <b>Hint:</b> write $x^i = e^{\ln(x^i)}$ to simplify.
+                    </li>
+                    <li>Find a fundamental solution set for 
+                        $$t^2\frac{d^2y}{dt^2} - t \frac{dy}{dt} + y = 0$$
+                        <b>Hint:</b> use reduction of order to find the 2nd solution.
+                    </li>
+                </ul>
+            </div>
+                </article>
+
+        </div>
+    </main>
+
+    <!-- custom js link-->
+    <script src="../../assets/js/script.js"></script>
+
+    <!-- ionicon link -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- MathJaX-->
+    <script>
+        MathJax = {
+          tex: {
+           inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+</body>
+</html>
