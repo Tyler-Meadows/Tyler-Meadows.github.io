@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTHE 224: Applied Math for Civil Engineers</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="../../assets/images/pi_icon.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <main>
+
+        <!--  #SIDEBAR   -->
+        <aside class="sidebar" data-sidebar>
+    
+          <div class="sidebar-info">
+            <div class="info-content">
+              <h1 class="name" title="MTHE 224" >MTHE 224</h1>
+    
+              <p class="title">Applied Mathematics for Civil Engineers</p>
+            </div>
+    
+            <button class="info_more-btn" data-sidebar-btn>
+              <ion-icon name="chevron-down"></ion-icon>
+            </button>
+    
+          </div>
+    
+          <div class="sidebar-info_more">
+    
+            <div class="separator"></div>
+    
+            <ul class="contacts-list">
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="mail-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Email</p>
+    
+                  <a href="mailto:Tyler.meadows@queensu.ca" class="contact-link">tyler.meadows@queensu.ca </a>
+                </div>
+    
+              </li>
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="location-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Location</p>
+    
+                  <address>127 Jeffery Hall, Queen's University</address>
+                </div>
+               </li>
+               <li class = "contact-item"> 
+                <div class="icon-box">
+                  <ion-icon name = "calendar-outline"></ion-icon>
+                </div>
+                <div class = "contact-info">
+                  <p class = "contact-title">Lecture Times</p>
+                  <time>Mon: 11:30-12:30</time>
+                  <time>Tue: 13:30-14:30</time>
+                  <time>Thu: 12:30-13:30 </time>
+                </div>
+              </li>
+    
+            </ul>
+
+    
+        </aside>
+
+
+        <!-- Main Stuff -->
+        <div class="main-content">
+               <!-- #NAVBAR  -->
+               <nav class="navbar">
+    
+                <ul class="navbar-list">
+                  <li class="navbar-itme">
+                    <a href="ODEs09.html" class= "navbar-link">Previous</a>
+                  </li>
+                  <li class="navbar-item active">
+                    <a href="../MTHE224.html?page=lectures" class = "navbar-link">Lectures</a>
+                  </li>
+        
+                  <li class="navbar-item">
+                    <a href="ODEs11.html" class="navbar-link">Next</a>
+                  </li>
+        
+                </ul>
+        
+              </nav>
+              <!-- Lecture Content--> 
+              
+            <article class="lecture active" data-page="lecture">
+                <header>
+                  <h2 class="h2 article-title">Variation of Parameters</h2>
+                </header>
+                <div class = "lecture">
+                <p>As we saw in yesterday's class, we can often come up with the particular solution needed to satisfy
+                the right hand side of a differential equation by making an educated guess.However, I hinted that this doesn't always work.</p>
+                <p>In terms of linear algebra, the reason the method of undetermined coeffecients works is that the right hand side is part of a finite-dimensional linear subspace of the vector space of differentiable functions that is closed under the action of the linear differential operator $L.$ Essentially, this means that by applying 
+                    $L$ to a linear combination of functions, we were able to retrieve a different linear combination of the same functions. Some functions, such as $1/t$ or $\ln(t)$, are not part such a linear subspace. 
+                </p>
+                <p> In these cases, we can turn to a different method called "variation of parameters."</p>
+                <p> Suppose we have a second order ODE in the form $$ \frac{d^2y}{dt^2}+b\frac{dy}{dt}+cy = f(t).$$
+                    We know that we will want to write the solution as a sum of the complementary solution $y_c$ and a particular solution $y_p.$ Suppose the complementary solution is $$y_c = C_1y_1+C_2y_2,$$ where $\{y_1,y_2\}$ is a fundamental solution set.
+                </p>
+                <p> We can find $y_p$ by assuming the same form as $y_c,$ only that the constants are functions of $t$, that is 
+                    $$y_p = u_1(t)y_1(t)+ u_2(t)y_2(t).$$
+                    We now have two unknown functions, which we will need two equations to find. The first equation will come from subbing this into the ODE. To do so, we'll need to find the first and second derivatives of $y_p.$
+                    \begin{align}
+                        \frac{dy_p}{dt}& = \frac{du_1}{dt}y_1+u_1\frac{dy_1}{dt}+\frac{du_2}{dt}y_2+u_2\frac{dy_2}{dt} 
+                    \end{align}
+                    In order to simplify our life, we will make the assumption that $$y_1\frac{du_1}{dt}+y_2\frac{du_2}{dt}= 0.$$
+                    We needed a second equation in order to be able to find both functions, and this one will do fine. With this assumption, 
+                    \begin{align}  \frac{dy_p}{dt} &= u_1\frac{dy_1}{dt}+u_2\frac{dy_2}{dt} \\
+                    \frac{d^2y_p}{dt^2} & = \frac{du_1}{dt}\frac{dy_1}{dt}+u_1\frac{d^2y_1}{dt^2}+\frac{du_2}{dt}\frac{dy_2}{dt}+u_2\frac{d^2y_2}{dt^2}.
+                    \end{align}
+                    Substituting these into the ODE, and collecting terms, we have 
+                    \begin{align} f(t) &= \frac{du_1}{dt}\frac{dy_1}{dt}+\frac{du_2}{dt}\frac{dy_2}{dt} +u_1(\frac{d^2y_1}{dt^2}+b\frac{dy_1}{dt}+cy_1)\\
+                    &\quad+u_2(\frac{d^2y_2}{dt^2}+b\frac{dy_2}{dt}+cy_2).
+                    \end{align}
+                    These last two terms are 0 because $y_1$ and $y_2$ are solutions to the homogeneous problem. Therefore, our second equation is 
+                    $$\frac{du_1}{dt}\frac{dy_1}{dt}+\frac{du_2}{dt}\frac{dy_2}{dt}=f(t).$$
+                    These two equations can be written in matrix form as 
+                    $$\begin{bmatrix} y_1 & y_2\\ \frac{dy_1}{dt} & \frac{dy_2}{dt}\end{bmatrix}\begin{bmatrix}\frac{du_1}{dt} \\ \frac{du_2}{dt} \end{bmatrix}
+                    = \begin{bmatrix} 0 \\ f(t) \end{bmatrix}.$$
+                    We have come across this matrix before. This was used to show that the functions $y_1$ and $y_2$ are linearly independent and its determinant is the Wronskiian. By multiplying by the inverse of this matrix, we have 
+                    \begin{align}
+                    \begin{bmatrix}\frac{du_1}{dt} \\ \frac{du_2}{dt}\end{bmatrix} &= \frac{1}{W(t)} \begin{bmatrix} \frac{dy_2}{dt} & - y_2\\ -\frac{dy_1}{dt} & y_1\end{bmatrix} \begin{bmatrix}0\\f(t)\end{bmatrix}\\
+                    & = \frac{1}{W(t)} \begin{bmatrix} -f(t) y_2 \\ f(t) y_1 \end{bmatrix}.
+                    \end{align}
+                    This gives us two differential equations for $u_1$ and $u_2$, which can be solved by directly integrating,
+                    $$ u_1(t) = \int \frac{-f(t) y_2(t)}{W(t)}dt,$$
+                    $$ u_2(t) = \int \frac{f(t)y_1(t)}{W(t)}dt.$$
+                </p>
+                <p><b>Example:</b> Find the general solution to $$\frac{d^2y}{dt^2}-y = t.$$
+                </p>
+                <p>Skipping ahead a bit, we know the complementary solution is $y_c = C_1e^t + C_2 e^{-t}$ from previous examples. Therefore, we let $y_p = u_1 e^t + u_2 e^{-t}$.
+                The Wronskiian for $\{e^t,e^{-t}\}$ is 
+                $$ W(t) = \rm{det}\begin{bmatrix}e^t & e^{-t} \\ e^t & -e^{-t} \end{bmatrix} = -2.$$
+                Therefore 
+                \begin{align}
+                u_1 &= \int \frac{-f(t) y_1}{W(t)} dt \\
+                &= \int \frac{-te^{-t}}{-2}dt && \text{By parts} ~u=t~~dv=e^{-t}\\
+                &= \frac{-1}{2}te^{-t}+\frac{1}{2}\int e^{-t}dt\\
+                &= \frac{1}{2}te^{-t}-\frac{1}{2}e^{-t}+C_1.
+                \end{align} 
+                Similarly
+                \begin{align}
+                    u_2 &= \int \frac{t e^t}{2}{dt} && \text{By parts}~u=t~~dv=e^t\\
+                    &= -\frac{1}{2}te^t+\frac{1}{2}\int e^tdt\\
+                    &= -\frac{1}{2}te^t+\frac{1}{2} e^t+C_2
+                \end{align}
+                Letting the two arbitrary constants be 0, we have 
+                \begin{align} 
+                y_p &= u_1 e^t + u_2 e^{-t}\\
+                &= -\frac{1}{2}(1+t)e^te^{-t}+\frac{1}{2}(1-t)e^{-t}e^t\\
+                &= -t.
+                \end{align}
+                Therefore, the general solution is 
+                $$ y = y_c + y_p  = C_1e^t+C_2e^{-t}-t.$$
+                </p>
+                <h2>Practice Problems</h2>
+                Find the general solution for each ordinary differential equation
+                <ul class="lecture-list">
+                    <li>$$\frac{d^2y}{dt^2} + 4y = \sin(2t)$$
+                        The trig identities $\sin^2(x) = \frac{1}{2}(1-\cos(2x))$ and $\sin(x)\cos(x)=\frac{1}{2}\sin(2x)$ may be useful.
+                    </li>
+                    <li>$$\frac{d^2y}{dt^2}+5 \frac{dy}{dt}+6y = e^{3t}$$</li>
+                </ul>
+                </div>
+                
+                </article>
+
+        </div>
+    </main>
+
+    <!-- custom js link-->
+    <script src="../../assets/js/script.js"></script>
+
+    <!-- ionicon link -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- MathJaX-->
+    <script>
+        MathJax = {
+          tex: {
+           inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+</body>
+</html>

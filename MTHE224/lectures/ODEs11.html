@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTHE 224: Applied Math for Civil Engineers</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="../../assets/images/pi_icon.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <main>
+
+        <!--  #SIDEBAR   -->
+        <aside class="sidebar" data-sidebar>
+    
+          <div class="sidebar-info">
+            <div class="info-content">
+              <h1 class="name" title="MTHE 224" >MTHE 224</h1>
+    
+              <p class="title">Applied Mathematics for Civil Engineers</p>
+            </div>
+    
+            <button class="info_more-btn" data-sidebar-btn>
+              <ion-icon name="chevron-down"></ion-icon>
+            </button>
+    
+          </div>
+    
+          <div class="sidebar-info_more">
+    
+            <div class="separator"></div>
+    
+            <ul class="contacts-list">
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="mail-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Email</p>
+    
+                  <a href="mailto:Tyler.meadows@queensu.ca" class="contact-link">tyler.meadows@queensu.ca </a>
+                </div>
+    
+              </li>
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="location-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Location</p>
+    
+                  <address>127 Jeffery Hall, Queen's University</address>
+                </div>
+               </li>
+               <li class = "contact-item"> 
+                <div class="icon-box">
+                  <ion-icon name = "calendar-outline"></ion-icon>
+                </div>
+                <div class = "contact-info">
+                  <p class = "contact-title">Lecture Times</p>
+                  <time>Mon: 11:30-12:30</time>
+                  <time>Tue: 13:30-14:30</time>
+                  <time>Thu: 12:30-13:30 </time>
+                </div>
+              </li>
+    
+            </ul>
+
+    
+        </aside>
+
+
+        <!-- Main Stuff -->
+        <div class="main-content">
+               <!-- #NAVBAR  -->
+               <nav class="navbar">
+    
+                <ul class="navbar-list">
+                  <li class="navbar-itme">
+                    <a href="ODEs10.html" class= "navbar-link">Previous</a>
+                  </li>
+                  <li class="navbar-item active">
+                    <a href="../MTHE224.html?page=lectures" class = "navbar-link">Lectures</a>
+                  </li>
+        
+                  <li class="navbar-item">
+                    <a href="ODEs12.html" class="navbar-link">Next</a>
+                  </li>
+        
+                </ul>
+        
+              </nav>
+              <!-- Lecture Content--> 
+              
+            <article class="lecture active" data-page="lecture">
+                <header>
+                  <h2 class="h2 article-title">Systems of ODEs</h2>
+                </header>
+                <div class = "lecture">
+                <p> As we saw in one of the previous labs, we can write any second order linear ODE 
+                    $$ \frac{d^2y}{dt^2}+a(t)\frac{dy}{dt} + b(t) y = f(t)$$ 
+                    as a system of two first order ODEs using the change of variables $z_0 = y$ and $z_1 = \frac{dy}{dt}$. If we do so, we get the system 
+                    \begin{align} \frac{dz_0}{dt} & = z_1 \\
+                        \frac{dz_1}{dt} &= - a(t)z_1-b(t)z_0.
+                    \end{align}
+                    As it turns out, there is nothing special about this being a second order ODE, or it being linear. A similar process will allow you to convert any 
+                    $n$th order ode into a system of $n$ first order ODEs. 
+                </p>
+                <p> Systems of first order differential equations show up more frequently than as a different representation of higher order ODEs, and their study is an active area of research. 
+                    In many cases, we can't find explicit solutions to a system of ODEs, even if it is a linear system. In the case where the system is linear and the coefficients are constant, however, we can find a solution using tools from linear algebra. 
+                </p>
+                <h2> 2x2 linear systems of ODEs</h2>
+                <p>We will spend the rest of this course exploring how to solve systems of two first order linear ODEs with constant coefficients. The procedure for solving higher order ODEs is effectively the same. </p>
+                <p>A 2x2 linear system of ODEs is a system in the form 
+                \begin{align} \frac{dy_1}{dt} &= a y_1 + b y_2 \\ 
+                \frac{dy_2}{dt} &= cy_1 + dy_2,
+                \end{align}
+                where $a,b,c,d$ are real constants. Here we have two state variables, one independent variable, and 4 parameters. We can rewrite this system using matrices and vectors as 
+                $$\frac{d}{dt}\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} = \begin{bmatrix} a & b \\ c & d \end{bmatrix} \begin{bmatrix}y_1 \\  y_2 \end{bmatrix}, $$
+                or more compactly as 
+                $$ \frac{d\vec{y}}{dt} = A \vec{y}.$$
+                If $A$ were a constant scalar, and $y$ was a scalar function, we would know how to solve this equation, and the solution would simply be 
+                $$ y(t) = C e^{At}.$$
+                We would like to do something similar in the case of matrices and vectors. To do so, we need to make sense of what $e^{A}$ means when $A$ is a vector. 
+                </p>
+                <p><b>Definition:</b> If $A$ is a matrix, we can define 
+                $$e^{A} = \sum_{j= 0}^{\infty} \frac{A^n}{n!}=  I + A + \frac{1}{2}A^2 + ... ,$$
+                which is the usual Taylor series expansion for $e^A$.</p>
+                <p>We can use this definition to easily show that $\frac{d}{dt} e^{At} = A e^{At}.$ Therefore, the general solution to the equation 
+                    $$\frac{d\vec{y}}{dt} =  A \vec{y},$$
+                    is $\vec{y} = e^{At}\vec{C}$ for some arbitrary vector $\vec{C}$. Finding the solution therefore comes down to being able to evaluate $e^{At}$ for the matrix $A$.  
+                </p>
+                <p><b>Example:</b> If $A$ is a diagonal matrix, we can write
+                $$A = \begin{bmatrix}a & 0 \\ 0 & d \end{bmatrix},$$
+                Then we see that, for any $n \in \mathbb{N}$, 
+                $$ (At)^n = \begin{bmatrix} (at)^n & 0 \\  0 & (dt)^n \end{bmatrix}. $$
+                Therefore, we have 
+                \begin{align}
+                 e^{At} &= I + A + \frac{1}{2}A^2 + ...\\
+                 &= \begin{bmatrix} 1 + at + \frac{1}{2}(at)^2 + ... & 0 \\ 0 & 1 + dt + \frac{1}{2}(dt)^2 + ... \end{bmatrix} \\
+                 &= \begin{bmatrix} e^{at} & 0 \\ 0 & e^{dt} \end{bmatrix} 
+                \end{align}
+                </p>
+                <p> If $A$ is not diagonal, then we can sometimes diagonalize it by finding the eigenvectors of $A$. </p>
+                <p><b>Diagonalization:</b> Let $A$ be a 2x2 matrix that has two linearly independent eigenvectors $\vec{u}$ and $\vec{v}$ with eigenvalues $\lambda_1$ and $\lambda_2$. Recall that $u$ is an eigenvector with eigenvalue $\lambda_1$ if $u$ is nonzero and $$ Au = \lambda_1 u.$$ If we let $P = [\vec{u}|\vec{v}]$ (I.e. $P$ is a matrix with the entries of $u$ in the first column, and the entries of $v$ in the 2nd column), then 
+                \begin{align}P^{-1}A P &= P^{-1}[A\vec{u} | A\vec{v}] \\ &= P^{-1}[ \lambda_1 \vec{u} | \lambda_2 \vec{v}] \\
+                &= [\lambda_1 P^{-1}\vec{u} | \lambda_2 P^{-1}\vec{v}]\\
+                &= \begin{bmatrix} \lambda_1 & 0 \\ 0 & \lambda_2  \end{bmatrix}.\end{align}
+                If we call this diagonal matrix $D$, then we have $P^{-1}AP = D,$ or by rearranging $A = P D P^{-1}.$</p>
+                <p> Using this in the definition of the matrix exponential, we have 
+                    \begin{align}
+                     e^{At} &= e^{PDP^{-1}t} \\
+                     & = I + PDP^{-1}t + \frac{1}{2}(PDP^{-1}t)^2 + ...\\
+                     &= PP^{-1} + P(Dt)P^{-1}+\frac{1}{2}P(Dt)^2 P^{-1}\\
+                     & = P \left(\sum_{n=0}^{\infty} \frac{(Dt)^2}{n!}\right)P^{-1}\\
+                     &= P e^{Dt}P^{-1}.
+                     \end{align}
+                Therefore, if $A$ is diagonalizable, The solution to the linear system is 
+                $$\vec{y} = P e^{Dt}P^{-1}\vec{C}.$$
+                Since $P^{-1}\vec{C}$ is just an arbitrary vector, we can rename it to $\vec{C}$, and the general solution is 
+                \begin{align} 
+                    y(t) &= P e^{Dt}\vec{C} \\
+                    &= [\vec{u} | \vec{v} ] \begin{bmatrix} e^{\lambda_1 t} & 0\\ 0 & e^{\lambda_2 t}\end{bmatrix}\begin{bmatrix}C_1 \\ C_2 \end{bmatrix}\\
+                    & = [\vec{u} | \vec{v} ] \begin{bmatrix} C_1e^{\lambda_1 t} \\  C_2e^{\lambda_2 t}\end{bmatrix} \\ 
+                    & = C_1 e^{\lambda_1 t}\vec{u} + C_2e^{\lambda_2 t}\vec{v}.
+                \end{align}
+                </p>
+                <h2> Practice Problems:</h2>
+                <ol class = "lecture-list">
+                    <li> Diagonalize the matrix $$A = \begin{bmatrix} 1& 2 \\ 2 & 1 \end{bmatrix}$$</li>
+                    <li> Find the matrix exponential of $$ A = \begin{bmatrix} 2 & 2 \\ 3 & 1 \end{bmatrix}$$</li>
+                    <li> Find the matrix exponential of $$ A = \begin{bmatrix} 2 & -1 \\ 0 & -4\end{bmatrix}$$</li>
+                </ol>
+                </div>
+                
+                </article>
+
+        </div>
+    </main>
+
+    <!-- custom js link-->
+    <script src="../../assets/js/script.js"></script>
+
+    <!-- ionicon link -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- MathJaX-->
+    <script>
+        MathJax = {
+          tex: {
+           inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+</body>
+</html>

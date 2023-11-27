@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTHE 224: Applied Math for Civil Engineers</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="../../assets/images/pi_icon.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <main>
+
+        <!--  #SIDEBAR   -->
+        <aside class="sidebar" data-sidebar>
+    
+          <div class="sidebar-info">
+            <div class="info-content">
+              <h1 class="name" title="MTHE 224" >MTHE 224</h1>
+    
+              <p class="title">Applied Mathematics for Civil Engineers</p>
+            </div>
+    
+            <button class="info_more-btn" data-sidebar-btn>
+              <ion-icon name="chevron-down"></ion-icon>
+            </button>
+    
+          </div>
+    
+          <div class="sidebar-info_more">
+    
+            <div class="separator"></div>
+    
+            <ul class="contacts-list">
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="mail-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Email</p>
+    
+                  <a href="mailto:Tyler.meadows@queensu.ca" class="contact-link">tyler.meadows@queensu.ca </a>
+                </div>
+    
+              </li>
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="location-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Location</p>
+    
+                  <address>127 Jeffery Hall, Queen's University</address>
+                </div>
+               </li>
+               <li class = "contact-item"> 
+                <div class="icon-box">
+                  <ion-icon name = "calendar-outline"></ion-icon>
+                </div>
+                <div class = "contact-info">
+                  <p class = "contact-title">Lecture Times</p>
+                  <time>Mon: 11:30-12:30</time>
+                  <time>Tue: 13:30-14:30</time>
+                  <time>Thu: 12:30-13:30 </time>
+                </div>
+              </li>
+    
+            </ul>
+
+    
+        </aside>
+
+
+        <!-- Main Stuff -->
+        <div class="main-content">
+               <!-- #NAVBAR  -->
+               <nav class="navbar">
+    
+                <ul class="navbar-list">
+                  <li class="navbar-itme">
+                    <a href="ODEs11.html" class= "navbar-link">Previous</a>
+                  </li>
+                  <li class="navbar-item active">
+                    <a href="../MTHE224.html?page=lectures" class = "navbar-link">Lectures</a>
+                  </li>
+        
+                  <li class="navbar-item">
+                    <a href="#" class="navbar-link">Next</a>
+                  </li>
+        
+                </ul>
+        
+              </nav>
+              <!-- Lecture Content--> 
+              
+            <article class="lecture active" data-page="lecture">
+                <header>
+                  <h2 class="h2 article-title">Diagonalizable Systems of ODEs</h2>
+                </header>
+                <div class = "lecture">
+                <p>As we saw in last class, the system $$ \frac{d}{dt}\vec{y} = A \vec{y}$$ has solutions in the form $\vec{y}(t) = e^{At}\vec{C}.$ If $A$ is a diagonalizable 2x2 matrix, then 
+                    $$\vec{y}(t)  = C_1 e^{\lambda_1 t}\vec{u}+C_2 e^{\lambda_2 t}\vec{v},$$
+                where $\vec{u}$ and $\vec{v}$ are eigenvectors of $A$ with eigenvaues $\lambda_1$ and $\lambda_2$ respectively.
+                </p>
+                <p><b>Example:</b> Find the unique solution to 
+                    \begin{align} 
+                    \frac{d}{dt} \begin{bmatrix}y_1\\ y_2 \end{bmatrix} = \begin{bmatrix}1 & 2 \\ 2 & 1 \end{bmatrix} \begin{bmatrix}y_1 \\ y_2 \end{bmatrix} && \vec{y}(0) = \begin{bmatrix}1 \\ 0\end{bmatrix} 
+                    \end{align}
+                We need t find the eigenvectors and associated eigenvalues for the matrix. Eigenvector-eigenvalue pairs satisfy 
+                $$ A \vec{u} - \lambda \vec{u}=(A-\lambda I)\vec{u} = 0,$$
+                which has non-zero solutions only if $\rm{det}(A - \lambda I)=0.$
+                Therefore, we find $\lambda$ that solves 
+                \begin{align} 
+                \rm{det}(A-\lambda I) &= \rm{det}\begin{bmatrix} 1-\lambda& 2 \\ 2 & 1-\lambda \end{bmatrix}\\
+                & = (1-\lambda)^2 -4 \\
+                0 &= \lambda^2 - 2\lambda -3
+                \end{align} 
+                Therefore, the eigenvalues are $\lambda_1 = -1$ and $\lambda_2 = 3$.
+                </p>
+                <p>The eigenvector associated with $\lambda_1= -1$ satisfies 
+                \begin{align}
+                     (A + I)\vec{u} &= 0 \\
+                     \begin{bmatrix} 1+1 & 2 \\ 2 & 1+1\end{bmatrix}\begin{bmatrix}u_1 \\ u_2 \end{bmatrix} &= \begin{bmatrix} 0 \\ 0 \end{bmatrix}.  
+                \end{align}
+                By design, this system has infinitely many solutions, so we will have to make a choice about one of $u_1$ or $u_2$. If we let $u_1=1$, then we have 
+                $$\begin{bmatrix} 2 & 2 \\ 2 & 2 \end{bmatrix}\begin{bmatrix} 1 \\ u_2 \end{bmatrix} = \begin{bmatrix} 2+ 2u_2\\ 2 + 2u_2 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}.$$
+                Therefore $u_2 = -1,$ and $\vec{u} = [1,-1]^T$.   
+                </p>
+                <p>Similarly, the eigenvector associated to $\lambda_2 = 3$ satisfies 
+                    \begin{align}
+                     (A -3I)\vec{u} &= 0 \\
+                     \begin{bmatrix} 1-3 & 2 \\ 2 & 1-3\end{bmatrix}\begin{bmatrix}u_1 \\ u_2 \end{bmatrix} &= \begin{bmatrix} 0 \\ 0 \end{bmatrix}.  
+                \end{align}
+                Letting $v_1 =1$ gives $v_2 = 1$, and therefore $\vec{v} = [1,1]^T.$
+                </p>
+                <p>Putting this all together, the general solution is 
+                    $$ \vec{y}(t) = C_1 e^{-t}\begin{bmatrix}1 \\ -1\end{bmatrix}+ C_2 e^{3t}\begin{bmatrix}1\\-1\end{bmatrix}$$
+                We now use the initial conditions to find the values of $C_1$ and $C_2$. The initial conditions give us 
+                \begin{align} 
+                    \vec{y}(0) &= C_1e^{0}\begin{bmatrix}1 \\ -1 \end{bmatrix} + C_2 e^{0}\begin{bmatrix}1 \\ 1 \end{bmatrix}\\
+                    \begin{bmatrix} 1 \\ 0 \end{bmatrix} &= \begin{bmatrix} C_1+ C_2\\ C_1 - C_2\end{bmatrix},
+                \end{align}
+                which indicates that $C_1 = C_2 = 1/2$. Therefore the unique solution is 
+                $$ \vec{y}(t) = \frac{1}{2}e^{-t}\begin{bmatrix} 1 \\ -1 \end{bmatrix} + \frac{1}{2}e^{3t}\begin{bmatrix} 1 \\ 1 \end{bmatrix}$$
+                </p>
+                <p> <b>Example:</b> Find the general solution to the system 
+                    \begin{align} 
+                    \frac{d}{dt} \begin{bmatrix}y_1\\ y_2 \end{bmatrix} = \begin{bmatrix}1 & 2 \\ -2 & 1 \end{bmatrix} \begin{bmatrix}y_1 \\ y_2 \end{bmatrix}
+                    \end{align}
+                Again, we start by finding the eigenvalues of the matrix. 
+                \begin{align} 
+                \rm{det}(A-\lambda I) &= \rm{det}\begin{bmatrix} 1-\lambda& 2 \\ -2 & 1-\lambda \end{bmatrix}\\
+                & = (1-\lambda)^2 +4 \\
+                0 &= \lambda^2 - 2\lambda +5.
+                \end{align}
+                By the quadratic formula, we find 
+                $$ \lambda_{\pm} = \frac{2 \pm \sqrt{4-20}}{2} = 1 \pm 2i.$$ Notice that these eigenvectors are complex conjugates of one another, $\lambda_+ = \lambda_-^\dagger$.
+                </p>
+                <p>The eigenvector associated with $\lambda_+= 1+2i$ satisfies 
+                    \begin{align}
+                         (A -(1+2i)I)\vec{u} &= 0 \\
+                         \begin{bmatrix} 1-(1+2i) & 2 \\ -2 & 1-(1+2i)\end{bmatrix}\begin{bmatrix}u_1 \\ u_2 \end{bmatrix} &= \begin{bmatrix} 0 \\ 0 \end{bmatrix}.  
+                    \end{align}
+                By design, there are infinitely many solutions, so letting $u_1 = 1$, we get $u_2 = i.$ 
+                </p>
+                Since $A$ is a real matrix, the other eigenvector satisfies 
+                $$ (A\vec{u})^\dagger = A\vec{u}^\dagger.$$ On the other hand, we have 
+                $$ (A\vec{u})^\dagger = (\lambda_+ \vec{u})^\dagger = \lambda_+^\dagger \vec{u}^\dagger = \lambda_- \vec{u}^\dagger.$$
+                Therefore the eigenvector associated with $\lambda_-$ is $\vec{v} = \vec{u}^\dagger = [1, -i ]^T.$
+                Putting this together, the general solution can be written as 
+                $$\vec{y}(t) =  C_1 e^{(1+2i)t}\begin{bmatrix}1\\ i\end{bmatrix} + C_2 e^{(1-2i)t}\begin{bmatrix}1 \\ -i \end{bmatrix}.$$ 
+                However, the problem was initially posed to us with all real values, so we should really return our solution in terms of real numbers rather than complex ones. We can rearrange this solution 
+                by making use of Euler's identity, and by writing 
+                $$ \vec{u} = \begin{bmatrix} 1 \\ i \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} + i \begin{bmatrix} 0\\ 1 \end{bmatrix} = \vec{a}+i\vec{b}.$$
+                Similarly, $\vec{v} = \vec{a}-i\vec{b}$ for the same $\vec{a}$ and $\vec{b}$. 
+                Therefore 
+                \begin{align} 
+                    \vec{y}(t) &= e^{t}(C_1 e^{2it}\vec{u}+C_2 e^{-2it}\vec{v})\\
+                    &= e^{t}(C_1(\cos(2t)+i\sin(2t))(\vec{a}+i\vec{b})\\
+                    &\quad+C_2(\cos(2t)-i\sin(2t))(\vec{a}-i\vec{b}))\\
+                    &= e^{t}\big((C_1+C_2)\cos(2t)\vec{a} + (C_1-C_2)i\sin(2t)\vec{a}\\ 
+                    &\quad + (C_1-C_2)i\cos(2t)\vec{b} -(C_1+C_2)\sin(2t)\vec{b}\big).\\
+                \end{align}
+                Let $\widetilde{C_1}= C_1+C_2$ and $\widetilde{C_2} = (C_1-C_2)i$. Then the general solution is  
+                \begin{align} 
+                \vec{y}(t) &= e^{t}(\widetilde{C_1}\cos(2t)+\widetilde{C_2}\sin(2t))\vec{a}\\
+                &\quad+ e^{t} (\widetilde{C_2}\cos(2t)-\widetilde{C_1}\sin(2t))\vec{b}
+                \end{align}
+                </div>
+                <h2>Practice Problems</h2>
+                <p> Find the general solution to each system of ODEs</p>
+                <ol class="lecture-list">
+                    <li>$$\frac{d}{dt}\vec{y} = \begin{bmatrix} 2 & 4 \\ 1 & -1\end{bmatrix} \vec{y} $$</li>
+                    <li>$$\frac{d}{dt}\vec{y} = \begin{bmatrix} 0 & 4 \\ -1 & 0\end{bmatrix} \vec{y} $$</li>
+                    <li>$$\frac{d}{dt}\vec{y} = \begin{bmatrix} 1 & 4 \\ -1 & 1\end{bmatrix} \vec{y} $$</li>
+                </ol>
+                </article>
+
+        </div>
+    </main>
+
+    <!-- custom js link-->
+    <script src="../../assets/js/script.js"></script>
+
+    <!-- ionicon link -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- MathJaX-->
+    <script>
+        MathJax = {
+          tex: {
+           inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+</body>
+</html>
