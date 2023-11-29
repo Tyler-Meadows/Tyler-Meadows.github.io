@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTHE 224: Applied Math for Civil Engineers</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="../../assets/images/pi_icon.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <main>
+
+        <!--  #SIDEBAR   -->
+        <aside class="sidebar" data-sidebar>
+    
+          <div class="sidebar-info">
+            <div class="info-content">
+              <h1 class="name" title="MTHE 224" >MTHE 224</h1>
+    
+              <p class="title">Applied Mathematics for Civil Engineers</p>
+            </div>
+    
+            <button class="info_more-btn" data-sidebar-btn>
+              <ion-icon name="chevron-down"></ion-icon>
+            </button>
+    
+          </div>
+    
+          <div class="sidebar-info_more">
+    
+            <div class="separator"></div>
+    
+            <ul class="contacts-list">
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="mail-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Email</p>
+    
+                  <a href="mailto:Tyler.meadows@queensu.ca" class="contact-link">tyler.meadows@queensu.ca </a>
+                </div>
+    
+              </li>
+    
+              <li class="contact-item">
+    
+                <div class="icon-box">
+                  <ion-icon name="location-outline"></ion-icon>
+                </div>
+    
+                <div class="contact-info">
+                  <p class="contact-title">Location</p>
+    
+                  <address>127 Jeffery Hall, Queen's University</address>
+                </div>
+               </li>
+               <li class = "contact-item"> 
+                <div class="icon-box">
+                  <ion-icon name = "calendar-outline"></ion-icon>
+                </div>
+                <div class = "contact-info">
+                  <p class = "contact-title">Lecture Times</p>
+                  <time>Mon: 11:30-12:30</time>
+                  <time>Tue: 13:30-14:30</time>
+                  <time>Thu: 12:30-13:30 </time>
+                </div>
+              </li>
+    
+            </ul>
+
+    
+        </aside>
+
+
+        <!-- Main Stuff -->
+        <div class="main-content">
+               <!-- #NAVBAR  -->
+               <nav class="navbar">
+    
+                <ul class="navbar-list">
+                  <li class="navbar-itme">
+                    <a href="ODEs12.html" class= "navbar-link">Previous</a>
+                  </li>
+                  <li class="navbar-item active">
+                    <a href="../MTHE224.html?page=lectures" class = "navbar-link">Lectures</a>
+                  </li>
+        
+                  <li class="navbar-item">
+                    <a href="#" class="navbar-link">Next</a>
+                  </li>
+        
+                </ul>
+        
+              </nav>
+              <!-- Lecture Content--> 
+              
+            <article class="lecture active" data-page="lecture">
+                <header>
+                  <h2 class="h2 article-title">Nondiagonalizable Systems of ODEs</h2>
+                </header>
+                <div class = "lecture">
+                <p>As we saw in last class, the system $$ \frac{d}{dt}\vec{y} = A \vec{y}$$ has solutions in the form $\vec{y}(t) = e^{At}\vec{C}.$ If $A$ is a diagonalizable 2x2 matrix, then 
+                    $$\vec{y}(t)  = C_1 e^{\lambda_1 t}\vec{u}+C_2 e^{\lambda_2 t}\vec{v},$$
+                where $\vec{u}$ and $\vec{v}$ are eigenvectors of $A$ with eigenvaues $\lambda_1$ and $\lambda_2$ respectively.
+                </p>
+                <p>If $A$ is not diagonalizable, then we will only be able to find one linearly independent eigenvector. In this case, there will be one repeated eigenvalue. We still want to follow a similar procedure to calculate $e^{At},$ but instead of diagonalizing, we will just get as close as we can. </p>
+                <p><b>Definition:</b> Suppose $u$ is an eigenvector for $A$ with eigenvalue $\lambda$. A <u>generalize eigenvector</u> chained to $u$ is a non-zero vector $v$ that satisfies 
+                $$ (A-\lambda I)v = u.$$</p>
+                <p>We can see that $u$ and $v$ are linearly independent. If not, then $v$ would be a scalar multiple of $u$ and would satisfy $(A-\lambda I)v=0.$ This means the matrix $Q = [u|v]$ is invertible, and we can use the matrix $Q$ to find a matrix similar to $A$.
+                \begin{align} B &= Q^{-1}AQ\\
+                                &= Q^{-1}A[u|v]\\
+                                &= Q^{-1}[Au | Av]\\
+                                &= Q^{-1}[\lambda u | \lambda v + u]\\
+                                &= [\lambda Q^{-1} u | \lambda Q^{-1}v +Q^{-1} u ]\\
+                                &= \begin{bmatrix}\lambda & 1 \\ 0 & \lambda \end{bmatrix}
+                \end{align}
+                This matrix is <i>almost</i> diagonal, in the sense that the eigenvalue is still along the diagonal, but we have an extra $1$ along the top row. We'll notice that we can write $$B = \begin{bmatrix}\lambda & 0 \\ 0 & \lambda \end{bmatrix}+\begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix} = D + N.$$ 
+                This first matrix is a diagonal matrix, while the second matrix is called a <i>nilpotent</i> matrix and satisfies $$ N^2 = 0.$$ By splitting up the matrix $B$, we have 
+                \begin{align}
+                    e^{At} &= e^{QBQ^{-1}t}\\
+                    &= Qe^{Bt}Q^{-1}\\
+                    &= Qe^{(D+N)t}Q^{-1}\\
+                    &= Qe^{Dt}e^{Nt}Q^{-1}.       
+                \end{align}
+                <b>Note:</b> The relationship $e^{D+N}=e^{D}e^{N}$ doesn't hold for every pair of matrices $D$ and $N$, only if the matrices commute, i.e. $ND = DN$. Luckily for us, these matrices happen to commute. 
+                </p>
+                <p>Using the definition of $e^{Nt}$ we have 
+                    $$e^{Nt} = I + Nt+ \frac{1}{2}(Nt)^2 + ...$$
+                    since $N$ is nilpotent, we have $N^2 = 0$ and therefore $$e^{Nt} = I + Nt = \begin{bmatrix} 1 & t \\ 0 & 1\end{bmatrix}. $$
+                    Therefore the solution to $$\frac{d\vec{y}}{dt} = A \vec{y}$$ when $A$ is not diagonalizable is 
+                    \begin{align}
+                    \vec{y}(t) &= e^{At}\vec{C}\\
+                    & = Q e^{Dt}e^{Nt}Q^{-1}\vec{C}\\
+                    &= [u|v]\begin{bmatrix}e^{\lambda t} & 0\\ 0 & e^{\lambda t}\end{bmatrix}\begin{bmatrix} 1 & t \\ 0 & 1 \end{bmatrix}\begin{bmatrix}C_1 \\ C_2 \end{bmatrix} \\
+                    &= [u|v]\begin{bmatrix}e^{\lambda t} & 0 \\ 0 & e^{\lambda t}\end{bmatrix}\begin{bmatrix} C_1+tC_2\\ C_2 \end{bmatrix}\\
+                    &= [u|v]\begin{bmatrix}(C_1+C_2t)e^{\lambda t}\\ C_2 e^{\lambda t}\end{bmatrix}\\
+                    &= (C_1+C_2 t)e^{\lambda t}u + C_2 e^{\lambda t}v.
+                    \end{align}
+                </p>
+                <p><b>Example: </b> Find the solution to 
+                    \begin{align}\frac{d}{dt}\vec{y} = \begin{bmatrix} 2 & 2 \\ 0 & 2\end{bmatrix}\vec{y}  && \vec{y}(0) = \begin{bmatrix}0 \\ 1\end{bmatrix}.
+                    \end{align}
+                    The eigenvalues for the matrix $A$ are 2 and 2. Finding eigenvector(s) for this eigenvector yields 
+                    \begin{align}
+                        (A-2I)u &= 0 \\
+                        \begin{bmatrix} 0 & 2 \\ 0 & 0 \end{bmatrix} \begin{bmatrix} u_1 \\ u_2 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}.
+                    \end{align}
+                    Letting $u_1 = 1$, it follows that $u_2 = 0$, and therefore $u = [1,0]^T$.</p>
+                <p> Since we found only one eigenvector, we need to find a generalized eigenvector $v$.
+                    \begin{align} 
+                    (A-2I)v &= u \\
+                    \begin{bmatrix} 0 & 2 \\ 0 & 0 \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \end{bmatrix} &= \begin{bmatrix} 1 \\ 0 \end{bmatrix}\\
+                    v_2 &= \frac{1}{2}
+                    \end{align}
+                    Therefore the generalized eigenvector is $v = [0,1/2]^T$, and the general solution is 
+                    $$ \vec{y}(t) = \left(C_1+ C_2 t \right)\begin{bmatrix}1 \\ 0 \end{bmatrix} e^{2t} + C_2 \begin{bmatrix}0 \\ \frac{1}{2}\end{bmatrix}e^2t.$$
+                    Substituting in the initial condition gives us 
+                    $$ \vec{y}(0) = \begin{bmatrix}0\\1\end{bmatrix} = C_1\begin{bmatrix}1\\ 0 \end{bmatrix} + C_2 \begin{bmatrix} 0 \\ \frac{1}{2}\end{bmatrix},$$
+                    which implies $C_2 = 0$. Therefore the solution to the initial value problem is 
+                    $$ \vec{y}(t) = 2t\begin{bmatrix} 1 \\ 0 \end{bmatrix}e^{2t}+\begin{bmatrix} 0 \\ 1\end{bmatrix} e^2t$$ 
+                </p>
+
+                <h2>Practice Problems</h2>
+                <p> Find the general solution to each system of ODEs</p>
+                <ol class="lecture-list">
+                 <li> $$ \frac{d\vec{y}}{dt} = \begin{bmatrix} 1 & 0 \\ 3 & 1\end{bmatrix}\vec{y}$$</li>
+                 <li> $$ \frac{d\vec{y}}{dt} = \begin{bmatrix} -1 & 1 \\ -1 & 3\end{bmatrix}\vec{y}$$ </li>
+                 <li> $$ \frac{d\vec{y}}{dt} = \begin{bmatrix} -1 & 0 \\ 0 & -1\end{bmatrix}\vec{y}$$ </li>
+                </ol>
+                </article>
+                </div>
+        </div>
+    </main>
+
+    <!-- custom js link-->
+    <script src="../../assets/js/script.js"></script>
+
+    <!-- ionicon link -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- MathJaX-->
+    <script>
+        MathJax = {
+          tex: {
+           inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+</body>
+</html>
