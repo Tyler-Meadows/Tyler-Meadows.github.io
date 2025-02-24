@@ -138,6 +138,9 @@
             <button class="navbar-link" data-nav-link="publications">Publications</button>
           </li>
 
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link="research">Research</button>
+          </li>
         </ul>
 
       </nav>
@@ -152,10 +155,8 @@
 
         <section class="about-text">
           <p>I am currently a Coleman Postdoctoral Fellow at Queen's University working with Troy Day and Felicia Magpantay.</p>
-          <p>I am interested in using mathematical modeling to understand how bacterial populations grow, evolve, and interact.
-            The foundation of much of my research is the mathematical theory of the chemostat, which is a laboratory apparatus used to culture microorganisms. 
-            The basic chemostat model has been adapted to study many industrial and ecological systems, such as bioreactors, wastewater treatment systems, river ecosystems, wetlands, and lakes. I use a mixture of rigorous mathematics and numerical simulations to explore what the mathematical models can tell us about the biological
-            systems the describe.
+          <p>I am interested in using mathematical models of resource-competition to understand how different species grow, evolve, and interact. 
+            Resource-competition models are extremely flexible and have been used to study many industrial and ecological systems ranging from bioreactors and wastewater treatment systems to infectious diseases and cancer. I use a mixture of rigorous mathematics and numerical simulations to explore what these mathematical models can tell us about the biological systems the describe.
           </p>
         </section>
 
@@ -179,16 +180,15 @@
 
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Microbial Ecology</h4>
-                 
-                <p class="service-item-text">
-                  How do different species of bacteria grow and interact, and how does their environment affect their interactions?
-                </p>
               </div>
             </div>
             
             <div class = "service-box modal-container">
               <h4 class="h4 service-item-title">Microbial Ecology</h4>
-              Something 
+          
+              <p class="service-item-text">
+                How do different species of bacteria grow and interact, and how does their environment affect their interactions?
+              </p>
             </div> 
             </li>
             <li class="service-item">
@@ -199,10 +199,6 @@
 
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Mathematical Epidemiology</h4>
-
-                <p class="service-item-text">
-                  How can we use mathematics to learn about and help prevent the spread of infectious diseases?
-                </p>
               </div>
 
             </li>
@@ -719,6 +715,46 @@
 
       </article>
 
+      
+      <article class="about" data-page="research">
+
+        <header>
+          <h2 class="h2 article-title">Research</h2>
+        </header>
+        <section class="about-text">
+        <h4 class="h4"> Microbial Ecology </h4>
+          <p>A chemostat is a laboratory apparatus that is used to culture bacteria and other microorganisms in order to study interactions and growth rates in a controlled setting. A chemostat consists of a growth chamber that contains a liquid medium in which the microbes grow, inflow and outflow tubes to input fresh nutrients and remove used media, and an agitator or some other method of keeping the medium in the growth chamber well mixed. The system can be described by a system of differential equations that track changes in microbial biomass $x$ and nutrient concentration $s$</p>
+            \begin{align}\label{eq:chemostat}
+                \frac{ds}{dt} &= \frac{F}{V}(s^{\rm{in}}-s) -f(s)x,\\
+                \frac{dx}{dt} &= \left(f_i(s)-\frac{F}{V}-d\right)x.
+            \end{align}
+          <p>Here $F$ is the which is the flow rate through the growth chamber, $V$ is the volume of the chamber,  $s^{\rm{in}}$ is the concentration of nutrient in the influent medium, and $d$ is the species-specific decay (or maintenance) rate. The function $f$ is known as a response function, and describe how the particular strain of microbes uptakes nutrients and grows.</p>
+
+          <p>This relatively simple model acts as the foundation for a wide range of mathematical models, including ones for bioreactors, wastewater treatment plants, and river ecosystems, and microbial evolution. I am interested in questions about competition and coexistence, invasion, control, and optimization in these systems.</p>
+        
+
+        <h4 class="h4">Epidemiology</h4>
+        <p> The classic model for the spread of an infectious disease is the SIR compartmental model. The main assumptions of the model are that every individual in a population can be classified as susceptible ($S$), infected ($I$), or recovered ($R$). The flow of individuals between compartments is often modeled as a system of differential equations,</p>
+        \begin{align}
+          \frac{dS}{dt} &= \mu(1-S)-\beta S I,\\
+          \frac{dI}{dt} &= \beta S I - \delta I - \mu I,\\
+          \frac{dR}{dt} &= \delta I - \mu R.
+        \end{align}
+        <p>Here $\mu$ is the intrinsic birth/death rate; $S,I,R$ are the proportions of the full population classified as susceptible, infected, and recovered, respectively; $\beta$ is the force of infection, and $\delta$ is the rate of recovery. In analogy with the chemostat, we can think of the susceptible population as a 'resource' for the infection. In line with this view, we can see that the first two equations of the SIR model are simply the chemostat model with mass-action response.</p>
+
+        <p> Despite the amount of data being collected, the COVID-19 pandemic was very difficult to control and accurately predict, partially because of the number of unreported cases due to people not showing symptoms or stigma associated with the disease. I am interested in developing better methods to use the data we can collect about infectious diseases, particularly indirect data collection methods such as wastewater surveillance data.  </p>
+
+
+        <h4 class="h4"> Transient Dynamics</h4>
+        <p> Mathematical analyses of biological systems often focus on determining the long-term or asymptotic behavior of solutions to dynamical systems, under the assumption that this characterizes the system's important behavior. In many cases however, the asymptotic behaviour may only be observed on time-scales much greater than those relevant to the problem, making the long-term dynamics irrelevant. In these cases, short-term (transient) dynamics provide more meaningful insights, and can differ significantly from long-term behavior. </p>
+
+        <p>There are two popular approaches to studying transient behaviour. One approach is an attempt to categorize different qualitative types of long-lasting transient behaviour, similar to how we have categorized different types of $\omega$-limit sets (equilibria, periodic orbits, strange attractors,  etc.). Another approach towards understanding transient dynamics is by studying the short-term response to perturbations from invariant sets, similar to how local stability is defined. 
+        </p>
+
+        <p> Both approaches are currently in their infancy. The mathematical community has started collecting a zoo of examples of long transience, but are still working towards a formal mathematical definition of 'long transience'. On the other hand, the developed theory for short transients only seems to be valid for linear systems and only for specific norms. I am working on developing theory in both cases, with a long-term goal of connecting the two sides of the coin, similar to how local stability is often used to characterize the full qualitative asymptotic behaviour of a system. </p>
+      </section>
+      </article>
+
     </div>
 
   </main>
@@ -734,6 +770,21 @@
   <!-- ionicon link -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <!-- Mathjax -->
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    processEscapes: true,
+    svg: {
+      fontCache: 'global'
+    }
+  };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+  </script>
 
 </body>
 
