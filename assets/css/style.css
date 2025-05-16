@@ -168,6 +168,7 @@ article {
   border-radius: 20px;
   padding: 15px;
   box-shadow: var(--shadow-1);
+  color: var(--light-gray);
   z-index: 1;
 }
 
@@ -429,7 +430,7 @@ main {
 
 .social-list {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   gap: 15px;
   padding-bottom: 4px;
@@ -642,8 +643,14 @@ th,td{
   background: var(--border-gradient-onyx);
   padding: 20px;
   border-radius: 14px;
+  text-align: center;
   box-shadow: var(--shadow-2);
   z-index: 1;
+}
+
+.service-item img{
+  margin: auto;
+  display: block;
 }
 
 .service-item::before {
@@ -655,9 +662,6 @@ th,td{
   z-index: -1;
 }
 
-.service-icon-box { margin-bottom: 10px; }
-
-.service-icon-box img { margin: auto; }
 
 .service-content-box { text-align: center; }
 
@@ -853,7 +857,10 @@ th,td{
  * education and experience 
  */
 
-.timeline { margin-bottom: 30px; }
+.timeline { 
+    margin-bottom: 30px;
+    color: var(--light-gray);
+}
 
 .timeline .title-wrapper {
   display: flex;
@@ -1019,6 +1026,7 @@ th,td{
   grid-template-columns: 1fr;
   gap: 30px;
   margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .project-item { display: none; }
@@ -1467,20 +1475,11 @@ textarea.form-input::-webkit-resizer { display: none; }
   .about-text { margin-bottom: 40px; }
 
   /* service */
-
-  .service-item {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 18px;
-    padding: 30px;
+  .service-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 25px;
   }
-  
-  .service-icon-box {
-    margin-bottom: 0;
-    margin-top: 5px;
-  }
-  .service-content-box { text-align: left; }
+  .service-content-box { text-align: center; }
 
   /* testimonials */
 

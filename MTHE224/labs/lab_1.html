@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTHE 224: Applied Math for Civil Engineers</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="../assets/images/pi_icon.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="../../assets/css/lectures.css">
+  <link href="../../assets/css/prism.css" rel="stylesheet" />
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+ <main>
+  <div class="main-content">
+   <article class="lab active" data-page="lab">
+    <div class="article-title">
+        <h2>Introduction to Python3 and Jupyter Notebooks</h2>
+        <h5>MTHE 224 Lab 1 </h5>
+    </div>
+    <div class="lab-section">
+     <h3>Section 1: Using Jupyter Notebooks </h3>
+      <p>Jupyter notebooks are organized into cells. Each cell contains either chunks of code&mdash;in our case this means Python 3 code, although you can use Jupyter with other programming languages as well&mdash;or miniature documents written with a word processing language called markdown. In order to alternate between cell types, click on box at the bottom right of the cell that says "Python 3" or "Markdown". There should be a big list of options, but we will only use the Python and Markdown options.</p>
+      <p>To execute code in the selected block, you can either click the "run by line" button that appears on the top right of the cell, or you can use the keyboard shortcut `shift+enter`. Executing code works for all cell types. When executing a markdown cell, your markdown code will be converted to a typeset html document. Executing a cell of python code will run all the commands writtin in that cell, saving whatever variables you have defined. The python kernel remembers those variable assignments so you can call on them in subsequent cells. </p>
+     <h3>Section 2: The Markdown environment</h3>
+      <p>Markdown is different from other word processing programs, such as microsoft word, in that you are essentially 'coding' the document that you are writing. There are some benfits to this, and some drawback. One obvious drawback is that you don't see how the document looks as you are writing it, which can be a difficult adjustment. A large benfit though, is that you have much more control over formatting, and mathematical equations are much easier to input. You can double click on this section to see an example of what markdown code looks like, compared to the final product. For more information about markdown, see <a href= "https://daringfireball.net/projects/markdown/basics">this webpage</a> made by the creator of markdown. I recommend you bookmark that page as a reference. </p>
+      <p>In some of your lab submissions, you may be asked to provide some mathematical explanations of your work. To render mathematical formulas, simply surround them with dollar signs, for example <code class="language-latex">$e^{i\pi} = 1.$</code> becomes $e^{i\pi} = 1.$  For longer equations, use two dollar signs on each side of your mathematical formula and the equation will get its own line. For example <pre><code class="language-latex">$$1 = \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma}}e^{\frac{(x-\mu)^2}{2\sigma^2}}dx.$$</code></pre> becomes $$1 = \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma}}e^{\frac{(x-\mu)^2}{2\sigma^2}}dx.$$  Mathematical formula are input according to standard Latex commands, which can be found <a href = "http://tug.ctan.org/info/undergradmath/undergradmath.pdf">here.</a> I recommend you save this pdf as a reference. </p>
+     <h3> Section 3: Basics of Python3</h3>
+      <p>Unlike C++, which you may have used as part of a previous course, Python is an interpreted programming language. This means that you don't have to recompile the code everytime you make a change. You are able to execute individual lines of code, one at a time, and see what happens. There are some obvious advantages to this: For one thing, it lets you try out things as you go, and if you find that your code is not doing what you expected, you can make changes quickly to see what the outcomes are. The trade-off is that when you go to run your code, it executes more slowly than a compiled language like C++. For what we want to do in this course, the loss of speed will not be noticable. For more advanced programming endeavours, like machine learning, fluid dynamics simulations, or financial applications, the speed difference can be very noticable. If you're interested, there are some programming languages (like <a href ="www.Julialang.org">Julia</a>) that cover a middle ground using something called "just-in-time" (jit) compilation.</p>
+      <p>The remainder of this lab will be focused on getting to know the basics of how to use Python3. In the statistics portion of this course, we will be using python to sort, interpret, plot, and summarize data, as well as generate random numbers and simulate experiments to generate our own data. In order to do any of this, we have to first learn what commands python understands, and what the results of those commands will be.</p>
+     <h4> The 'print' command</h4>
+      <p>The first program most people write is a "hello world" program, in which you simply have the language return the words "hello world" when the program is run. In python 'print' is a function that will output whatever the function input is. In general, to print out words, they must be surrounded by quotation marks to tell python that the words are not variables. See a simple example below</p>
+      <pre><code class="language-python">print("hello world") #This is a comment</code></pre>
+    <h3>Arithmetic in python</h3>
+    <p>Python arithmetic is done mostly how you would expect. To add two numbers use +, to subract use -, to multiply use *, and to divide use /.  Exponents are done using ** instead of ^, </p>
+    <pre><code class="language-python">3+4 # Addition
+4-3 # Subraction
+4*3 # Multiplication
+4/3 # Division
+4**2 # Exponents
+4%3 # Modular arithmetic. Finds the remainder of 4/3</code></pre>
+<p>In general, a code cell will only return the result of the last line of the cell. To see all the results, you can put the arithmetic in a print command. </p>
+<h3>Variable assignment</h3>
+<p>Often, we want to save values to use later. In order to do this we assign the values to a variable using =. If we later want to change the value of a variable, we can overwrite the assignment by simply assigning the different value to the same variable.</p>
+<pre><code class="language-python">x = 3*4 #Assign the result of 3*4 to 'x'
+print(x) #Print the value of x
+print(x+3) #Print the value of x+3
+x = 0 #Assign the value of 0 to 'x'
+print(x) #Print the value assigned to x
+</code></pre>
+<h3>Variable interpolation</h3>
+<p>Sometimes, you may want to output a sentence that has the value of a variable in it. In order to do this, we precede the quotation marks with the letter f, then we can 'interpolate' the variable into the sentence by surrounding the variable with brace brackets.</p>
+<pre><code class="language-python"># {x} will be replaced by the value assigned
+# to x in the previous Python cell
+print(f"the last value that I assigned to x is {x}") 
+</code></pre>
+
+<h3>Arrays and Numpy</h3>
+<p>Linear algebra is the backbone of all modern computing. In a lot of applications, we will want to organize our data into either a vector or a matrix. Python refers to both matrices and vectors as 'arrays', which are rectangular containers of numbers. In order to do use arrays, we will need to load an external package called `numpy`. Then whenever we want to use one of the functions associated with `numpy` we have to precede the command with `numpy`. For example to make an array we use the function `numpy.array`, and nested square brackets, each row of the array is contained in the inner nest of square brackets.</p>
+
+<p>In order to avoid writing out `numpy` so many times, we can tell Python we want to call it something simpler, like `np` when we import it.</p>
+<pre><code class="language-python">##Load the numpy library, and refer to it as np. 
+import numpy as np 
+
+# Create a 3x3 matrix of numbers from 1 to 9.
+A = np.array([[1,2,3],[4,5,6],[7,8,9]])  
+print(A)
+</code></pre>
+<p>In order to access the elements of an array, we can use the <code>A[i,j]</code> syntax, which returns the value in the $i$ th row and $j$ th column.</p>
+
+<b>Note:</b> Python starts with an index at 0, so the first entry of the matrix is given by <code>A[0,0]</code>. There is a long standing debate between programmers about whether indexing starting at 0 or starting at 1 makes more sense. There are benefits and drawbacks to both, but I think you just get used to whatever you use the most. 
+<h3> Constructing arrays more efficiently</h3>
+<p>The whole point of using a computer to do calculations for us is to make our lives easier. So what we don't usually want to do is manually input numbers into a matrix. We did that above with the numbers from 1 to 9, and that was tough enough. When we're making numbers than follow some pattern like this, we want a way to do it programmatically. For sequences that follow a simple pattern like the numbers from 1 to 9, we can make use of the <code>range</code> function. I.e. to return the numbers from 1 to 9 we would type <code>range(1,10)</code>. If we want something a little more complicated, say the even numbers from 0 to 20, we could write <code>range(0,21,2)</code>, which we read as "From 0 to 21 by 2". Note that <code>range</code> excludes the last number of the range by default.</p>
+<pre><code class="language-python">## print array of numbers from 1 to 10 (not including 10)
+print(np.array(range(1,10))) 
+## print array of even numbers from 0 to 21
+print(np.array(range(0,21,2)))
+</code></pre>
+<p>Each of these outputs is a 1-dimensional array. If we want them to be a square matrix, we can add on a <code>reshape</code> command to the end to get the dimensions we want. We have to be careful that when resizing the matrices that there are exactly the right number of entries available in the new shape. In the previous example, there are 11 even numbers between 0 and 21, which is a prime number. That means the only options we have for the shape of it array is either 11 rows and 1 column, or 1 row and 11 columns. </p>
+
+<p>This is not necessarily a more efficient way to create this 3x3 matrix, but for larger matrices, we certainly don't want to type out hundreds of numbers. </p>
+<pre><code class="language-python">#Reshape the array of numbers from 1-9 to a 3x3 array.
+A = np.array(range(1,10)).reshape(3,3)
+print(A)
+</code></pre>
+<h3> Special Matrix constructions</h3>
+
+<p>Numpy comes with some methods for making certain types of matrices. For example if we want to make a diagonal matrix, we would rather not have to specify that all of the non-diagonal elements are zero. Here are some examples:</p>
+<ul>
+    <li>To make a diagonal matrix from a list of values $A$, use  <code class="language-python">np.diag(A)</code></li>
+    <li>To make the $n\times n$ identity matrix, use <code class="language-python">np.eye(n)</code></li>
+    <li>To make an $n\times m$ matrix of all zeros, use <code class="language-python">np.zeros([n,m])</code></li>
+</ul>
+
+<h3>Loops and Conditions</h3>
+
+<p>One of the most powerful things about programming is the ability to repeat a set procedure a lot of times very quickly. With python (and most programming languages) we do this either with for-loops or while-loops. When creating a loop, we typically have a value or values that we want to change at each subsequent step in the loop. The list of these values is called an <i>iterator</i>. To write a for-loop in Python, we start with a line in the form <code class="language-python">for x in list:</code>, where `x` is what we'll use to refer to the elements in the list later. Python groups commands based on spacing, so everything that we want to be repeated as part of the loop needs to be indented the same number of spaces (or tabs).</p> 
+
+<p>We often want to change the instructions based on some conditions about the value of the list. to do that we can use if-statements. To write an if-statement in Python, we start with a line in the form <code class="language-python">if condition:</code> where "condition" is some Boolean statement (a Boolean statement is just something that python evaluates to either true or false. For example <code class="language-python">1==2</code> is a Boolean statement that returns <code class="language-python">false</code>). Everything grouped after this statement will be evaluated if the condition is true. To add instructions for what to do if the condition is false, we can include an else-statement after the if-statement's instructions. Else statements can add further conditions if we want by using and elseif-statement in the form <code class="language-python">elif condition:</code>.
+
+<p>While-loops can be written in the form <code class="language-python">while condition:</code> followed by a block of code that will be repeated until the condition is evaluated as <code class="language-python">False</code>.</p>
+<p><b> While-loops can be risky.</b> If you aren't careful to write your code to guarantee that the condition is eventually false, the code will run forever. Typically we only want to use while-loops if we're sure that the condition will eventually be false, but we're not sure how many steps it will take to get there. In general, if you can figure out a way to write a for-loop instead, it's better to do it that way. 
+
+<p>The following code prints the statement "The number n is odd" if n is odd and "the number n is even" if n is even for all the numbers between 1 and 10</p>
+<pre><code class="language-python">for n in range(1,11):
+    # Check the remainder of n/2. If it is 1 then the following line is executed
+    if n%2 == 1:
+        print(f"The number {n} is odd.")
+    # If the remainder of n/2 was 0, the following line of code is executed
+    else: 
+        print(f"The number {n} is even.")
+</code></pre>
+<p>The following code completes the same action using a while-loop. The final line of code that increases the value of $n$ each loop is extremely important. Without this line, the code will just print "The number 1 is odd" forever.</p>
+<pre><code class="language-python">n = 1 # Initialize the value of n at 1
+while n <= 10: # repeat the following until n is bigger than 10
+    if n%2 == 1: # Check the remainder of n/2. If it is 1 then execute the following line of code
+        print(f"The number {n} is odd.")
+    else: # if the remainder of n/2 is 0, then the following line of code is executed
+        print(f"The number {n} is even.")
+    n = n+1 #increase the value of n by one
+</code></pre>
+
+<div class="article-title">
+    <h2>Tasks & Helpful Files
+    </h2>
+</div>
+<ul class="lab-list">
+    <a href="Lab_1.ipynb" download><li>Lab outline</li></a>
+    <a href="Lab_1_Template.ipynb" download><li>Submission Template</li></a>
+</ul>
+
+</div>
+
+
+
+
+</main>
+
+<!-- custom js link-->
+<script src="../../assets/js/script.js"></script>
+<script src="../../assets/js/prism.js"></script>
+<!-- ionicon link -->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+ <!-- MathJaX-->
+ <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+</body>
+</html>
